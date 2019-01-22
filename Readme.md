@@ -1,7 +1,7 @@
 # Личный проект «Девайс»
 
 * Студент: [Никита Шикуц](https://up.htmlacademy.ru/htmlcss/24/user/331239).
-* Наставник: Анна Лисененкова.
+* Наставник: [Анна Лисененкова](https://htmlacademy.ru/profile/ankhena).
 
 ---
 
