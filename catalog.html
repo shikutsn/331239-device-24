@@ -11,7 +11,11 @@
           <img src="img/device-logo.svg" width="163" height="35" alt="Логотип магазина «Девайс»">
         </a>
         <!-- img/search.svg - иконка лупы -->
-        <span class="search">Поиск по сайту</span>
+        <form class="search-form" action="https://echo.htmlacademy.ru" method="get">
+          <label class="visually-hidden" for="search">Поиск по сайту</label>
+          <input id="search" type="text" name="search-request" value="" placeholder="Поиск по сайту">
+          <button class="button-search" type="submit">Найти</button>
+        </form>
         <div class="catalog-container">
           <a class="catalog-container-caption">Каталог товаров</a>
           <ul class="catalog-container-items">
