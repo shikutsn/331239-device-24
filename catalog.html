@@ -57,7 +57,7 @@
         </div>
         <!-- img/icon-up-dir.svg img/icon-down-dir.svg - иконки направления сортировки -->
         <!-- img/checkbox-on.svg img/checkbox-off.svg - иконки чекбоксов формы -->
-        <form class="filter" method="get" action="https://htmlacademy.ru">
+        <form class="filter" action="https://htmlacademy.ru" method="get">
           <fieldset>
             <legend>Стоимость</legend>
           </fieldset>
@@ -90,12 +90,12 @@
             <legend>Bluetooth</legend>
             <ul>
               <li class="filter-option">
-                <input class="filter-input filter-input-radio" type="radio" name="bluetooth" value="yes" id="bluetooth-yes" checked>
-                <label for="bluetooth-yes">Есть</label>
+                <input class="filter-input filter-input-radio" type="radio" name="bluetooth" value="yes" id="filter-bluetooth-yes" checked>
+                <label for="filter-bluetooth-yes">Есть</label>
               </li>
               <li class="filter-option">
-                <input class="filter-input filter-input-radio" type="radio" name="bluetooth" value="no" id="bluetooth-no">
-                <label for="bluetooth-no">Нет</label>
+                <input class="filter-input filter-input-radio" type="radio" name="bluetooth" value="no" id="filter-bluetooth-no">
+                <label for="filter-bluetooth-no">Нет</label>
               </li>
             </ul>
           </fieldset>
@@ -113,8 +113,8 @@
           <li class="sorting-type-item"><a href="#">По популярности</a></li>
         </ul>
         <ul class="sorting-direction">
-          <li class="sorting-direction-item"><a href="#"><p class="visually-hidden">По убыванию</p></a></li>
-          <li class="sorting-direction-item sorting-direction-active"><a href="#"><p class="visually-hidden">По возрастанию</p></a></li>
+          <li class="sorting-direction-item"><a href="#"><span class="visually-hidden">По убыванию</span></a></li>
+          <li class="sorting-direction-item sorting-direction-active"><a href="#"><span class="visually-hidden">По возрастанию</span></a></li>
         </ul>
       </section>
 

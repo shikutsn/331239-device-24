@@ -11,7 +11,7 @@
           <img src="img/device-logo.svg" width="163" height="35" alt="Логотип магазина «Девайс»">
         </p>
         <!-- img/search.svg - иконка лупы -->
-        <span class="search">Поиск по сайту</span>
+        <button class="search-button" type="button">Поиск по сайту</button>
         <div class="catalog-container">
           <a class="catalog-container-caption" href="catalog.html">Каталог товаров</a>
           <ul class="catalog-container-items">
@@ -302,9 +302,7 @@
             <label for="writeus-letter">
               Текст письма:
             </label>
-            <textarea id="writeus-letter" name="letter" cols="40">
-              В свободной форме
-            </textarea>
+            <textarea id="writeus-letter" name="letter" cols="40" placeholder="В свободной форме"></textarea>
           </p>
           <button class="button" type="submit">Отправить</button>
           <button class="modal-close" type="button">Закрыть</button>
@@ -317,6 +315,14 @@
         <img src="img/map-large.jpg" width="960" height="559" alt="Магазин находится по адресу ул. Строителей 15, Москва">
       </p>
       <button class="modal-close" type="button">Закрыть</button>
+    </section>
+
+    <section class="search">
+      <h2 class="visually-hidden">Поиск</h2>
+      <form class="search-form" action="https://echo.htmlacademy.ru" method="get">
+        <input type="text" name="search-request" value="" placeholder="Поиск по сайту">
+        <button class="button-search" type="submit">Найти</button>
+      </form>
     </section>
 
   </body>
