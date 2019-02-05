@@ -55,13 +55,16 @@
       </ul>
 
       <section class="filters">
-        <h2 class="filters-caption">Фильтр:</h2>
-        <div class="filter-price">
-          <p class="filter-price-caption">Стоимость</p>
-        </div>
+        <form class="filter" action="https://htmlacademy.ru" method="get">
+          <h2 class="filters-caption">Фильтр:</h2>
+          <fieldset>
+            <legend class="filter-price-caption">Стоимость</legend>
+            <input class="filter-price" type="range" name="price" min="0" max="10000" value="5000" step="100">
+            <span class="filter-price-min">от 0</span>
+            <span class="filter-price-max">до 5000</span>
+          </fieldset>
         <!-- img/icon-up-dir.svg img/icon-down-dir.svg - иконки направления сортировки -->
         <!-- img/checkbox-on.svg img/checkbox-off.svg - иконки чекбоксов формы -->
-        <form class="filter" action="https://htmlacademy.ru" method="get">
           <fieldset>
             <legend>Стоимость</legend>
           </fieldset>
