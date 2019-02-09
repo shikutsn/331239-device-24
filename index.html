@@ -3,14 +3,15 @@
   <head>
     <meta charset="utf-8">
     <title>HTML Academy: Девайс Главная</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300&amp;subset=cyrillic" rel="stylesheet">
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
   </head>
   <body>
     <header class="main-header">
       <nav class="main-navigation">
-        <p class="header-logo">
+        <span class="header-logo">
           <img src="img/device-logo.svg" width="163" height="35" alt="Логотип магазина «Девайс»">
-        </p>
+        </span>
         <!-- img/search.svg - иконка лупы -->
         <form class="search-form" action="https://echo.htmlacademy.ru" method="get">
           <label class="visually-hidden" for="search">Поиск по сайту</label>
@@ -28,19 +29,21 @@
             <li class="catalog-container-items-toys"><a href="#">Квадрокоптеры</a></li>
           </ul>
         </div>
-        <ul class="header-user-navigation">
-          <!-- img/user.svg - иконка пользователя -->
-          <li class="header-login"><a href="#">Войти</a></li>
-        </ul>
+        <div class="header-user-menu">
+          <ul class="header-user-navigation">
+            <!-- img/user.svg - иконка пользователя -->
+            <li class="header-login"><a href="#">Войти</a></li>
+          </ul>
+          <!-- img/compare.svg - иконка сравнения -->
+          <a class="header-compare-button" href="">Сравнить</a>
+          <!-- img/cart.svg - иконка корзины -->
+          <a class="header-cart-button" href="">Корзина</a>
+        </div>
         <ul class="header-site-navigation">
           <li><a href="#">Доставка</a></li>
           <li><a href="#">Гарантия</a></li>
           <li><a href="#">Контакты</a></li>
         </ul>
-        <!-- img/compare.svg - иконка сравнения -->
-        <a class="header-compare-button" href="">Сравнить</a>
-        <!-- img/cart.svg - иконка корзины -->
-        <a class="header-cart-button" href="">Корзина</a>
       </nav>
     </header>
 
@@ -157,9 +160,9 @@
         <h2 class="visually-hidden">Услуги</h2>
         <ul class="services-catalog">
           <li class="services-catalog-item">
-            <span class="button services-active">
+            <button class="services-button services-button-active" type="button">
               Доставка
-            </span>
+            </button>
             <div class="services-description-container">
               <h3 class="services-caption">Доставка</h3>
               <p class="services-description">
@@ -171,9 +174,9 @@
             </div>
           </li>
           <li class="services-catalog-item">
-            <span class="button">
+            <button class="services-button" type="button">
               Гарантия
-            </span>
+            </button>
             <div class="services-description-container">
               <h3 class="services-caption">Гарантия</h3>
               <p class="services-description">
@@ -185,9 +188,9 @@
             </div>
           </li>
           <li class="services-catalog-item">
-            <span class="button">
+            <button class="services-button" type="button">
               Кредит
-            </span>
+            </button>
             <div class="services-description-container">
               <h3 class="services-caption">Кредит</h3>
               <p class="services-description">
@@ -259,21 +262,23 @@
           <p class="footer-logo-address">г. Москва, ул. Строителей, 15</p>
           <p class="footer-logo-phone">Тел.: +7 (495) 495-95-95</p>
         </div>
-        <ul class="footer-user-navigation">
-          <!-- img/user.svg - иконка пользователя -->
-          <li class="footer-login"><a href="#">Войти</a></li>
-        </ul>
-        <!-- img/compare.svg - иконка сравнения -->
-        <a class="header-compare-button" href="">Сравнить</a>
-        <!-- img/cart.svg - иконка корзины -->
-        <a class="header-cart-button" href="">Корзина</a>
+        <div class="footer-user-menu">
+          <ul class="footer-user-navigation">
+            <!-- img/user.svg - иконка пользователя -->
+            <li><a class="footer-login" href="#">Войти</a></li>
+          </ul>
+          <!-- img/compare.svg - иконка сравнения -->
+          <a class="footer-compare-button" href="">Сравнить</a>
+          <!-- img/cart.svg - иконка корзины -->
+          <a class="footer-cart-button" href="">Корзина</a>
+        </div>
         <ul class="footer-site-navigation">
           <li><a href="#">Доставка</a></li>
           <li><a href="#">Гарантия</a></li>
           <li><a href="#">Контакты</a></li>
         </ul>
         <div class="footer-social">
-          <ul>
+          <ul class="footer-social-buttons">
             <!-- img/fb-logo.svg img/ig-logo.svg img/tw-logo.svg - иконки соцсетей -->
             <li><a class="social-button" href="#"><span class="visually-hidden">Магазин Девайс на фейсбуке</span></a></li>
             <li><a class="social-button" href="#"><span class="visually-hidden">Магазин Девайс в инстаграмме</span></a></li>

@@ -1,3 +1,32 @@
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/opensanslight.woff2") format("woff2"),
+         url("../fonts/opensanslight.woff") format("woff");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Open Sans";
+    src: url("../fonts/opensans.woff2") format("woff2"),
+         url("../fonts/opensans.woff") format("woff");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("../fonts/gilroyextrabold.woff2") format("woff2"),
+         url("../fonts/gilroyextrabold.woff") format("woff");
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("../fonts/gilroylight.woff2") format("woff2"),
+         url("../fonts/gilroylight.woff") format("woff");
+    font-weight: 300;
+}
+
+
 .visually-hidden:not(:focus):not(:active) {
   position: absolute;
 
@@ -12,4 +41,278 @@
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 30px;
+  font-weight: 300;
+  letter-spacing: 0.2px;
+  color: #464646;
+
+  background-color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+}
+
+.main-header {
+  background-color: #f0c52e;
+}
+
+.services {
+  background-color: #e5e5e5;
+}
+
+.main-footer {
+  color: #ffffff;
+
+  background-color: #464646;
+}
+
+.about h2,
+.contacts h2,
+.catalog-page h1 {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 47px;
+  line-height: 48px;
+  font-weight: 800;
+  color: #000000;
+  letter-spacing: 0.5px;
+
+  background-color: #ffffff;
+}
+
+.deliverees,
+.deliverees a {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 40px;
+  font-weight: 800;
+  color: #000000;
+
+  background-color: #ffffff;
+}
+
+.catalog-container a,
+.header-site-navigation a,
+.footer-site-navigation a,
+.services-button {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 800;
+  color: #000000;
+  letter-spacing: 3.6px;
+  text-transform: uppercase;
+}
+
+.catalog-container-items {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 36px;
+  font-weight: 300;
+  letter-spacing: 0.2px;
+  color: #464646;
+}
+
+.filters h2,
+.sorting h2 {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 800;
+  color: #000000;
+  letter-spacing: 3.2px;
+  text-transform: uppercase;
+}
+
+.filters legend,
+.catalog h3 {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 800;
+  color: #000000;
+  letter-spacing: 0.2px;
+}
+
+.filters label {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 40px;
+  font-weight: 300;
+  letter-spacing: 0.1px;
+}
+
+.catalog-item-price {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 300;
+  color: #464646;
+  letter-spacing: 0.2px;
+}
+
+.button {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 3.6px;
+  font-weight: 800;
+  color: #000000;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: uppercase;
+
+  background-color: #f0c52e;
+  width: 220px;
+  height: 40px;
+  /* как-то в состоянии покоя еще надо сделать узкую желтую полоску на фоне */
+}
+
+.button:hover,
+.button:focus {
+  /* желтая полоска становится размером с кнопку */
+}
+
+.button:active {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.button-search {
+  /* кнопку поиска надо как-то спрятать и показывать ее только по фокусу поля поиска */
+  width: 85px;
+  height: 49px;
+  font-family: inherit;
+  border: 2px solid #000000;
+  background-color: #f0c52e;
+}
+
+.button-search:hover,
+.button-search:focus {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+.button-search:active {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.search-form input:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.search-form input:focus {
+  color: #000000;
+}
+
+.services-button {
+  width: 160px;
+  /*height: 8px;*/
+  /* сделать в состоянии покоя 8px высотой #f0c52e полоску */
+  background-color: #f0c52e;
+  /* текст слева и паддинг слева - временные решения */
+  /* на самом деле эти кнопки */
+  text-align: center;
+  vertical-align: middle;
+}
+
+.services-button:hover,
+.services-button:focus {
+  height: 40px;
+}
+
+.services-button:active {
+  /* в этом состоянии текст должен оставаться центрированным */
+  /* в области старой кнопки, а справа, видимо, пририсовывается черный п/у */
+  width: 278px;
+  color: #f7e184;
+  background-color: #000000;
+}
+
+.header-user-menu a,
+.catalog a {
+  color: #000000;
+}
+
+.footer-site-navigation a {
+  color: #ffffff;
+}
+
+.catalog-container a:hover,
+.catalog-container a:focus,
+.header-user-menu a:hover,
+.header-user-menu a:focus,
+.footer-site-navigation a:hover,
+.footer-site-navigation a:focus,
+.header-site-navigation a:hover,
+.header-site-navigation a:focus {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.catalog-container a:active,
+.header-user-menu a:active,
+.header-site-navigation a:active {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+
+.footer-user-menu a {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-user-menu a:hover,
+.footer-user-menu a:focus {
+  color: #ffffff;
+}
+
+.footer-site-navigation a:focus,
+.footer-site-navigation a:hover {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+
+
+.footer-user-menu a:active,
+.footer-site-navigation a:active,
+.header-logout a,
+.footer-logout a {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.breadcrumbs,
+.breadcrumbs a {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.search-form input {
+  color: rgba(0, 0, 0, 0.3);
+
+  background-color: white;
+}
+
+.catalog-container-items,
+.header-site-navigation,
+.promo-catalog,
+.popular-catalog,
+.services-catalog,
+.brands-list,
+.footer-user-navigation,
+.footer-site-navigation,
+.footer-social-buttons,
+.header-user-navigation,
+.breadcrumbs,
+.filter-colors,
+.filter-bluetooth,
+.sorting-type,
+.sorting-direction,
+.catalog-list,
+.pagination-list {
+  list-style: none;
 }

@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>HTML Academy: Девайс Каталог товаров</title>
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
   </head>
-  <body>
+  <body class="catalog-page">
     <header class="main-header">
       <nav class="main-navigation">
         <a class="header-logo" href="index.html">
@@ -27,20 +29,22 @@
             <li class="catalog-container-items-toys"><a href="#">Квадрокоптеры</a></li>
           </ul>
         </div>
-        <ul class="header-user-navigation">
-          <!-- img/user.svg - иконка пользователя -->
-          <li class="header-loggedin"><a href="#">Валентин Петухов</a></li>
-          <li class="header-logout"><a href="#">Выйти</a></li>
-        </ul>
+        <div class="header-user-menu">
+          <ul class="header-user-navigation">
+            <!-- img/user.svg - иконка пользователя -->
+            <li class="header-loggedin"><a href="#">Валентин Петухов</a></li>
+            <li class="header-logout"><a href="#">Выйти</a></li>
+          </ul>
+          <!-- img/compare.svg - иконка сравнения -->
+          <a class="header-compare-button" href="">Сравнить</a>
+          <!-- img/cart.svg - иконка корзины -->
+          <a class="header-cart-button" href="">Корзина</a>
+        </div>
         <ul class="header-site-navigation">
           <li><a href="#">Доставка</a></li>
           <li><a href="#">Гарантия</a></li>
           <li><a href="#">Контакты</a></li>
         </ul>
-        <!-- img/compare.svg - иконка сравнения -->
-        <a class="header-compare-button" href="">Сравнить</a>
-        <!-- img/cart.svg - иконка корзины -->
-        <a class="header-cart-button" href="">Корзина</a>
       </nav>
     </header>
 
@@ -66,11 +70,8 @@
         <!-- img/icon-up-dir.svg img/icon-down-dir.svg - иконки направления сортировки -->
         <!-- img/checkbox-on.svg img/checkbox-off.svg - иконки чекбоксов формы -->
           <fieldset>
-            <legend>Стоимость</legend>
-          </fieldset>
-          <fieldset>
             <legend>Цвет</legend>
-            <ul>
+            <ul class="filter-colors">
               <li class="filter-option">
                 <input class="filter-input filter-input-checkbox" type="checkbox" name="black" id="filter-black" checked>
                 <label for="filter-black">Черный</label>
@@ -95,7 +96,7 @@
           </fieldset>
           <fieldset>
             <legend>Bluetooth</legend>
-            <ul>
+            <ul class="filter-bluetooth">
               <li class="filter-option">
                 <input class="filter-input filter-input-radio" type="radio" name="bluetooth" value="yes" id="filter-bluetooth-yes" checked>
                 <label for="filter-bluetooth-yes">Есть</label>
@@ -196,22 +197,24 @@
           <p class="footer-logo-address">г. Москва, ул. Строителей, 15</p>
           <p class="footer-logo-phone">Тел.: +7 (495) 495-95-95</p>
         </div>
-        <ul class="footer-user-navigation">
-          <!-- img/user.svg - иконка пользователя -->
-          <li class="footer-loggedin"><a href="#">Валентин Петухов</a></li>
-          <li class="footer-logout"><a href="#">Выйти</a></li>
-        </ul>
-        <!-- img/compare.svg - иконка сравнения -->
-        <a class="header-compare-button" href="">Сравнить</a>
-        <!-- img/cart.svg - иконка корзины -->
-        <a class="header-cart-button" href="">Корзина</a>
+        <div class="footer-user-menu">
+          <ul class="footer-user-navigation">
+            <!-- img/user.svg - иконка пользователя -->
+            <li class="footer-loggedin"><a href="#">Валентин Петухов</a></li>
+            <li class="footer-logout"><a href="#">Выйти</a></li>
+          </ul>
+          <!-- img/compare.svg - иконка сравнения -->
+          <a class="footer-compare-button" href="">Сравнить</a>
+          <!-- img/cart.svg - иконка корзины -->
+          <a class="footer-cart-button" href="">Корзина</a>
+        </div>
         <ul class="footer-site-navigation">
           <li><a href="#">Доставка</a></li>
           <li><a href="#">Гарантия</a></li>
           <li><a href="#">Контакты</a></li>
         </ul>
         <div class="footer-social">
-          <ul>
+          <ul class="footer-social-buttons">
             <!-- img/fb-logo.svg img/ig-logo.svg img/tw-logo.svg - иконки соцсетей -->
             <li><a class="social-button" href="#"><span class="visually-hidden">Магазин Девайс на фейсбуке</span></a></li>
             <li><a class="social-button" href="#"><span class="visually-hidden">Магазин Девайс в инстаграмме</span></a></li>
@@ -219,6 +222,7 @@
           </ul>
         </div>
         <div class="footer-copyright">
+          <img src="img/academy-logo.svg" width="27" height="35" alt="Логотип HTML Academy">
           <a class="button" href="https://htmlacademy.ru/intensive/htmlcss"></a>
         </div>
 
