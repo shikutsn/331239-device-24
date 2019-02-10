@@ -9,27 +9,16 @@
   <body>
     <header class="main-header">
       <nav class="main-navigation">
-        <span class="header-logo">
+        <div class="header-logo">
           <img src="img/device-logo.svg" width="163" height="35" alt="Логотип магазина «Девайс»">
-        </span>
-        <!-- img/search.svg - иконка лупы -->
-        <form class="search-form" action="https://echo.htmlacademy.ru" method="get">
-          <label class="visually-hidden" for="search">Поиск по сайту</label>
-          <input id="search" type="text" name="search-request" value="" placeholder="Поиск по сайту">
-          <button class="button-search" type="submit">Найти</button>
-        </form>
-        <div class="catalog-container">
-          <a class="catalog-container-caption" href="catalog.html">Каталог товаров</a>
-          <ul class="catalog-container-items">
-            <li class="catalog-container-items-digital"><a href="#">Виртуальная реальность</a></li>
-            <li class="catalog-container-items-digital"><a href="#">Моноподы для селфи</a></li>
-            <li class="catalog-container-items-digital"><a href="#">Экшн-камеры</a></li>
-            <li class="catalog-container-items-watches"><a href="#">Фитнес-браслеты</a></li>
-            <li class="catalog-container-items-watches"><a href="#">Умные часы</a></li>
-            <li class="catalog-container-items-toys"><a href="#">Квадрокоптеры</a></li>
-          </ul>
         </div>
-        <div class="header-user-menu">
+        <div class="header-topmenu-wrapper">
+          <!-- img/search.svg - иконка лупы -->
+          <form class="search-form" action="https://echo.htmlacademy.ru" method="get">
+            <label class="visually-hidden" for="search">Поиск по сайту</label>
+            <input class="search-field" id="search" type="text" name="search-request" value="" placeholder="Поиск по сайту">
+            <button class="button-search" type="submit">Найти</button>
+          </form>
           <ul class="header-user-navigation">
             <!-- img/user.svg - иконка пользователя -->
             <li class="header-login"><a href="#">Войти</a></li>
@@ -39,11 +28,24 @@
           <!-- img/cart.svg - иконка корзины -->
           <a class="header-cart-button" href="">Корзина</a>
         </div>
-        <ul class="header-site-navigation">
-          <li><a href="#">Доставка</a></li>
-          <li><a href="#">Гарантия</a></li>
-          <li><a href="#">Контакты</a></li>
-        </ul>
+        <div class="header-bottommenu-wrapper">
+          <div class="catalog-container">
+            <a class="catalog-container-caption" href="catalog.html">Каталог товаров</a>
+            <ul class="catalog-container-items">
+              <li class="catalog-container-items-digital"><a href="#">Виртуальная реальность</a></li>
+              <li class="catalog-container-items-digital"><a href="#">Моноподы для селфи</a></li>
+              <li class="catalog-container-items-digital"><a href="#">Экшн-камеры</a></li>
+              <li class="catalog-container-items-watches"><a href="#">Фитнес-браслеты</a></li>
+              <li class="catalog-container-items-watches"><a href="#">Умные часы</a></li>
+              <li class="catalog-container-items-toys"><a href="#">Квадрокоптеры</a></li>
+            </ul>
+          </div>
+          <ul class="header-site-navigation">
+            <li><a href="#">Доставка</a></li>
+            <li><a href="#">Гарантия</a></li>
+            <li><a href="#">Контакты</a></li>
+          </ul>
+        </div>
       </nav>
     </header>
 
@@ -56,15 +58,15 @@
         <ol class="promo-catalog">
           <li class="promo-catalog-item promo-catalog-item-active">
             <span class="promo-caption">01</span>
-            <div class="promo-container">
+            <div class="promo-container-image">
+              <img src="img/slider-1.png" width="384" height="486" alt="Самая длинная селфи-палка">
+            </div>
+            <div class="promo-container-text">
               <p class="promo-container-highlight">Делай селфи, как Бен Стиллер!</p>
               <p class="promo-container-description">
                 Самая длинная палка для селфи доступна в нашем магазине. Восемь (Восемь, Карл!) метров длиной и весом всего 5 килограмм.
               </p>
               <a class="button" href="#">Подробнее</a>
-              <div class="promo-container-image">
-                <img src="img/slider-1.png" width="384" height="486" alt="Самая длинная селфи-палка">
-              </div>
               <table class="promo-features">
                 <tr>
                   <td>8,5 м</td>
@@ -81,7 +83,7 @@
               </table>
             </div>
           </li>
-          <li class="promo-catalog-item">
+          <!-- <li class="promo-catalog-item">
             <span class="promo-caption">02</span>
             <div class="promo-container">
               <p class="promo-container-highlight">Худеем правильно!</p>
@@ -122,7 +124,7 @@
                 </tr>
               </table>
             </div>
-          </li>
+          </li> -->
         </ol>
       </section>
 

@@ -1,3 +1,19 @@
+/*body > * {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+body > * > * {
+  background-color: rgba(0, 255, 0, 0.5);
+}
+
+body > * > * > * {
+  background-color: rgba(0, 0, 255, 0.5);
+}
+
+body > * > * > * > *{
+  background-color: rgba(255, 255, 255, 0.5);
+}
+*/
 @font-face {
     font-family: "Open Sans";
     src: url("../fonts/opensanslight.woff2") format("woff2"),
@@ -46,6 +62,7 @@
 body {
   margin: 0;
   padding: 0;
+  /*width: 1440px;*/
 
   font-family: "Open Sans", Arial, sans-serif;
   font-size: 15px;
@@ -53,6 +70,7 @@ body {
   font-weight: 300;
   letter-spacing: 0.2px;
   color: #464646;
+
 
   background-color: #ffffff;
 }
@@ -62,7 +80,10 @@ a {
 }
 
 .main-header {
-  background-color: #f0c52e;
+  background-color: #f7e296;
+  width: 1040px;
+  margin: 40px auto 0px;
+  padding: 45px 60px 0px;
 }
 
 .services {
@@ -73,6 +94,9 @@ a {
   color: #ffffff;
 
   background-color: #464646;
+
+  width: 1440px;
+  margin: auto;
 }
 
 .about h2,
@@ -112,13 +136,14 @@ a {
   text-transform: uppercase;
 }
 
-.catalog-container-items {
+.catalog-container-items a {
   font-family: "Open Sans", Arial, sans-serif;
   font-size: 15px;
   line-height: 36px;
   font-weight: 300;
   letter-spacing: 0.2px;
   color: #464646;
+  text-transform: none;
 }
 
 .filters h2,
@@ -159,6 +184,22 @@ a {
   letter-spacing: 0.2px;
 }
 
+.promo-caption {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 179px;
+  line-height: 179px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1.8px;
+  /* все-таки relative - плохая идея. Надо через флекс */
+  position: relative;
+  left: 500px;
+  bottom: 0px;
+  /* временно черный фон */
+  color: red;
+  background-color: transparent;
+}
+
 .button {
   font-family: "Gilroy", Arial, sans-serif;
   font-size: 18px;
@@ -170,7 +211,7 @@ a {
   vertical-align: middle;
   text-transform: uppercase;
 
-  background-color: #f0c52e;
+  background-color: #f7e296;
   width: 220px;
   height: 40px;
   /* как-то в состоянии покоя еще надо сделать узкую желтую полоску на фоне */
@@ -186,12 +227,13 @@ a {
 }
 
 .button-search {
-  /* кнопку поиска надо как-то спрятать и показывать ее только по фокусу поля поиска */
   width: 85px;
   height: 49px;
+  margin: -2px;
   font-family: inherit;
   border: 2px solid #000000;
-  background-color: #f0c52e;
+  background-color: #f7e296;
+  opacity: 0;
 }
 
 .button-search:hover,
@@ -202,21 +244,41 @@ a {
 
 .button-search:active {
   color: rgba(255, 255, 255, 0.3);
+  outline: none;
+  opacity: 1;
 }
 
-.search-form input:hover {
+.search-form input[type="text"] {
+  background-color: #f7e296;
+  border: none;
+}
+
+.search-field:hover,
+.search-field:hover::placeholder {
+  /* первый селектор меняет цвет введенного текста при ховере,  */
+  /* второй селектор меняет цвет плейсхолдера при ховере */
   color: rgba(0, 0, 0, 0.6);
 }
 
-.search-form input:focus {
+.search-form input[type="text"]:focus {
   color: #000000;
+  outline: none;
+  /*форме поиска при фокусе надо еще рисовать рамку снизу
+  но как это сделать через css пока не понял
+  судя по всему, селектор не может выбрать родителя
+  дописать фантомный див?
+  border-bottom: 2px solid #000000;*/
+}
+
+.search-field:focus + .button-search {
+  opacity: 1;
 }
 
 .services-button {
   width: 160px;
   /*height: 8px;*/
-  /* сделать в состоянии покоя 8px высотой #f0c52e полоску */
-  background-color: #f0c52e;
+  /* сделать в состоянии покоя 8px высотой #f7e296 полоску */
+  background-color: #f7e296;
   /* текст слева и паддинг слева - временные решения */
   /* на самом деле эти кнопки */
   text-align: center;
@@ -236,7 +298,7 @@ a {
   background-color: #000000;
 }
 
-.header-user-menu a,
+.main-navigation a,
 .catalog a {
   color: #000000;
 }
@@ -247,8 +309,8 @@ a {
 
 .catalog-container a:hover,
 .catalog-container a:focus,
-.header-user-menu a:hover,
-.header-user-menu a:focus,
+.main-navigation a:hover,
+.main-navigation a:focus,
 .footer-site-navigation a:hover,
 .footer-site-navigation a:focus,
 .header-site-navigation a:hover,
@@ -257,7 +319,7 @@ a {
 }
 
 .catalog-container a:active,
-.header-user-menu a:active,
+.main-navigation a:active,
 .header-site-navigation a:active {
   color: rgba(0, 0, 0, 0.3);
 }
@@ -315,4 +377,54 @@ a {
 .catalog-list,
 .pagination-list {
   list-style: none;
+}
+
+.main-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.header-logo {
+  position: relative;
+  top: -64px;
+}
+
+.catalog-container-items {
+  display: none;
+}
+
+.header-topmenu-wrapper {
+  display: flex;
+}
+
+.header-bottommenu-wrapper {
+  display: flex;
+}
+
+.header-user-navigation {
+  margin: 0;
+  padding: 0;
+}
+
+.search-form {
+  margin: -10px 0 0 0;
+  padding: 0;
+}
+
+.promo-catalog-item {
+  display: flex;
+  margin: 0 auto;
+  padding: 0 60px;
+  width: 1040px;
+
+}
+
+.promo-container-image {
+  width: 500px;
+}
+
+.promo-container-text {
+  width: 500px;
 }
