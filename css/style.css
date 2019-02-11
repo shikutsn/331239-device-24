@@ -191,13 +191,27 @@ a {
   font-weight: 800;
   color: #ffffff;
   letter-spacing: 1.8px;
-  /* все-таки relative - плохая идея. Надо через флекс */
+  order: 2;
+  /*margin: -145px 0 0 0;*/
+  /*padding: 0 60px 0 0;*/
+  /* плохая идея с relative */
   position: relative;
-  left: 500px;
-  bottom: 0px;
-  /* временно черный фон */
-  color: red;
-  background-color: transparent;
+  top: -145px;
+  /*color: red;*/
+}
+
+.promo-container-highlight {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 47px;
+  line-height: 56px;
+  font-weight: 800;
+  color: #000000;
+  letter-spacing: 0.5px;
+  margin: -30px -360px 0 0;
+  width: 400px;
+  /* неужели переносы br? при одинаковой ширине заголовки перенесутся не по макету */
+  position: absolute;
+  right: 100px;
 }
 
 .button {
@@ -387,8 +401,9 @@ a {
 }
 
 .header-logo {
-  position: relative;
-  top: -64px;
+  /*position: relative;
+  top: -64px;*/
+  margin: -64px 0 0 0;
 }
 
 .catalog-container-items {
@@ -410,6 +425,11 @@ a {
 
 .search-form {
   margin: -10px 0 0 0;
+  padding: 0;
+}
+
+.promo-catalog {
+  margin: 0;
   padding: 0;
 }
 
