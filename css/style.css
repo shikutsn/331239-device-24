@@ -66,7 +66,7 @@ a {
   background-color: #f7e296;
   width: 1040px;
   margin: 40px auto 0px;
-  padding: 45px 60px 0px;
+  padding: 45px 60px 160px;
 }
 
 .services {
@@ -305,9 +305,10 @@ a {
   /*форме поиска при фокусе надо еще рисовать рамку снизу
   но как это сделать через css пока не понял
   судя по всему, селектор не может выбрать родителя
-  дописать фантомный див?
-  border-bottom: 2px solid #000000;*/
+  дописать фантомный див? */
+
 }
+
 
 .search-field:focus + .button-search {
   opacity: 1;
@@ -415,9 +416,7 @@ a {
 .main-navigation {
   display: flex;
   width: 1040px;
-  /*flex-wrap: wrap;*/
-  /*flex-direction: column;
-  justify-content: space-between;*/
+
 }
 
 .header-logo {
@@ -425,19 +424,89 @@ a {
   margin: -64px 0 0 0;
 }
 
-.header-user-menu-wrapper {
+.header-left-column-wrapper {
+  width: 540px;
   display: flex;
+  flex-direction: column;
+}
+
+.header-right-column-wrapper {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
 }
 
 .header-site-navigation {
   display: flex;
-  min-width: 600px;
+  /*width: 220px;*/
   /*justify-content: space-between;*/
+}
+
+.header-site-navigation a {
+  display: inline-block;
+}
+
+.header-site-navigation li:nth-child(2) {
+  padding-left: 34px;
+}
+
+.header-site-navigation li:nth-child(3) {
+  padding-left: 108px;
+}
+
+.catalog-container {
+  margin: 29px 0 0 -1px;
+  position: relative;
+}
+
+.catalog-container-caption {
+  padding: 0 30px 10px 0;
+  position: relative;
+}
+
+.catalog-container-caption::before {
+  content: "";
+
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 231px;
+  top: 4px;
+
+  background-image: url("../img/plus.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
 }
 
 .catalog-container-items {
   /* выпадающее меню каталога */
   display: none;
+  width: 560px;
+  position: absolute;
+}
+
+.catalog-container-caption:hover ~ .catalog-container-items {
+  /* показ всплывающего меню */
+  display: flex;
+  padding: 18px 0 0 0;
+}
+
+.catalog-container-items:hover {
+  /* и продолжение показа при ховерах по пунктам */
+  display: flex;
+  padding: 18px 0 0 0;
+}
+
+.catalog-container-items-digital {
+  width: 240px;
+}
+
+.catalog-container-items-watches {
+  width: 200px;
+}
+
+.catalog-container-items-toys {
+  width: 120px;
 }
 
 
@@ -515,20 +584,37 @@ a {
   padding: 0;
 }
 
-.header-user-navigation {
-  margin: 0;
-  /*padding: 18px 0 0 253px;*/
-  position: relative;
+.header-right-column-topmenu-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  /*background-color: rgba(200, 0, 0, 0.3);*/
 }
 
-.header-user-navigation::before {
+.header-right-column-bottommenu-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 36px 0 0 0;
+}
+
+.header-user-navigation {
+  margin: -2px 0 0 0;
+  padding: 0;
+  width: 100px;
+}
+
+.header-login {
+  position: relative;
+  padding: 0 0 0 26px;
+}
+
+.header-login::before {
   content: "";
 
   position: absolute;
   width: 13px;
   height: 12px;
-  left: 228px;
-  top: 27px;
+  left: 0px;
+  top: 9px;
 
   background-image: url("../img/user.svg");
   background-repeat: no-repeat;
@@ -536,9 +622,12 @@ a {
 }
 
 .header-compare-button {
-  margin: 0;
-  /*padding: 18px 0 0 237px;*/
+  margin: -2px 0 0 205px;
+  padding: 0 0 0 27px;
   position: relative;
+
+  width: 120px;
+  /*background-color: rgba(0, 200, 0, 0.3)*/
 }
 
 .header-compare-button::before {
@@ -547,8 +636,8 @@ a {
   position: absolute;
   width: 10px;
   height: 10px;
-  left: 218px;
-  top: 29px;
+  left: 8px;
+  top: 11px;
 
   background-image: url("../img/compare.svg");
   background-repeat: no-repeat;
@@ -556,9 +645,14 @@ a {
 }
 
 .header-cart-button {
-  margin: 0;
-  /*padding: 18px 0 0 64px;*/
+  margin: -2px 0 0 20px;
+  padding: 0 0 0 10px;
+
   position: relative;
+  width: 100px;
+  align-self: flex-end;
+  text-align: right;
+  /*background-color: rgba(0, 200, 0, 0.3)*/
 }
 
 .header-cart-button::before {
@@ -567,10 +661,27 @@ a {
   position: absolute;
   width: 12px;
   height: 12px;
-  left: 42px;
-  top: 27px;;
+  left: 2px;
+  top: 9px;
 
   background-image: url("../img/cart.svg");
   background-repeat: no-repeat;
   background-position: 0 0;
+  opacity: 1;
+}
+
+.header-compare-button:hover::before,
+.header-compare-button:focus::before,
+.header-cart-button:hover::before,
+.header-cart-button:focus::before {
+  /* иконка входа на главной по макету не становится прозрачна на 0.6 при
+  наведении. Это ошибка или сознательно сделанная мелочь?
+  У меня сделано по макету */
+  opacity: 0.6;
+}
+
+.header-login:active::before,
+.header-compare-button:active::before,
+.header-cart-button:active::before {
+  opacity: 0.3;
 }

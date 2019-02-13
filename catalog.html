@@ -9,44 +9,62 @@
   <body class="catalog-page">
     <header class="main-header">
       <nav class="main-navigation">
-        <a class="header-logo" href="index.html">
-          <img src="img/device-logo.svg" width="163" height="35" alt="Логотип магазина «Девайс»">
-        </a>
-        <!-- img/search.svg - иконка лупы -->
-        <form class="search-form" action="https://echo.htmlacademy.ru" method="get">
-          <label class="visually-hidden" for="search">Поиск по сайту</label>
-          <input id="search" type="text" name="search-request" value="" placeholder="Поиск по сайту">
-          <button class="button-search" type="submit">Найти</button>
-        </form>
-        <div class="catalog-container">
-          <a class="catalog-container-caption">Каталог товаров</a>
-          <ul class="catalog-container-items">
-            <li class="catalog-container-items-digital"><a href="#">Виртуальная реальность</a></li>
-            <li class="catalog-container-items-digital"><a href="#">Моноподы для селфи</a></li>
-            <li class="catalog-container-items-digital"><a href="#">Экшн-камеры</a></li>
-            <li class="catalog-container-items-watches"><a href="#">Фитнес-браслеты</a></li>
-            <li class="catalog-container-items-watches"><a href="#">Умные часы</a></li>
-            <li class="catalog-container-items-toys"><a href="#">Квадрокоптеры</a></li>
-          </ul>
+        <div class="header-left-column-wrapper">
+
+          <a class="header-logo" href="index.html">
+            <!-- на странице каталога поведение логотипа в хедере по стайлгайду -->
+            <img src="img/device-logo.svg" width="163" height="35" alt="Логотип магазина «Девайс»">
+          </a>
+
+
+          <form class="search-form" action="https://echo.htmlacademy.ru" method="get">
+            <label class="visually-hidden" for="search">Поиск по сайту</label>
+            <input class="search-field" id="search" type="text" name="search-request" value="" placeholder="Поиск по сайту">
+            <!-- кнопка скрывается с помощью прозрачности, это имеет побочный эффект,
+             заключающийся в том, что по ней можно кликнуть без фокуса на поле поиска -->
+            <button class="button-search" type="submit">Найти</button>
+          </form>
+
+          <div class="catalog-container">
+            <a class="catalog-container-caption" href="catalog.html">Каталог товаров</a>
+            <ul class="catalog-container-items">
+              <div class="catalog-container-items-digital">
+                <li><a href="#">Виртуальная реальность</a></li>
+                <li><a href="#">Моноподы для селфи</a></li>
+                <li><a href="#">Экшн-камеры</a></li>
+              </div>
+              <div class="catalog-container-items-watches">
+                <li><a href="#">Фитнес-браслеты</a></li>
+                <li><a href="#">Умные часы</a></li>
+              </div>
+              <div class="catalog-container-items-toys">
+                <li><a href="#">Квадрокоптеры</a></li>
+              </div>
+            </ul>
+          </div>
         </div>
-        <div class="header-user-menu">
-          <ul class="header-user-navigation">
-            <!-- img/user.svg - иконка пользователя -->
-            <li class="header-loggedin"><a href="#">Валентин Петухов</a></li>
-            <li class="header-logout"><a href="#">Выйти</a></li>
-          </ul>
-          <!-- img/compare.svg - иконка сравнения -->
-          <a class="header-compare-button" href="">Сравнить</a>
-          <!-- img/cart.svg - иконка корзины -->
-          <a class="header-cart-button" href="">Корзина</a>
+        <div class="header-right-column-wrapper">
+          <div class="header-right-column-topmenu-wrapper">
+            <ul class="header-user-navigation">
+              <a href="#"><li class="header-loggedin">Валентин Петухов</li></a>
+              <a href="#"><li class="header-logout">Выйти</li></a>
+            </ul>
+            <a class="header-compare-button" href="">Сравнить</a>
+            <a class="header-cart-button" href="">Корзина</a>
+          </div>
+          <div class="header-right-column-bottommenu-wrapper">
+            <ul class="header-site-navigation">
+              <li><a href="#">Доставка</a></li>
+              <li><a href="#">Гарантия</a></li>
+              <li><a href="#">Контакты</a></li>
+            </ul>
+          </div>
         </div>
-        <ul class="header-site-navigation">
-          <li><a href="#">Доставка</a></li>
-          <li><a href="#">Гарантия</a></li>
-          <li><a href="#">Контакты</a></li>
-        </ul>
+
       </nav>
     </header>
+
+
 
     <main class="container">
 
