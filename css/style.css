@@ -69,6 +69,11 @@ a {
   padding: 45px 60px 160px;
 }
 
+.catalog-page .main-header {
+  /* для того, чтобы на внутренней странице шапка была меньше */
+  padding: 45px 60px 47px;
+}
+
 .services {
   background-color: #e5e5e5;
 }
@@ -587,6 +592,8 @@ a {
 .header-right-column-topmenu-wrapper {
   display: flex;
   justify-content: flex-start;
+  width: 500px;
+  margin: -2px 0 0 0;
   /*background-color: rgba(200, 0, 0, 0.3);*/
 }
 
@@ -597,17 +604,20 @@ a {
 }
 
 .header-user-navigation {
-  margin: -2px 0 0 0;
-  padding: 0;
-  width: 100px;
-}
-
-.header-login {
-  position: relative;
+  margin: 0;
   padding: 0 0 0 26px;
+  width: 280px;
+  position: relative;
+  display: flex;
+  /*background-color: rgba(200, 0, 0, 0.3);*/
 }
 
-.header-login::before {
+.header-logout {
+  padding-left: 20px;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.header-user-navigation::before {
   content: "";
 
   position: absolute;
@@ -622,12 +632,12 @@ a {
 }
 
 .header-compare-button {
-  margin: -2px 0 0 205px;
-  padding: 0 0 0 27px;
+  margin: 0;
+  padding: 0 0 0 35px;
   position: relative;
 
   width: 120px;
-  /*background-color: rgba(0, 200, 0, 0.3)*/
+  /*background-color: rgba(0, 200, 200, 0.3)*/
 }
 
 .header-compare-button::before {
@@ -636,7 +646,7 @@ a {
   position: absolute;
   width: 10px;
   height: 10px;
-  left: 8px;
+  left: 15px;
   top: 11px;
 
   background-image: url("../img/compare.svg");
@@ -645,12 +655,12 @@ a {
 }
 
 .header-cart-button {
-  margin: -2px 0 0 20px;
-  padding: 0 0 0 10px;
+  margin: 0;
+  padding: 0;
 
   position: relative;
   width: 100px;
-  align-self: flex-end;
+
   text-align: right;
   /*background-color: rgba(0, 200, 0, 0.3)*/
 }
@@ -661,7 +671,7 @@ a {
   position: absolute;
   width: 12px;
   height: 12px;
-  left: 2px;
+  left: 5px;
   top: 9px;
 
   background-image: url("../img/cart.svg");
