@@ -9,24 +9,17 @@
   <body>
     <header class="main-header">
       <nav class="main-navigation">
-        <div class="header-logo">
-          <img src="img/device-logo.svg" width="163" height="35" alt="Логотип магазина «Девайс»">
-        </div>
-        <div class="header-topmenu-wrapper">
+        <div class="header-left-column-wrapper">
+          <div class="header-logo">
+            <img src="img/device-logo.svg" width="163" height="35" alt="Логотип магазина «Девайс»">
+          </div>
+
           <form class="search-form" action="https://echo.htmlacademy.ru" method="get">
             <label class="visually-hidden" for="search">Поиск по сайту</label>
             <input class="search-field" id="search" type="text" name="search-request" value="" placeholder="Поиск по сайту">
             <button class="button-search" type="submit">Найти</button>
           </form>
-          <ul class="header-user-navigation">
-            <li class="header-login"><a href="#">Войти</a></li>
-          </ul>
-          <!-- img/compare.svg - иконка сравнения -->
-          <a class="header-compare-button" href="">Сравнить</a>
-          <!-- img/cart.svg - иконка корзины -->
-          <a class="header-cart-button" href="">Корзина</a>
-        </div>
-        <div class="header-bottommenu-wrapper">
+
           <div class="catalog-container">
             <a class="catalog-container-caption" href="catalog.html">Каталог товаров</a>
             <ul class="catalog-container-items">
@@ -38,16 +31,26 @@
               <li class="catalog-container-items-toys"><a href="#">Квадрокоптеры</a></li>
             </ul>
           </div>
-          <ul class="header-site-navigation">
-            <li><a href="#">Доставка</a></li>
-            <li><a href="#">Гарантия</a></li>
-            <li><a href="#">Контакты</a></li>
-          </ul>
         </div>
+        <div class="header-user-menu-wrapper">
+          <ul class="header-user-navigation">
+            <li class="header-login"><a href="#">Войти</a></li>
+          </ul>
+
+          <a class="header-compare-button" href="">Сравнить</a>
+          <a class="header-cart-button" href="">Корзина</a>
+
+        </div>
+        <ul class="header-site-navigation">
+          <li><a href="#">Доставка</a></li>
+          <li><a href="#">Гарантия</a></li>
+          <li><a href="#">Контакты</a></li>
+        </ul>
+
       </nav>
     </header>
 
-    <main class="container">
+    <main>
 
       <h1 class="visually-hidden">Магазин «Девайс»</h1>
 
@@ -55,7 +58,7 @@
         <h2 class="visually-hidden">Промо слайды</h2>
         <ol class="promo-catalog">
           <li class="promo-catalog-item promo-catalog-item-active">
-            <!-- <span class="promo-caption">01</span> -->
+            <span class="promo-caption">01</span>
             <div class="promo-container-image">
               <img src="img/slider-1.png" width="384" height="486" alt="Самая длинная селфи-палка">
             </div>
