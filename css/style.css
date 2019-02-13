@@ -192,9 +192,8 @@ a {
   font-weight: 800;
   color: #ffffff;
   letter-spacing: 1.8px;
-  order: 2;
 
-  display: block;
+  /*display: block;*/
   padding: 0;
   margin: 0;
 
@@ -289,7 +288,9 @@ a {
 .search-form {
   position: relative;
 
-  padding-left: 40px;
+
+  margin: 0;
+  padding: 18px 0 0 37px;
 
   /*background: white;*/
 }
@@ -300,14 +301,12 @@ a {
   position: absolute;
   width: 16px;
   height: 16px;
-  left: 5px;
-  top: 15px;
+  left: 3px;
+  top: 26px;
 
   background-image: url("../img/search.svg");
   background-repeat: no-repeat;
   background-position: 0 0;
-
-
 }
 
 .search-field:hover,
@@ -455,16 +454,23 @@ a {
 
 .header-topmenu-wrapper {
   display: flex;
+  /*justify-content: space-between;*/
 }
 
 .header-bottommenu-wrapper {
   display: flex;
+  /*justify-content: space-between;*/
+  margin: 8px 0 0 1px;
 }
 
-.header-user-navigation {
-  margin: 0;
-  padding: 0;
+.header-site-navigation {
+  display: flex;
+  min-width: 600px;
+  /*justify-content: space-between;*/
 }
+
+
+
 
 .promo-catalog {
   display: flex;
@@ -523,22 +529,9 @@ a {
   height: 160px;
   background-color: #f7e296;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.popular-catalog-item-picture img {
-  display: block;
-  margin: auto;
-}
-
-.popular-catalog-item:nth-child(2) img {
-  margin: auto auto 2px auto;
-}
-
-.popular-catalog-item:nth-child(3) img {
-  padding: 2px 0 0 8px;
-}
-
-/* доделать в пиксельперфекте позиционирование иконок */
 
 .popular-catalog-item-caption {
   display: block;
@@ -546,4 +539,71 @@ a {
   margin: 40px 0 0 0;
   /*background: rgba(234, 255, 45, 0.2);
   box-shadow: inset 0 0 0 2px rgb(234, 255, 45);*/
+}
+
+.catalog-container-items,
+.header-site-navigation {
+  /* сброс для сетки (делали в демке, попробовать, сломается ли без этого сброса) */
+  margin: 0;
+  padding: 0;
+}
+
+.header-user-navigation {
+  margin: 0;
+  padding: 18px 0 0 253px;
+  position: relative;
+}
+
+.header-user-navigation::before {
+  content: "";
+
+  position: absolute;
+  width: 13px;
+  height: 12px;
+  left: 228px;
+  top: 27px;
+
+  background-image: url("../img/user.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.header-compare-button {
+  margin: 0;
+  padding: 18px 0 0 237px;
+  position: relative;
+}
+
+.header-compare-button::before {
+  content: "";
+
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 218px;
+  top: 29px;
+
+  background-image: url("../img/compare.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.header-cart-button {
+  margin: 0;
+  padding: 18px 0 0 64px;
+  position: relative;
+}
+
+.header-cart-button::before {
+  content: "";
+
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 42px;
+  top: 27px;;
+
+  background-image: url("../img/cart.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
 }
