@@ -65,38 +65,13 @@ a {
 .main-header {
   background-color: #f7e296;
   width: 1040px;
-  margin: 40px auto 0px;
-  padding: 45px 60px 160px;
+  margin: 40px auto 0;
+  /* паддингом снизу подгоняю под макетную высоту хедера. Нормально? */
+  padding: 25px 60px 144px 60px;
 }
 
 
-/* на странице каталога хедер на пару пикселей туда-сюда отличается от
-главной. Этот блок поправок на координаты подгоняет его под макет. */
-.catalog-page .main-header {
-  /* для того, чтобы на внутренней странице шапка была меньше */
-  padding: 45px 60px 47px;
-}
 
-.catalog-page .header-logo {
-  /*display: inline-block;*/
-  padding: 0;
-  margin: -62px 0 0 0;
-}
-
-.catalog-page .search-form {
-  margin-top: 8px;
-  padding: 0 0 0 36px;
-}
-
-.catalog-page .search-form::before {
-  top: 16px;
-}
-
-.catalog-page .catalog-container-caption::before {
-  top: 3px;
-}
-
-/* ====================================================== */
 
 .services {
   background-color: #e5e5e5;
@@ -109,6 +84,12 @@ a {
 
   width: 1440px;
   margin: auto;
+}
+
+.catalog-page .header-logo {
+  /* на внутренней странице логотип почему-то немного передвинут
+  разница в 2 пикселя */
+  top: -42px;
 }
 
 .about h2,
@@ -270,9 +251,12 @@ a {
 .button-search {
   width: 85px;
   height: 49px;
-  margin: -2px;
   font-family: inherit;
-  border: 2px solid #000000;
+  align-self: flex-end;
+  border-top: 2px solid #000000;
+  border-left: 2px solid #000000;
+  border-right: 2px solid #000000;
+  border-bottom: none;
   background-color: #f7e296;
   opacity: 0;
 }
@@ -296,11 +280,17 @@ a {
 
 .search-form {
   position: relative;
-
+  display: flex;
+  justify-content: space-between;
   margin: 0;
-  padding: 20px 0 0 36px;
+  padding: 0;
+  width: 440px;
+  /* прозрачная граница снизу, которая подсвечивается при фокусе поля поиска */
+  border-bottom: 2px solid transparent;
+}
 
-  /*background: white;*/
+.search-form:focus-within {
+  border-bottom: 2px solid #000000;
 }
 
 .search-form::before {
@@ -310,11 +300,22 @@ a {
   width: 16px;
   height: 16px;
   left: 3px;
-  top: 35px;
+  top: 26px;
 
   background-image: url("../img/search.svg");
   background-repeat: no-repeat;
   background-position: 0 0;
+}
+
+.search-field {
+  padding: 18px 0 8px 38px;
+  margin: 0;
+  width: 300px;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 30px;
+  font-weight: 300;
+  letter-spacing: 0.2px;
 }
 
 .search-field,
@@ -454,8 +455,10 @@ a {
   /* должен ли логотип в хедере на главной вести себя по стайлгайду при
   ховере и активе? то есть менять прозрачность при том, что на главной логотип -
   это не ссылка. Мне кажется, что должен. Так и сделано */
-  margin: -64px 0 0 0;
-  fill: #ffc600;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: -44px;
   /*background-color: rgba(0, 0, 200, 0.4);*/
 }
 
@@ -468,26 +471,27 @@ a {
   opacity: 0.3;
 }
 
-.header-logo {
-  fill: #000000;
-}
-
 .header-left-column-wrapper {
   width: 540px;
   display: flex;
   flex-direction: column;
+  position: relative;
+  margin: 0;
+  padding: 0;
 }
 
 .header-right-column-wrapper {
   width: 500px;
   display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 18px 0 0 0;
 }
 
 .header-site-navigation {
   display: flex;
-  /*width: 220px;*/
-  /*justify-content: space-between;*/
+  width: 100%;
+  padding: 0;
 }
 
 .header-site-navigation a {
@@ -503,17 +507,22 @@ a {
 }
 
 .catalog-container {
-  margin: 29px 0 0 -1px;
+  /* снова злосчастный -1 пиксель слева */
+  margin: 27px 0 0 -1px;
+  padding: 0;
   position: relative;
 }
 
 .catalog-container-caption {
-  padding: 0 30px 28px 0;
+  /* паддинг справа для плюсика-псевдоэлемента */
+  /* а слева - чтобы была сплошная область для ховера при показе меню */
+  padding: 0 30px 25px 0;
   position: relative;
   /*background-color: rgba(0, 200, 0, 0.5);*/
 }
 
 .catalog-container-caption::before {
+  /* плюсик-псевдоэлемент */
   content: "";
 
   position: absolute;
@@ -535,19 +544,22 @@ a {
   left: -59px;
   top: 47px;
   background-color: #f7e296;
+  /* так и не понял, откуда там взялся явно видный отступ в 1 пиксель */
+  margin: 0 0 0 -1px;
+  padding: 0;
   /*background-color: rgba(200, 0, 0, 0.5);*/
 }
 
 .catalog-container-caption:hover ~ .catalog-container-items {
   /* показ всплывающего меню */
   display: flex;
-  /*margin: 18px 0 0 0;*/
 }
 
 .catalog-container-items:hover {
-  /* и продолжение показа при ховерах по пунктам */
+  /* и продолжение показа при ховерах по пунктам
+  но это работает не так как хотелось. Такое чувство, что ховер активируется только
+  при наведении на старое место элемента. Как лечить? */
   display: flex;
-  /*margin: 18px 0 0 0;*/
 }
 
 .catalog-container-items-digital {
@@ -631,25 +643,19 @@ a {
   box-shadow: inset 0 0 0 2px rgb(234, 255, 45);*/
 }
 
-.catalog-container-items,
-.header-site-navigation {
-  /* сброс для сетки (делали в демке, попробовать, сломается ли без этого сброса) */
-  margin: 0;
-  padding: 0;
-}
-
 .header-right-column-topmenu-wrapper {
   display: flex;
   justify-content: flex-start;
   width: 500px;
-  margin: -2px 0 0 0;
+  margin: 0;
   /*background-color: rgba(200, 0, 0, 0.3);*/
 }
 
 .header-right-column-bottommenu-wrapper {
   display: flex;
   justify-content: space-between;
-  margin: 36px 0 0 0;
+  margin: 22px 0 0 0;
+  width: 500px;
 }
 
 .header-user-navigation {
@@ -673,17 +679,17 @@ a {
   position: absolute;
   width: 13px;
   height: 12px;
-  left: 0px;
+  left: 1px;
   top: 9px;
 
-  background-image: url("../img/user.svg");
+  background-image: url("../img/user-header.svg");
   background-repeat: no-repeat;
   background-position: 0 0;
 }
 
 .header-compare-button {
   margin: 0;
-  padding: 0 0 0 35px;
+  padding: 0 0 0 36px;
   position: relative;
 
   width: 120px;
@@ -696,10 +702,10 @@ a {
   position: absolute;
   width: 10px;
   height: 10px;
-  left: 15px;
+  left: 16px;
   top: 11px;
 
-  background-image: url("../img/compare.svg");
+  background-image: url("../img/compare-header.svg");
   background-repeat: no-repeat;
   background-position: 0 0;
 }
@@ -724,7 +730,7 @@ a {
   left: 5px;
   top: 9px;
 
-  background-image: url("../img/cart.svg");
+  background-image: url("../img/cart-header.svg");
   background-repeat: no-repeat;
   background-position: 0 0;
   opacity: 1;
@@ -744,9 +750,5 @@ a {
 .header-compare-button:active::before,
 .header-cart-button:active::before {
   opacity: 0.3;
-}
-
-.footer-logo {
-  fill: #ffc600;
 }
 
