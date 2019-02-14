@@ -69,10 +69,34 @@ a {
   padding: 45px 60px 160px;
 }
 
+
+/* на странице каталога хедер на пару пикселей туда-сюда отличается от
+главной. Этот блок поправок на координаты подгоняет его под макет. */
 .catalog-page .main-header {
   /* для того, чтобы на внутренней странице шапка была меньше */
   padding: 45px 60px 47px;
 }
+
+.catalog-page .header-logo {
+  /*display: inline-block;*/
+  padding: 0;
+  margin: -62px 0 0 0;
+}
+
+.catalog-page .search-form {
+  margin-top: 8px;
+  padding: 0 0 0 36px;
+}
+
+.catalog-page .search-form::before {
+  top: 16px;
+}
+
+.catalog-page .catalog-container-caption::before {
+  top: 3px;
+}
+
+/* ====================================================== */
 
 .services {
   background-color: #e5e5e5;
@@ -187,6 +211,7 @@ a {
   position: absolute;
   right: 50px;
   top: -100px;
+  z-index: 25;
 }
 
 .promo-container-highlight {
@@ -273,7 +298,7 @@ a {
   position: relative;
 
   margin: 0;
-  padding: 10px 0 0 37px;
+  padding: 20px 0 0 36px;
 
   /*background: white;*/
 }
@@ -285,7 +310,7 @@ a {
   width: 16px;
   height: 16px;
   left: 3px;
-  top: 26px;
+  top: 35px;
 
   background-image: url("../img/search.svg");
   background-repeat: no-repeat;
@@ -426,7 +451,25 @@ a {
 
 .header-logo {
   /* как лучше, отриц маргин или абсолютное позиционирование? */
+  /* должен ли логотип в хедере на главной вести себя по стайлгайду при
+  ховере и активе? то есть менять прозрачность при том, что на главной логотип -
+  это не ссылка. Мне кажется, что должен. Так и сделано */
   margin: -64px 0 0 0;
+  fill: #ffc600;
+  /*background-color: rgba(0, 0, 200, 0.4);*/
+}
+
+.header-logo:hover,
+.header-logo:focus {
+  opacity: 0.6;
+}
+
+.header-logo:active {
+  opacity: 0.3;
+}
+
+.header-logo {
+  fill: #000000;
 }
 
 .header-left-column-wrapper {
@@ -465,8 +508,9 @@ a {
 }
 
 .catalog-container-caption {
-  padding: 0 30px 10px 0;
+  padding: 0 30px 28px 0;
   position: relative;
+  /*background-color: rgba(0, 200, 0, 0.5);*/
 }
 
 .catalog-container-caption::before {
@@ -476,7 +520,7 @@ a {
   width: 16px;
   height: 16px;
   left: 231px;
-  top: 4px;
+  top: 2px;
 
   background-image: url("../img/plus.png");
   background-repeat: no-repeat;
@@ -486,24 +530,29 @@ a {
 .catalog-container-items {
   /* выпадающее меню каталога */
   display: none;
-  width: 560px;
+  width: 1160px;
   position: absolute;
+  left: -59px;
+  top: 47px;
+  background-color: #f7e296;
+  /*background-color: rgba(200, 0, 0, 0.5);*/
 }
 
 .catalog-container-caption:hover ~ .catalog-container-items {
   /* показ всплывающего меню */
   display: flex;
-  padding: 18px 0 0 0;
+  /*margin: 18px 0 0 0;*/
 }
 
 .catalog-container-items:hover {
   /* и продолжение показа при ховерах по пунктам */
   display: flex;
-  padding: 18px 0 0 0;
+  /*margin: 18px 0 0 0;*/
 }
 
 .catalog-container-items-digital {
   width: 240px;
+  padding-left: 60px;
 }
 
 .catalog-container-items-watches {
@@ -609,11 +658,12 @@ a {
   width: 280px;
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   /*background-color: rgba(200, 0, 0, 0.3);*/
 }
 
 .header-logout {
-  padding-left: 20px;
+  padding-left: 19px;
   color: rgba(0, 0, 0, 0.3);
 }
 
@@ -695,3 +745,8 @@ a {
 .header-cart-button:active::before {
   opacity: 0.3;
 }
+
+.footer-logo {
+  fill: #ffc600;
+}
+
