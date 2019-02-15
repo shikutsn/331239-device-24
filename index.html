@@ -6,7 +6,7 @@
     <link href="css/normalize.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
   </head>
-  <body>
+  <body class="index-page">
     <header class="main-header">
       <nav class="main-navigation">
         <div class="header-left-column-wrapper">
@@ -25,25 +25,31 @@
           <div class="catalog-container">
             <a class="catalog-container-caption" href="catalog.html">Каталог товаров</a>
             <ul class="catalog-container-items">
-              <div class="catalog-container-items-digital">
-                <li><a href="#">Виртуальная реальность</a></li>
-                <li><a href="#">Моноподы для селфи</a></li>
-                <li><a href="#">Экшн-камеры</a></li>
-              </div>
-              <div class="catalog-container-items-watches">
-                <li><a href="#">Фитнес-браслеты</a></li>
-                <li><a href="#">Умные часы</a></li>
-              </div>
-              <div class="catalog-container-items-toys">
-                <li><a href="#">Квадрокоптеры</a></li>
-              </div>
+              <li>
+                <ul class="catalog-container-items-digital">
+                  <li><a href="#">Виртуальная реальность</a></li>
+                  <li><a href="#">Моноподы для селфи</a></li>
+                  <li><a href="#">Экшн-камеры</a></li>
+                </ul>
+              </li>
+              <li>
+                <ul class="catalog-container-items-watches">
+                  <li><a href="#">Фитнес-браслеты</a></li>
+                  <li><a href="#">Умные часы</a></li>
+                </ul>
+              </li>
+              <li>
+                <ul class="catalog-container-items-toys">
+                  <li><a href="#">Квадрокоптеры</a></li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>
         <div class="header-right-column-wrapper">
           <div class="header-right-column-topmenu-wrapper">
             <ul class="header-user-navigation">
-              <a href="#"><li class="header-login">Войти</li></a>
+              <li><a class="header-login" href="#">Войти</a></li>
             </ul>
             <a class="header-compare-button" href="">Сравнить</a>
             <a class="header-cart-button" href="">Корзина</a>
@@ -290,39 +296,43 @@
 
     <footer class="main-footer">
       <nav class="footer-navigation">
-        <div class="footer-logo-container">
-          <p class="footer-logo">
+
+        <div class="footer-left-column-wrapper">
+          <div class="footer-logo">
             <img src="img/device-logo-footer.svg" width="163" height="35" alt="Логотип магазина «Девайс»">
-          </p>
-          <p class="footer-logo-address">г. Москва, ул. Строителей, 15</p>
+            <p class="footer-logo-address">г. Москва, ул. Строителей, 15</p>
+          </div>
+        </div>
+
+        <div class="footer-middle-column-wrapper">
+          <ul class="footer-site-navigation">
+            <li><a href="#">Доставка</a></li>
+            <li><a href="#">Гарантия</a></li>
+            <li><a href="#">Контакты</a></li>
+          </ul>
+          <div class="footer-social">
+            <ul class="footer-social-buttons">
+              <!-- img/fb-logo.svg img/ig-logo.svg img/tw-logo.svg - иконки соцсетей -->
+              <li><a class="social-button" href="#"><span class="visually-hidden">Магазин Девайс на фейсбуке</span></a></li>
+              <li><a class="social-button" href="#"><span class="visually-hidden">Магазин Девайс в инстаграмме</span></a></li>
+              <li><a class="social-button" href="#"><span class="visually-hidden">Магазин Девайс в твиттере</span></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-right-column-wrapper">
+          <div class="footer-user-menu">
+            <ul class="footer-user-navigation">
+              <li><a class="footer-login" href="#">Войти</a></li>
+            </ul>
+            <a class="footer-compare-button" href="">Сравнить</a>
+            <a class="footer-cart-button" href="">Корзина</a>
+          </div>
           <p class="footer-logo-phone">Тел.: +7 (495) 495-95-95</p>
-        </div>
-        <div class="footer-user-menu">
-          <ul class="footer-user-navigation">
-            <!-- img/user.svg - иконка пользователя -->
-            <li><a class="footer-login" href="#">Войти</a></li>
-          </ul>
-          <!-- img/compare.svg - иконка сравнения -->
-          <a class="footer-compare-button" href="">Сравнить</a>
-          <!-- img/cart.svg - иконка корзины -->
-          <a class="footer-cart-button" href="">Корзина</a>
-        </div>
-        <ul class="footer-site-navigation">
-          <li><a href="#">Доставка</a></li>
-          <li><a href="#">Гарантия</a></li>
-          <li><a href="#">Контакты</a></li>
-        </ul>
-        <div class="footer-social">
-          <ul class="footer-social-buttons">
-            <!-- img/fb-logo.svg img/ig-logo.svg img/tw-logo.svg - иконки соцсетей -->
-            <li><a class="social-button" href="#"><span class="visually-hidden">Магазин Девайс на фейсбуке</span></a></li>
-            <li><a class="social-button" href="#"><span class="visually-hidden">Магазин Девайс в инстаграмме</span></a></li>
-            <li><a class="social-button" href="#"><span class="visually-hidden">Магазин Девайс в твиттере</span></a></li>
-          </ul>
-        </div>
-        <div class="footer-copyright">
-          <img src="img/academy-logo.svg" width="27" height="35" alt="Логотип HTML Academy">
-          <a class="button" href="https://htmlacademy.ru/intensive/htmlcss"></a>
+          <div class="footer-copyright">
+            <img src="img/academy-logo.svg" width="27" height="35" alt="Логотип HTML Academy">
+            <a class="button" href="https://htmlacademy.ru/intensive/htmlcss"></a>
+          </div>
         </div>
 
       </nav>

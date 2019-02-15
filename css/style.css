@@ -73,6 +73,8 @@ a {
 
 
 
+
+
 .services {
   background-color: #e5e5e5;
 }
@@ -83,13 +85,18 @@ a {
   background-color: #464646;
 
   width: 1440px;
-  margin: auto;
+  margin: 0 auto;
+  padding: 65px 140px;
 }
 
 .catalog-page .header-logo {
   /* на внутренней странице логотип почему-то немного передвинут
   разница в 2 пикселя */
   top: -42px;
+}
+
+.catalog-page .main-header {
+  padding: 25px 60px 31px 60px;
 }
 
 .about h2,
@@ -374,16 +381,10 @@ a {
   color: #000000;
 }
 
-.footer-site-navigation a {
-  color: #ffffff;
-}
-
 .catalog-container a:hover,
 .catalog-container a:focus,
 .main-navigation a:hover,
 .main-navigation a:focus,
-.footer-site-navigation a:hover,
-.footer-site-navigation a:focus,
 .header-site-navigation a:hover,
 .header-site-navigation a:focus {
   color: rgba(0, 0, 0, 0.6);
@@ -395,29 +396,6 @@ a {
   color: rgba(0, 0, 0, 0.3);
 }
 
-
-.footer-user-menu a {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.footer-user-menu a:hover,
-.footer-user-menu a:focus {
-  color: #ffffff;
-}
-
-.footer-site-navigation a:focus,
-.footer-site-navigation a:hover {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-
-
-.footer-user-menu a:active,
-.footer-site-navigation a:active,
-.header-logout a,
-.footer-logout a {
-  color: rgba(255, 255, 255, 0.3);
-}
 
 .breadcrumbs,
 .breadcrumbs a {
@@ -492,18 +470,39 @@ a {
   display: flex;
   width: 100%;
   padding: 0;
+  position: relative;
 }
 
 .header-site-navigation a {
   display: inline-block;
 }
 
+.header-site-navigation li:nth-child(1) {
+  width: 125px;
+  padding: 0;
+  margin: 0;
+}
+
 .header-site-navigation li:nth-child(2) {
-  padding-left: 34px;
+  width: 115px;
+  padding: 0;
+  margin: 0 0 0 33px;
 }
 
 .header-site-navigation li:nth-child(3) {
-  padding-left: 108px;
+  width: 120px;
+  padding: 0;
+  margin: 0 0 0 107px;
+}
+
+.index-page .header-site-navigation::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 7px;
+  top: 115px;
+  background-color: #ffffff;
+  z-index: 50;
 }
 
 .catalog-container {
@@ -564,15 +563,21 @@ a {
 
 .catalog-container-items-digital {
   width: 240px;
-  padding-left: 60px;
+  padding: 0 0 0 60px;
+  margin: 0;
+  list-style: none;
 }
 
 .catalog-container-items-watches {
   width: 200px;
+  list-style: none;
+  padding: 0;
 }
 
 .catalog-container-items-toys {
   width: 120px;
+  list-style: none;
+  padding: 0;
 }
 
 
@@ -645,7 +650,7 @@ a {
 
 .header-right-column-topmenu-wrapper {
   display: flex;
-  justify-content: flex-start;
+  /*justify-content: space-between;*/
   width: 500px;
   margin: 0;
   /*background-color: rgba(200, 0, 0, 0.3);*/
@@ -654,32 +659,44 @@ a {
 .header-right-column-bottommenu-wrapper {
   display: flex;
   justify-content: space-between;
-  margin: 22px 0 0 0;
+  margin: 21px 0 0 0;
   width: 500px;
 }
 
 .header-user-navigation {
   margin: 0;
-  padding: 0 0 0 26px;
-  width: 280px;
+  padding: 0 0 0 25px;
+  width: 255px;
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  /*background-color: rgba(200, 0, 0, 0.3);*/
 }
 
-.header-logout {
-  padding-left: 19px;
+li .header-logout {
+  /* любопытно, селектор просто по классу .header-logout не перекрашивал цвет,
+  потому что селектор (.main-navigation a) был сильнее */
+  padding: 0;
   color: rgba(0, 0, 0, 0.3);
+  margin: 0 0 0 19px;
 }
 
-.header-user-navigation::before {
+.header-login {
+  padding: 0;
+}
+
+.header-loggedin {
+  margin: 0 0 0 2px;
+  padding: 0;
+}
+
+.header-login::before,
+.header-loggedin::before {
   content: "";
 
   position: absolute;
   width: 13px;
   height: 12px;
-  left: 1px;
+  left: 0px;
   top: 9px;
 
   background-image: url("../img/user-header.svg");
@@ -688,11 +705,11 @@ a {
 }
 
 .header-compare-button {
-  margin: 0;
-  padding: 0 0 0 36px;
+  margin: 0 0 0 2px;
+  padding: 0 0 0 25px;
   position: relative;
 
-  width: 120px;
+  width: 70px;
   /*background-color: rgba(0, 200, 200, 0.3)*/
 }
 
@@ -702,7 +719,7 @@ a {
   position: absolute;
   width: 10px;
   height: 10px;
-  left: 16px;
+  left: 5px;
   top: 11px;
 
   background-image: url("../img/compare-header.svg");
@@ -711,11 +728,11 @@ a {
 }
 
 .header-cart-button {
-  margin: 0;
-  padding: 0;
+  margin: 0 0 0 38px;
+  padding: 0 0 0 25px;
 
   position: relative;
-  width: 100px;
+  width: 60px;
 
   text-align: right;
   /*background-color: rgba(0, 200, 0, 0.3)*/
@@ -727,7 +744,7 @@ a {
   position: absolute;
   width: 12px;
   height: 12px;
-  left: 5px;
+  left: 2px;
   top: 9px;
 
   background-image: url("../img/cart-header.svg");
@@ -752,3 +769,71 @@ a {
   opacity: 0.3;
 }
 
+
+/* ========================== футер ========================== */
+
+.footer-site-navigation a {
+  color: #ffffff;
+}
+
+.footer-site-navigation a:hover,
+.footer-site-navigation a:focus {
+  opacity: 0.6;
+}
+
+.footer-site-navigation a:active {
+  opacity: 0.3;
+}
+
+.footer-user-menu a {
+  color: #ffffff;
+  opacity: 0.7;
+}
+
+.footer-user-menu a:hover,
+.footer-user-menu a:focus {
+  opacity: 1;
+}
+
+.footer-user-menu a:active {
+  opacity: 0.3;
+}
+
+.footer-navigation {
+  display: flex;
+  width: 1160px;
+}
+
+.footer-left-column-wrapper {
+  width: 360px;
+}
+
+.footer-middle-column-wrapper {
+  width: 440px;
+}
+
+.footer-right-column-wrapper {
+  width: 360px;
+}
+
+
+.footer-logo-address {
+  margin: 21px 0 0 0;
+  padding: 0;
+  letter-spacing: normal;
+  position: relative;
+}
+
+.footer-logo-address::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 7px;
+  top: 107px;
+  left: 0px;
+  background-color: #ffc600;
+  z-index: 50;
+}
+
+
+/* =========================================================== */
