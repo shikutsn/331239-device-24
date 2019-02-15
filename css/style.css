@@ -79,16 +79,6 @@ a {
   background-color: #e5e5e5;
 }
 
-.main-footer {
-  color: #ffffff;
-
-  background-color: #464646;
-
-  width: 1440px;
-  margin: 0 auto;
-  padding: 65px 140px;
-}
-
 .catalog-page .header-logo {
   /* на внутренней странице логотип почему-то немного передвинут
   разница в 2 пикселя */
@@ -649,6 +639,8 @@ a {
 }
 
 .header-right-column-topmenu-wrapper {
+  /* эта обертка нужна, но для однотипности можно ее переименовать в
+  .header-user-menu-wrapper */
   display: flex;
   /*justify-content: space-between;*/
   width: 500px;
@@ -657,6 +649,8 @@ a {
 }
 
 .header-right-column-bottommenu-wrapper {
+  /* а нужна ли эта обертка? ее функции неплохо выполнит и сам неупорядоченный
+  список .header-site-navigation. Переделать, если будет время */
   display: flex;
   justify-content: space-between;
   margin: 21px 0 0 0;
@@ -772,6 +766,21 @@ li .header-logout {
 
 /* ========================== футер ========================== */
 
+.main-footer {
+  color: #ffffff;
+
+  background-color: #464646;
+
+  width: 1440px;
+  margin: 0 auto;
+  padding: 65px 140px;
+}
+
+.footer-navigation {
+  display: flex;
+  width: 1160px;
+}
+
 .footer-site-navigation a {
   color: #ffffff;
 }
@@ -799,10 +808,6 @@ li .header-logout {
   opacity: 0.3;
 }
 
-.footer-navigation {
-  display: flex;
-  width: 1160px;
-}
 
 .footer-left-column-wrapper {
   width: 360px;
@@ -814,6 +819,8 @@ li .header-logout {
 
 .footer-right-column-wrapper {
   width: 360px;
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -835,5 +842,192 @@ li .header-logout {
   z-index: 50;
 }
 
+.footer-logo img:hover,
+.footer-logo img:focus,
+.footer-user-menu a:hover::before,
+.footer-user-menu a:focus::before,
+.footer-copyright:hover,
+.footer-copyright:focus {
+  /* в .footer-user-menu все элементы ссылки, поэтому данное правило
+  срабатывает на них на всех разом. */
+  opacity: 0.6;
+}
+
+.footer-logo img:active,
+.footer-user-menu a:active::before,
+.footer-copyright:active {
+  opacity: 0.3;
+}
+
+.footer-user-menu {
+  width: 100%;
+  margin: -2px 0 0 0;
+  padding: 0;
+  display: flex;
+}
+
+
+.catalog-page .footer-user-menu {
+  /* костыль с отрицательным левым маргином (не учел, делая сетку футера главной
+  тот факт, кто меню пользователя наползает на среднюю колонку на внутренних
+  страницах). Переделать бы на другую сетку... */
+  width: 480px;
+  margin: -2px 0 0 -120px;
+}
+
+.footer-user-navigation {
+  margin: 0 32px 0 auto;
+  padding: 0 0 0 30px;
+  width: 50px;
+  position: relative;
+}
+
+.catalog-page .footer-user-navigation {
+  width: 200px;
+  display: flex;
+}
+
+li .footer-logout {
+  /* снова не хотела перекрашиваться ссылка "выйти", пришлось
+  усиливать селектор по классу */
+  opacity: 0.3;
+}
+
+.footer-logout {
+  margin: 0 0 0 19px;
+}
+
+.footer-login::before {
+  content: "";
+
+  position: absolute;
+  width: 13px;
+  height: 12px;
+  left: 4px;
+  top: 9px;
+
+  background-image: url("../img/user-footer.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  opacity: 1;
+}
+
+.footer-loggedin {
+  margin: 0 0 0 -4px;
+}
+
+.footer-loggedin::before {
+  content: "";
+
+  position: absolute;
+  width: 13px;
+  height: 12px;
+  left: 0px;
+  top: 9px;
+
+  background-image: url("../img/user-footer.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  opacity: 1;
+}
+
+.footer-compare-button {
+  margin: 0 28px 0 0;
+  padding: 0 0 0 25px;
+  width: 75px;
+  position: relative;
+}
+
+.footer-compare-button::before {
+  content: "";
+
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 5px;
+  top: 11px;
+
+  background-image: url("../img/compare-footer.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  opacity: 1;
+}
+
+.footer-cart-button {
+  margin: 0 -2px 0 0;
+  padding: 0 0 0 25px;
+  width: 65px;
+  text-align: right;
+  position: relative;
+}
+
+.footer-cart-button::before {
+  content: "";
+
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 7px;
+  top: 9px;
+
+  background-image: url("../img/cart-footer.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  opacity: 1;
+}
+
+.footer-logo-phone {
+  margin: 37px 0 0 auto;
+  padding: 0;
+  letter-spacing: normal;
+}
+
+.footer-copyright {
+  margin: 62px -1px 0 auto;
+  padding: 0;
+}
+
+.footer-login {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-site-navigation {
+  margin: 69px 0 0 0;
+  padding: 0;
+  display: flex;
+}
+
+.footer-site-navigation li:nth-child(1) {
+  width: 125px;
+  margin: 0 0 0 8px;
+}
+
+.footer-site-navigation li:nth-child(2) {
+  width: 115px;
+  margin: 0 0 0 33px;
+}
+
+.footer-site-navigation li:nth-child(3) {
+  width: 120px;
+  margin: 0 0 0 32px;
+}
+
+.footer-social-buttons {
+  display: flex;
+  margin: 60px 140px 0 140px;
+  padding: 0;
+  justify-content: space-around;
+  opacity: 0.3;
+}
+
+.footer-social-buttons a:hover,
+.footer-social-buttons a:focus {
+  opacity: 0.6;
+}
+
+.footer-social-buttons a:active {
+  opacity: 0.1;
+}
 
 /* =========================================================== */
