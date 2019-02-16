@@ -54,7 +54,6 @@ body {
   letter-spacing: 0.2px;
   color: #464646;
 
-
   background-color: #ffffff;
 }
 
@@ -67,7 +66,7 @@ a {
   width: 1040px;
   margin: 40px auto 0;
   /* паддингом снизу подгоняю под макетную высоту хедера. Нормально? */
-  padding: 25px 60px 144px 60px;
+  padding: 25px 60px 145px 60px;
 }
 
 
@@ -136,7 +135,7 @@ a {
   text-transform: none;
 }
 
-.filters h2,
+.filter h2,
 .sorting h2 {
   font-family: "Gilroy", Arial, sans-serif;
   font-size: 16px;
@@ -147,7 +146,7 @@ a {
   text-transform: uppercase;
 }
 
-.filters legend,
+.filter legend,
 .catalog h3,
 .popular-catalog a {
   font-family: "Gilroy", Arial, sans-serif;
@@ -158,7 +157,7 @@ a {
   letter-spacing: 0.2px;
 }
 
-.filters label {
+.filter label {
   font-family: "Open Sans", Arial, sans-serif;
   font-size: 14px;
   line-height: 40px;
@@ -239,11 +238,13 @@ a {
   background-color: transparent;
   /* для выравнивания текста внутри кнопок. Костыль, но работает */
   line-height: 40px;
+  /* z-index не авто потому, что на странице каталога цвет фона формы фильтров
+  не давал изменять фоны кнопок */
+  z-index: 10;
 }
 
 .button::before {
   content: "";
-
   position: absolute;
   background-color: #f0c52e;
   z-index: -1;
@@ -251,6 +252,11 @@ a {
   height: 8px;
   top: 16px;
   left: 0px;
+}
+
+.button a {
+  /*z-index: 10;*/
+  color: red;
 }
 
 .button:hover::before {
@@ -434,9 +440,10 @@ a {
 .filter-colors,
 .filter-bluetooth,
 .sorting-type,
-.sorting-direction,
-.catalog-list,
-.pagination-list {
+.sorting-direction {
+  /* все-таки, т. к. далее для каждого из этих классов есть еще другие
+  параметры, логичнее сброс стиля списка писать в каждом конкретном
+  классе, а не вот так, все чохом  */
   list-style: none;
 }
 
@@ -561,9 +568,8 @@ a {
   left: -59px;
   top: 47px;
   background-color: #f7e296;
-  /* так и не понял, откуда там взялся явно видный отступ в 1 пиксель */
-  margin: 0 0 0 -1px;
-  padding: 0;
+  margin: 0;
+  padding: 0 0 34px 0;
   /*background-color: rgba(200, 0, 0, 0.5);*/
 }
 
@@ -800,7 +806,7 @@ li .header-logout {
   background-color: #464646;
 
   width: 1160px;
-  margin: 0 auto;
+  margin: 83px auto 0;
   padding: 65px 140px 55px;
 }
 
@@ -1069,12 +1075,15 @@ li .footer-logout {
   display: flex;
 
   letter-spacing: normal;
-  background-color: rgba(0, 0, 255, 0.4);
+  /* странные значения, но с ним размеры текста в этих блоках
+  сходятся с макетом */
+  /*letter-spacing: 0.1px;*/
 }
 
-.about-more,
-.contacts-writeus {
-  width: 260px;
+.about p:nth-child(3) {
+  /* а уж почему тут p является третьим потомком я хз. Если бы инспектор этого
+  не сказал, так бы и не догадался */
+  /*letter-spacing: -0.16px;*/
 }
 
 .about {
@@ -1086,8 +1095,8 @@ li .footer-logout {
 
 .about p,
 .contacts p {
-  margin: 0;
-  padding: 0;
+  margin: 20px 0 30px;
+  padding: 0 10px 0 0;
 }
 
 .contacts {
@@ -1108,6 +1117,51 @@ li .footer-logout {
   background-color: #000000;
 }
 
+.index-columns h2 {
+  margin: 52px 0 43px 0;
+}
+
+.contacts-map {
+  display: block;
+  margin: 38px 0 0 0;
+  padding: 0;
+}
+
+.contacts-writeus {
+  width: 260px;
+  margin: 60px 0 0 0;
+}
+
+.about-more {
+  width: 260px;
+  margin: 55px 0 0 0;
+}
+
+.deliverees {
+  padding: 5px 0 0 35px;
+  margin: 0;
+  list-style: none;
+  /*position: relative;*/
+}
+
+.deliverees li {
+  position: relative;
+}
+
+.deliverees a::before {
+  /* маркеры списка псевдоэлементами */
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  height: 8px;
+  width: 8px;
+  top: 17px;
+  left: -34px;
+  border: 2px solid #e6e6e6;
+  border-radius: 50%;
+
+}
+
 /* ====================================================================== */
 
 .brands-list {
@@ -1119,3 +1173,257 @@ li .footer-logout {
   background-color: rgba(0, 255, 0, 0.4);
 
 }
+
+
+
+/* ==================== страница каталога ==================== */
+.container {
+  width: 1440px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.page-caption {
+  width: 1100px;
+  padding: 0 0 0 60px;
+  margin: 38px auto 0;
+}
+
+.catalog-columns-wrapper {
+  width: 1440px;
+  padding: 0;
+  margin: 47px auto 0;
+  display: flex;
+  background-color: #ffffff;
+}
+
+.catalog-filters {
+  width: 468px;
+  margin: 0;
+  padding: 10px 0 0 200px;
+  background-color: #ebebeb;
+}
+
+.catalog-right-column-wrapper {
+  width: 972px;
+  padding: 0;
+}
+
+.sorting {
+  display: flex;
+  width: 972px;
+  padding: 10px 0 0 0;
+  background-color: #ebebeb;
+}
+
+.sorting-type {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.sorting-type-item {
+  padding: 0 50px 0 0;
+}
+
+.catalog-list {
+  width: 832px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+}
+
+.pagination-list {
+  display: flex;
+  width: 832px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  justify-content: space-between;
+  background-color: #ebebeb;
+}
+
+.breadcrumbs {
+  width: 1100px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 0 0 60px;
+  margin: 23px auto 0;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 300;
+  letter-spacing: 0.1px;
+  color: rgba(0, 0, 0, 0.3);
+
+}
+
+.breadcrumbs li {
+  margin: 0 38px 0 0;
+  position: relative;
+}
+
+.breadcrumbs li:last-child {
+  /* убираем маргин справа у последнего пункта крошек */
+  margin: 0;
+}
+
+.breadcrumbs li::after {
+  /* разделители хлебных крошек псевдоэлементами */
+  content: "";
+  width: 4px;
+  height: 7px;
+  position: absolute;
+  top: 10px;
+  right: -21px;
+  background-image: url("../img/nav-arrow.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.breadcrumbs-current::after {
+  /* прячем показ разделителя у текущей крошки */
+  display: none;
+}
+
+.breadcrumbs li:hover,
+.breadcrumbs li:focus {
+  /* должно ли меняться состояние текущей хлебной крошки в зависимости от
+  ховера/фокуса/актива? наверное, не должно, но сейчас меняется. Чтобы
+  убрать следует заменить li на a */
+  opacity: 0.6;
+}
+
+.breadcrumbs li:active {
+  opacity: 0.1;
+}
+
+.catalog-item {
+  width: 360px;
+  padding: 0;
+  margin: 0 20px 20px 0;
+}
+
+.catalog-item:nth-child(2n) {
+  /* у крайних товаров на строке сбрасываем правый маргин */
+  margin-right: 0;
+}
+
+.filter {
+  margin: 0;
+  padding: 0 20px 0 0;
+}
+
+.filter fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.filter > fieldset:nth-child(2) {
+  margin-top: 104px;
+}
+
+.filter > fieldset:nth-child(3) {
+  margin-top: 56px;
+}
+
+.filter > fieldset:nth-child(4) {
+  margin-top: 44px;
+}
+
+.filter-option {
+  padding-left: 39px;
+}
+
+.filter-colors {
+  padding: 0;
+  margin: 17px 0 0 0;
+}
+
+.filter-bluetooth {
+  padding: 0;
+  margin: 17px 0 0 0;
+}
+
+.filter-submit {
+  margin: 32px 0 0 0;
+  width: 200px;
+}
+
+.filter-option {
+  position: relative;
+}
+
+.filter-option label {
+  position: relative;
+  /*cursor: pointer;*/
+}
+
+.catalog-page input[type="checkbox"].visually-hidden,
+.catalog-page input[type="radio"].visually-hidden {
+  /* очень долго возился прежде чем понял, что рекомендованный visually-hidden,
+  который в самом начале файла стилей приведен перестает работать при
+  фокусе/активе и из-за этого чекбоксы и радиокнопки в фильтре переставали быть
+  спрятанными. Так что переопределю для них скопипасченный из барбершопа */
+
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.filter-input-checkbox + label::before {
+  content: "";
+  position: absolute;
+  left: -40px;
+  top: -2px;
+
+  width: 23px;
+  height: 23px;
+
+  background-image: url("../img/checkbox-off.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.filter-input-checkbox:checked + label::before {
+  /* для чекнутого инпута меняем картинку фона и ширину.
+  остальное такое же, как и в нечекнутом */
+  width: 27px;
+  background-image: url("../img/checkbox-on.svg");
+}
+
+.filter-input-radio + label::before {
+  content: "";
+  position: absolute;
+  left: -40px;
+  top: -3px;
+
+  width: 25px;
+  height: 25px;
+
+  background-image: url("../img/radio-off.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.filter-input-radio:checked + label::before {
+  background-image: url("../img/radio-on.svg");
+}
+
+
+/* =========================================================== */
