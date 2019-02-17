@@ -595,7 +595,7 @@ li .header-logout {
 
 .promo-container-text {
   width: 500px;
-  margin: 0 60 0 0;
+  margin: 0 60px 0 0;
   padding: 0;
 }
 
@@ -769,6 +769,22 @@ li .header-logout {
 
   background-color: #464646;
 
+  width: 100%;
+
+}
+
+.footer-navigation {
+  display: flex;
+  width: 1160px;
+  margin: 83px auto 0;
+  padding: 65px 140px 55px;
+}
+
+/*.main-footer {
+  color: #ffffff;
+
+  background-color: #464646;
+
   width: 1160px;
   margin: 83px auto 0;
   padding: 65px 140px 55px;
@@ -777,7 +793,7 @@ li .header-logout {
 .footer-navigation {
   display: flex;
   width: 100%;
-}
+}*/
 
 .footer-site-navigation a {
   color: #ffffff;
@@ -1520,6 +1536,39 @@ li.catalog-item:nth-child(2) h3 {
 
 /* можно ли сделать закрытие модальных окон esc, а не
 кликая каждый раз на крестик? */
+
+/* есть мнение, что модальные окна через target не закроются */
+
+/*let popup = document.querySelector(".modal");
+let close = document.querySelector(".btn--close");
+
+function closepopup() {
+popup.classList.add("hide");
+popup.classList.remove("modal-open");
+popup.classList.remove("form-error");
+document.querySelector('body').classList.remove('body-with-open-modal');
+}
+
+close.addEventListener("click", function (evt) {
+evt.preventDefault();
+closepopup();
+});
+
+//закрытие окна по ESC
+window.addEventListener("keydown", function (evt) {
+if (evt.keyCode === 27) {
+evt.preventDefault();
+if (popup.classList.contains("modal-open")) {
+closepopup();
+}
+}
+});
+//закрытие по клику мимо окна
+document.addEventListener("mouseup", function (evt) {
+if (evt.target.closest('.modal') === null) {
+closepopup();
+}
+}*/
 
 .modal {
   position: fixed;
