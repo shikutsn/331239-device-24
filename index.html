@@ -98,7 +98,7 @@
               </table>
             </div>
           </li>
-          <!-- <li class="promo-catalog-item">
+          <li class="promo-catalog-item">
             <span class="promo-caption">02</span>
             <div class="promo-container">
               <p class="promo-container-highlight">Худеем<br>правильно!</p>
@@ -139,7 +139,7 @@
                 </tr>
               </table>
             </div>
-          </li> -->
+          </li>
         </ol>
       </section>
 
@@ -287,10 +287,10 @@
         <section class="contacts">
           <h2>Контакты</h2>
           <p>Вы можете забрать товар сами, заехав в наш офис. Заодно, вы сможете проверить работоспособность покупки. Всякое бывает.</p>
-          <a class="contacts-map" href="img/map.jpg">
+          <a class="contacts-map" href="#map-large">
             <img src="img/map.jpg" width="560" height="222" alt="Карта с адресом магазина">
           </a>
-          <a class="button contacts-writeus" href="#">Напишите нам</a>
+          <a class="button contacts-writeus" href="#writeus">Напишите нам</a>
         </section>
       </div>
 
@@ -350,40 +350,37 @@
       </nav>
     </footer>
 
-    <section class="modal modal-writeus">
+    <section class="modal modal-writeus" id="writeus">
       <h2 class="visually-hidden">Обратная связь</h2>
       <form class="writeus-form" action="https://echo.htmlacademy.ru" method="post">
-          <p class="write-us-item">
-            <label for="writeus-name">
-              Ваше имя:
-            </label>
+        <div class="writeus-topfields-wrapper">
+          <p class="writeus-topfields-item">
+            <label for="writeus-name">Ваше имя:</label>
             <input id="writeus-name" type="text" name="name" value="" placeholder="Имя Фамилия">
           </p>
-          <p class="write-us-item">
-            <label for="writeus-email">
-              Ваш e-mail:
-            </label>
+          <p class="writeus-topfields-item">
+            <label for="writeus-email">Ваш e-mail:</label>
             <input id="writeus-email" type="text" name="email" value="" placeholder="email@example.com">
           </p>
-          <p class="write-us-item">
-            <label for="writeus-letter">
-              Текст письма:
-            </label>
+        </div>
+          <p class="writeus-letter-field">
+            <label for="writeus-letter">Текст письма:</label>
             <textarea id="writeus-letter" name="letter" cols="40" placeholder="В свободной форме"></textarea>
           </p>
-          <button class="button" type="submit">Отправить</button>
-          <button class="modal-close" type="button">Закрыть</button>
+          <button class="button writeus-button" type="submit">Отправить</button>
+          <a class="modal-close" href="#close">
+            <span class="visually-hidden">Закрыть</span>
+          </a>
         </form>
     </section>
 
-    <section class="modal modal-map">
+    <section class="modal modal-map" id="map-large">
       <h2 class="visually-hidden">Как до нас добраться</h2>
-      <p>
         <img src="img/map-large.jpg" width="960" height="559" alt="Магазин находится по адресу ул. Строителей 15, Москва">
-      </p>
-      <button class="modal-close" type="button">Закрыть</button>
+      <a class="modal-close" href="#close">
+        <span class="visually-hidden">Закрыть</span>
+      </a>
     </section>
-
 
   </body>
 </html>

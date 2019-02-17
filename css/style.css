@@ -45,7 +45,6 @@
 body {
   margin: 0;
   padding: 0;
-  /*width: 1440px;*/
 
   font-family: "Open Sans", Arial, sans-serif;
   font-size: 15px;
@@ -61,61 +60,17 @@ a {
   text-decoration: none;
 }
 
+/* ==================== хедер ======================================*/
 .main-header {
   background-color: #f7e296;
   width: 1040px;
   margin: 40px auto 0;
-  /* паддингом снизу подгоняю под макетную высоту хедера. Нормально? */
   padding: 25px 60px 145px 60px;
-}
-
-
-
-
-
-
-.services {
-  background-color: #e5e5e5;
-}
-
-.catalog-page .header-logo {
-  /* на внутренней странице логотип почему-то немного передвинут
-  разница в 2 пикселя */
-  top: -42px;
-}
-
-.catalog-page .main-header {
-  padding: 25px 60px 31px 60px;
-}
-
-.about h2,
-.contacts h2,
-.catalog-page h1 {
-  font-family: "Gilroy", Arial, sans-serif;
-  font-size: 47px;
-  line-height: 48px;
-  font-weight: 800;
-  color: #000000;
-  letter-spacing: 0.5px;
-
-  background-color: #ffffff;
-}
-
-.deliverees,
-.deliverees a {
-  font-family: "Gilroy", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 40px;
-  font-weight: 800;
-  color: #000000;
-
-  background-color: #ffffff;
 }
 
 .catalog-container a,
 .header-site-navigation a,
-.footer-site-navigation a,
-.services-button {
+.footer-site-navigation a {
   font-family: "Gilroy", Arial, sans-serif;
   font-size: 18px;
   line-height: 24px;
@@ -133,150 +88,6 @@ a {
   letter-spacing: 0.2px;
   color: #464646;
   text-transform: none;
-}
-
-.filter h2,
-.sorting h2 {
-  font-family: "Gilroy", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 800;
-  color: #000000;
-  letter-spacing: 3.2px;
-  text-transform: uppercase;
-}
-
-.filter legend,
-.catalog h3,
-.popular-catalog a {
-  font-family: "Gilroy", Arial, sans-serif;
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: 800;
-  color: #000000;
-  letter-spacing: 0.2px;
-}
-
-.filter label {
-  font-family: "Open Sans", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 40px;
-  font-weight: 300;
-  letter-spacing: 0.1px;
-}
-
-.catalog-item-price {
-  font-family: "Gilroy", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 300;
-  color: #464646;
-  letter-spacing: 0.2px;
-}
-
-.promo-caption {
-  font-family: "Gilroy", Arial, sans-serif;
-  font-size: 179px;
-  line-height: 179px;
-  font-weight: 800;
-  color: #ffffff;
-  letter-spacing: 1.8px;
-
-  padding: 0;
-  margin: 0;
-
-  position: absolute;
-  right: 50px;
-  top: -100px;
-  z-index: 25;
-}
-
-.promo-container-highlight {
-  font-family: "Gilroy", Arial, sans-serif;
-  font-size: 47px;
-  line-height: 56px;
-  font-weight: 800;
-  color: #000000;
-  letter-spacing: 0.5px;
-}
-
-.promo-features-caption {
-  font-family: "Gilroy", Arial, sans-serif;
-  font-size: 13px;
-  line-height: 20px;
-  font-weight: 300;
-  color: #464646;
-  letter-spacing: 0.1px;
-}
-
-.promo-features-value {
-  font-family: "Gilroy", Arial, sans-serif;
-  font-size: 36px;
-  line-height: 48px;
-  font-weight: 300;
-  color: #000000;
-  letter-spacing: 0.4px;
-}
-
-.button {
-  font-family: "Gilroy", Arial, sans-serif;
-  font-size: 18px;
-  line-height: 24px;
-  letter-spacing: 3.6px;
-  font-weight: 800;
-  color: #000000;
-  text-align: center;
-  vertical-align: middle;
-  text-transform: uppercase;
-  width: 220px;
-  height: 40px;
-  position: relative;
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  border: none;
-  background-color: transparent;
-  /* для выравнивания текста внутри кнопок. Костыль, но работает */
-  line-height: 40px;
-  /* z-index не авто потому, что на странице каталога цвет фона формы фильтров
-  не давал изменять фоны кнопок */
-  z-index: 10;
-}
-
-.button::before {
-  content: "";
-  position: absolute;
-  background-color: #f0c52e;
-  z-index: -1;
-  width: 100%;
-  height: 8px;
-  top: 16px;
-  left: 0px;
-}
-
-.button a {
-  /*z-index: 10;*/
-  color: red;
-}
-
-.button:hover::before {
-  height: 40px;
-  top: 0px;
-}
-
-.button:active a {
-  opacity: 0.3;
-}
-
-
-
-.button:hover,
-.button:focus {
-  /* желтая полоска становится размером с кнопку */
-}
-
-.button:active {
-  color: rgba(0, 0, 0, 0.3);
 }
 
 .button-search {
@@ -364,44 +175,13 @@ a {
 .search-form input[type="text"]:focus {
   color: #000000;
   outline: none;
-  /*форме поиска при фокусе надо еще рисовать рамку снизу
-  но как это сделать через css пока не понял
-  судя по всему, селектор не может выбрать родителя
-  дописать фантомный див? */
-
 }
-
 
 .search-field:focus + .button-search {
   opacity: 1;
 }
 
-.services-button {
-  width: 160px;
-  /*height: 8px;*/
-  /* сделать в состоянии покоя 8px высотой #f7e296 полоску */
-  background-color: #f7e296;
-  /* текст слева и паддинг слева - временные решения */
-  /* на самом деле эти кнопки */
-  text-align: center;
-  vertical-align: middle;
-}
-
-.services-button:hover,
-.services-button:focus {
-  height: 40px;
-}
-
-.services-button:active {
-  /* в этом состоянии текст должен оставаться центрированным */
-  /* в области старой кнопки, а справа, видимо, пририсовывается черный п/у */
-  width: 278px;
-  color: #f7e184;
-  background-color: #000000;
-}
-
-.main-navigation a,
-.catalog a {
+.main-navigation a {
   color: #000000;
 }
 
@@ -420,41 +200,12 @@ a {
   color: rgba(0, 0, 0, 0.3);
 }
 
-
-.breadcrumbs,
-.breadcrumbs a {
-  color: rgba(0, 0, 0, 0.3);
-}
-
-.catalog-container-items,
-.header-site-navigation,
-.promo-catalog,
-.popular-catalog,
-.services-catalog,
-.brands-list,
-.footer-user-navigation,
-.footer-site-navigation,
-.footer-social-buttons,
-.header-user-navigation,
-.breadcrumbs,
-.filter-colors,
-.filter-bluetooth,
-.sorting-type,
-.sorting-direction {
-  /* все-таки, т. к. далее для каждого из этих классов есть еще другие
-  параметры, логичнее сброс стиля списка писать в каждом конкретном
-  классе, а не вот так, все чохом  */
-  list-style: none;
-}
-
 .main-navigation {
   display: flex;
   width: 1040px;
-
 }
 
 .header-logo {
-  /* как лучше, отриц маргин или абсолютное позиционирование? */
   /* должен ли логотип в хедере на главной вести себя по стайлгайду при
   ховере и активе? то есть менять прозрачность при том, что на главной логотип -
   это не ссылка. Мне кажется, что должен. Так и сделано */
@@ -462,7 +213,6 @@ a {
   padding: 0;
   position: absolute;
   top: -44px;
-  /*background-color: rgba(0, 0, 200, 0.4);*/
 }
 
 .header-logo:hover,
@@ -496,6 +246,7 @@ a {
   width: 100%;
   padding: 0;
   position: relative;
+  list-style: none;
 }
 
 .header-site-navigation a {
@@ -570,7 +321,7 @@ a {
   background-color: #f7e296;
   margin: 0;
   padding: 0 0 34px 0;
-  /*background-color: rgba(200, 0, 0, 0.5);*/
+  list-style: none;
 }
 
 .catalog-container-caption:hover ~ .catalog-container-items {
@@ -604,82 +355,10 @@ a {
   padding: 0;
 }
 
-
-.promo-catalog {
-  display: flex;
-
-  margin: 0 auto;
-  padding: 0;
-}
-
- .promo-catalog-item {
-  display: flex;
-  position: relative;
-  width: 1160px;
-  margin: 50px auto 0px auto;
-  padding: 0;
-
-  /*background: rgba(234, 255, 45, 0.2);
-  box-shadow: inset 0 0 0 2px rgb(234, 255, 45);*/
-}
-
-.promo-container-image {
-  width: 600px;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  /*background: rgba(234, 255, 45, 0.2);
-  box-shadow: inset 0 0 0 2px rgb(234, 255, 45);*/
-}
-
-.promo-container-text {
-  width: 500px;
-  margin: 0 60 0 0;
-  padding: 0;
-
-  /*background: rgba(234, 255, 45, 0.2);
-  box-shadow: inset 0 0 0 2px rgb(234, 255, 45);*/
-
-}
-
-.popular-catalog {
-  display: flex;
-  width: 1160px;
-  margin: 105px auto 0 auto;
-}
-
-.popular-catalog-item {
-  margin: 0 20px;
-}
-
-.popular-catalog-item-picture {
-  width: 160px;
-  height: 160px;
-  background-color: #f7e296;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.popular-catalog-item-caption {
-  display: block;
-  width: 160px;
-  margin: 40px 0 0 0;
-  /*background: rgba(234, 255, 45, 0.2);
-  box-shadow: inset 0 0 0 2px rgb(234, 255, 45);*/
-}
-
 .header-right-column-topmenu-wrapper {
-  /* эта обертка нужна, но для однотипности можно ее переименовать в
-  .header-user-menu-wrapper */
   display: flex;
-  /*justify-content: space-between;*/
   width: 500px;
   margin: 0;
-  /*background-color: rgba(200, 0, 0, 0.3);*/
 }
 
 .header-right-column-bottommenu-wrapper {
@@ -698,6 +377,7 @@ a {
   position: relative;
   display: flex;
   flex-wrap: wrap;
+  list-style: none;
 }
 
 li .header-logout {
@@ -798,8 +478,292 @@ li .header-logout {
 }
 
 
-/* ========================== футер ========================== */
+/* ================================================================ */
 
+/* ======================== заготовки ============================= */
+.services-button {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 800;
+  color: #000000;
+  letter-spacing: 3.6px;
+  text-transform: uppercase;
+}
+
+.popular-catalog a {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 800;
+  color: #000000;
+  letter-spacing: 0.2px;
+}
+
+.services-button {
+  width: 160px;
+  /*height: 8px;*/
+  /* сделать в состоянии покоя 8px высотой #f7e296 полоску */
+  background-color: #f7e296;
+  /* текст слева и паддинг слева - временные решения */
+  /* на самом деле эти кнопки */
+  text-align: center;
+  vertical-align: middle;
+}
+
+.services-button:hover,
+.services-button:focus {
+  height: 40px;
+}
+
+.services-button:active {
+  /* в этом состоянии текст должен оставаться центрированным */
+  /* в области старой кнопки, а справа, видимо, пририсовывается черный п/у */
+  width: 278px;
+  color: #f7e184;
+  background-color: #000000;
+}
+
+/* ================== промо каталог =============================== */
+.promo-caption {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 179px;
+  line-height: 179px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1.8px;
+
+  padding: 0;
+  margin: 0;
+
+  position: absolute;
+  right: 50px;
+  top: -100px;
+  z-index: 25;
+}
+
+.promo-container-highlight {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 47px;
+  line-height: 56px;
+  font-weight: 800;
+  color: #000000;
+  letter-spacing: 0.5px;
+}
+
+.promo-features-caption {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 300;
+  color: #464646;
+  letter-spacing: 0.1px;
+}
+
+.promo-features-value {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 36px;
+  line-height: 48px;
+  font-weight: 300;
+  color: #000000;
+  letter-spacing: 0.4px;
+}
+
+.promo-catalog {
+  /*display: flex;*/
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+ .promo-catalog-item {
+  display: flex;
+  position: relative;
+  width: 1160px;
+  margin: 50px auto 0px auto;
+  padding: 0;
+}
+
+.promo-container-image {
+  width: 600px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promo-container-text {
+  width: 500px;
+  margin: 0 60 0 0;
+  padding: 0;
+}
+
+/* ================================================================ */
+/* ========================= раздел популярных ==================== */
+
+.popular-catalog {
+  display: flex;
+  width: 1160px;
+  margin: 105px auto 0 auto;
+  list-style: none;
+}
+
+.popular-catalog-item {
+  margin: 0 20px;
+}
+
+.popular-catalog-item-picture {
+  width: 160px;
+  height: 160px;
+  background-color: #f7e296;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popular-catalog-item-caption {
+  display: block;
+  width: 160px;
+  margin: 40px 0 0 0;
+}
+
+/* ================================================================ */
+/* ===================== раздел брендов =========================== */
+
+.brands-list {
+  width: 1160px;
+  margin: 50px auto 0;
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+
+/* ================================================================ */
+/* =============== стили каталога ================================= */
+.catalog-page .header-logo {
+  /* на внутренней странице логотип почему-то немного передвинут
+  разница в 2 пикселя */
+  top: -42px;
+}
+
+.catalog-page .main-header {
+  padding: 25px 60px 31px 60px;
+}
+
+.catalog-page h1 {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 47px;
+  line-height: 48px;
+  font-weight: 800;
+  color: #000000;
+  letter-spacing: 0.5px;
+
+  background-color: #ffffff;
+}
+
+.filter legend,
+.catalog h3 {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 800;
+  color: #000000;
+  letter-spacing: 0.2px;
+}
+
+.filter label {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 40px;
+  font-weight: 300;
+  letter-spacing: 0.1px;
+}
+
+.catalog-item-price {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 300;
+  color: #464646;
+  letter-spacing: 0.2px;
+}
+
+.filter h2,
+.sorting h2 {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 800;
+  color: #000000;
+  letter-spacing: 3.2px;
+  text-transform: uppercase;
+}
+
+.catalog-compare {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 13px;
+  line-height: 36px;
+  font-weight: 300;
+  color: #000000;
+  letter-spacing: 0.1px;
+}
+
+
+/* ================================================================ */
+/* ==================== универсальные стили ======================= */
+.button {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 3.6px;
+  font-weight: 800;
+  color: #000000;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: uppercase;
+  width: 220px;
+  height: 40px;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  /* для выравнивания текста внутри кнопок. Костыль, но работает */
+  line-height: 40px;
+  /* z-index не авто потому, что на странице каталога цвет фона формы фильтров
+  не давал изменять фоны кнопок */
+  z-index: 10;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  background-color: #f0c52e;
+  z-index: -1;
+  width: 100%;
+  height: 8px;
+  top: 16px;
+  left: 0px;
+}
+
+.button:hover::before,
+.button:focus::before {
+  height: 40px;
+  top: 0px;
+}
+
+.button:active a {
+  opacity: 0.3;
+}
+
+.button:active {
+  color: rgba(0, 0, 0, 0.3);
+}
+/* ================================================================ */
+/* ========================== футер =============================== */
 .main-footer {
   color: #ffffff;
 
@@ -899,11 +863,11 @@ li .header-logout {
   display: flex;
 }
 
-
 .catalog-page .footer-user-menu {
-  /* костыль с отрицательным левым маргином (не учел, делая сетку футера главной
-  тот факт, кто меню пользователя наползает на среднюю колонку на внутренних
-  страницах). Переделать бы на другую сетку... */
+  /* костыль с отрицательным левым маргином для страницы каталога
+  (не учел, делая сетку футера главной тот факт, кто меню пользователя
+  наползает на среднюю колонку на внутренних страницах).
+  Переделать бы на другую сетку... */
   width: 480px;
   margin: -2px 0 0 -120px;
 }
@@ -913,6 +877,7 @@ li .header-logout {
   padding: 0 0 0 30px;
   width: 50px;
   position: relative;
+  list-style: none;
 }
 
 .catalog-page .footer-user-navigation {
@@ -1029,6 +994,7 @@ li .footer-logout {
   margin: 69px 0 0 0;
   padding: 0;
   display: flex;
+  list-style: none;
 }
 
 .footer-site-navigation li:nth-child(1) {
@@ -1052,6 +1018,7 @@ li .footer-logout {
   padding: 0;
   justify-content: space-around;
   opacity: 0.3;
+  list-style: none;
 }
 
 .footer-social-buttons a:hover,
@@ -1063,27 +1030,14 @@ li .footer-logout {
   opacity: 0.1;
 }
 
-/* =========================================================== */
-
-
-
+/* ====================================================================== */
 /* ========================== о нас и контакты ========================== */
 .index-columns {
   width: 1160px;
   padding: 0;
   margin: 0 auto;
   display: flex;
-
   letter-spacing: normal;
-  /* странные значения, но с ним размеры текста в этих блоках
-  сходятся с макетом */
-  /*letter-spacing: 0.1px;*/
-}
-
-.about p:nth-child(3) {
-  /* а уж почему тут p является третьим потомком я хз. Если бы инспектор этого
-  не сказал, так бы и не догадался */
-  /*letter-spacing: -0.16px;*/
 }
 
 .about {
@@ -1105,6 +1059,30 @@ li .footer-logout {
   padding: 0;
   position: relative;
 }
+
+.about h2,
+.contacts h2 {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 47px;
+  line-height: 48px;
+  font-weight: 800;
+  color: #000000;
+  letter-spacing: 0.5px;
+
+  background-color: #ffffff;
+}
+
+.deliverees,
+.deliverees a {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 40px;
+  font-weight: 800;
+  color: #000000;
+
+  background-color: #ffffff;
+}
+
 
 .about::before,
 .contacts::before {
@@ -1141,7 +1119,6 @@ li .footer-logout {
   padding: 5px 0 0 35px;
   margin: 0;
   list-style: none;
-  /*position: relative;*/
 }
 
 .deliverees li {
@@ -1159,24 +1136,10 @@ li .footer-logout {
   left: -34px;
   border: 2px solid #e6e6e6;
   border-radius: 50%;
-
 }
 
 /* ====================================================================== */
-
-.brands-list {
-  width: 1160px;
-  margin: 50px auto 0;
-  padding: 30px 0;
-  display: flex;
-  justify-content: space-around;
-  background-color: rgba(0, 255, 0, 0.4);
-
-}
-
-
-
-/* ==================== страница каталога ==================== */
+/* ========================= страница каталога ========================== */
 .container {
   width: 1440px;
   margin: 0 auto;
@@ -1212,14 +1175,19 @@ li .footer-logout {
 .sorting {
   display: flex;
   width: 972px;
-  padding: 10px 0 0 0;
+  padding: 10px 0;
   background-color: #ebebeb;
+}
+
+.sorting-direction {
+  list-style: none;
 }
 
 .sorting-type {
   margin: 0;
   padding: 0;
   display: flex;
+  list-style: none;
 }
 
 .sorting-type-item {
@@ -1227,20 +1195,18 @@ li .footer-logout {
 }
 
 .catalog-list {
-  width: 832px;
+  width: 760px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 0;
+  margin: 60px 0 0 72px;
   padding: 0;
   list-style: none;
-
 }
 
 .pagination-list {
   display: flex;
-  width: 832px;
-  margin: 0;
+  width: 760px;
+  margin: 0 0 0 72px;
   padding: 0;
   list-style: none;
   justify-content: space-between;
@@ -1259,8 +1225,13 @@ li .footer-logout {
   font-weight: 300;
   letter-spacing: 0.1px;
   color: rgba(0, 0, 0, 0.3);
-
+  list-style: none;
 }
+
+.breadcrumbs a {
+  color: rgba(0, 0, 0, 0.3);
+}
+
 
 .breadcrumbs li {
   margin: 0 38px 0 0;
@@ -1290,27 +1261,16 @@ li .footer-logout {
   display: none;
 }
 
-.breadcrumbs li:hover,
-.breadcrumbs li:focus {
+.breadcrumbs a:hover,
+.breadcrumbs a:focus {
   /* должно ли меняться состояние текущей хлебной крошки в зависимости от
   ховера/фокуса/актива? наверное, не должно, но сейчас меняется. Чтобы
   убрать следует заменить li на a */
-  opacity: 0.6;
+  color: rgba(0, 0, 0, 0.6);
 }
 
-.breadcrumbs li:active {
-  opacity: 0.1;
-}
-
-.catalog-item {
-  width: 360px;
-  padding: 0;
-  margin: 0 20px 20px 0;
-}
-
-.catalog-item:nth-child(2n) {
-  /* у крайних товаров на строке сбрасываем правый маргин */
-  margin-right: 0;
+.breadcrumbs a:active {
+  color: rgba(0, 0, 0, 0.1);
 }
 
 .filter {
@@ -1322,6 +1282,16 @@ li .footer-logout {
   border: none;
   margin: 0;
   padding: 0;
+  position: relative;
+}
+
+.filter fieldset::before {
+  content: "";
+  position: absolute;
+  width: 201px;
+  height: 2px;
+  background-color: #000000;
+  top: -36px;
 }
 
 .filter > fieldset:nth-child(2) {
@@ -1343,11 +1313,13 @@ li .footer-logout {
 .filter-colors {
   padding: 0;
   margin: 17px 0 0 0;
+  list-style: none;
 }
 
 .filter-bluetooth {
   padding: 0;
   margin: 17px 0 0 0;
+  list-style: none;
 }
 
 .filter-submit {
@@ -1367,7 +1339,7 @@ li .footer-logout {
 .catalog-page input[type="checkbox"].visually-hidden,
 .catalog-page input[type="radio"].visually-hidden {
   /* очень долго возился прежде чем понял, что рекомендованный visually-hidden,
-  который в самом начале файла стилей приведен перестает работать при
+  который в самом начале файла стилей приведен, перестает работать при
   фокусе/активе и из-за этого чекбоксы и радиокнопки в фильтре переставали быть
   спрятанными. Так что переопределю для них скопипасченный из барбершопа */
 
@@ -1425,5 +1397,272 @@ li .footer-logout {
   background-image: url("../img/radio-on.svg");
 }
 
+.filter-input:not(:disabled):hover + label::before {
+  opacity: 0.6;
+}
 
+.filter-input:disabled + label {
+  opacity: 0.25;
+}
+
+.sorting-caption {
+  margin-left: 72px;
+}
+
+.catalog-item {
+  width: 360px;
+  padding: 0;
+  margin: 8px 40px 37px 0;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.catalog-item .flag-new {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  right: 27px;
+  top: 28px;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  color: rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.catalog-item:nth-child(2n) {
+  /* у крайних товаров на строке сбрасываем правый маргин */
+  margin-right: 0;
+}
+
+.catalog-item-title {
+  order: 5;
+  padding: 0;
+  margin: 23px 0 0 0;
+  width: 260px;
+  min-height: 48px;
+}
+
+li.catalog-item:nth-child(2) h3 {
+  /* костыль для переноса заголовка профессиональной селфи-палки по
+  макету. Или проще бр? */
+  padding-right: 25px;
+}
+
+.catalog-item-title h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.catalog-item-price {
+  order: 10;
+  width: 100px;
+  text-align: right;
+  margin: 24px 0 0 auto;
+  padding: 0;
+}
+
+.catalog-item .catalog-actions {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 360px;
+  height: 380px;
+  display: none;
+}
+
+.catalog-item:hover .catalog-actions {
+  display: block;
+  cursor: pointer;
+}
+
+.catalog-item:hover .catalog-item-image {
+  /* странно, по вместо 0.7 надо 0.3 для того, чтоб было похоже на макет */
+  opacity: 0.3;
+}
+
+.catalog-buy {
+  margin: 172px auto 0 auto;
+  width: 200px;
+  display: block;
+}
+
+.catalog-compare {
+  margin: 7px 0 0 5px;
+  display: block;
+  text-align: center;
+  opacity: 0.5;
+}
+
+.catalog-compare:hover,
+.catalog-compare:focus {
+  opacity: 1;
+}
+
+.catalog-compare:active {
+  opacity: 0.2;
+}
 /* =========================================================== */
+
+
+/* ====================== модальные окна ========================= */
+/* реализация модальных окон подсмотрена в гугле,
+переделать, если на лекциях расскажут о методике */
+
+/* можно ли сделать закрытие модальных окон esc, а не
+кликая каждый раз на крестик? */
+
+.modal {
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  top: 50%;
+  display: none;
+  /* магия центрования модального окна, подсмотренная в гугле */
+  transform: translate(-50%,-50%);
+}
+
+.modal-map:target {
+  display: block;
+}
+
+.modal-writeus:target {
+  display: block;
+}
+
+.modal-map {
+  width: 960px;
+  height: 559px;
+  box-shadow: 0px 10px 20px 0 rgba(4, 6, 6, 0.2);
+}
+
+.modal-close::before {
+  content: "";
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  right: 22px;
+  top: 22px;
+  opacity: 0.5;
+
+  background-image: url("../img/modal-close.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.modal-close:hover::before,
+.modal-close:focus::before {
+  opacity: 1;
+}
+
+.modal-close:active::before {
+  opacity: 0.3;
+}
+
+.modal-writeus {
+  width: 960px;
+  height: 553px;
+  background-color: #ffffff;
+  box-shadow: 0px 10px 20px 0 rgba(4, 6, 6, 0.2);
+}
+
+.writeus-form {
+  margin: 77px 100px 80px 100px;
+  padding: 0;
+  width: 760px;
+}
+
+.writeus-form label {
+  display: block;
+  margin: 0 0 7px 0;
+  padding: 0;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 24px;
+  letter-spacing: normal;
+  color: #000000;
+}
+
+.writeus-form input {
+  box-sizing: border-box;
+  width: 360px;
+  border: none;
+  background-color: #f2f2f2;
+  min-height: 50px;
+  margin: 0;
+  padding: 0 0 3px 18px;
+}
+
+.writeus-form textarea {
+  box-sizing: border-box;
+  width: 760px;
+  min-height: 156px;
+  border: none;
+  background-color: #f2f2f2;
+  resize: none;
+  margin: 0;
+  padding: 14px 0 0 19px;
+}
+
+.writeus-form input,
+.writeus-form textarea {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 18px;
+  letter-spacing: normal;
+  text-align: left;
+  color: rgba(70, 70, 70, 0.4);
+}
+
+.writeus-form input:hover,
+.writeus-form textarea:hover {
+  background-color: #eaeaea;
+}
+
+.writeus-form input:focus,
+.writeus-form textarea:focus {
+  background-color: #ffffff;
+  color: #464646;
+  border: 3px solid #f0c52e;
+}
+
+
+.writeus-topfields-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.writeus-topfields-item {
+  width: 360px;
+}
+
+.writeus-letter-field {
+  margin: 18px 0 0 0;
+  padding: 0;
+}
+
+.writeus-button {
+  width: 200px;
+  margin: 36px 0 0 0;
+  padding: 0;
+}
+
+/* ================================================================*/
+

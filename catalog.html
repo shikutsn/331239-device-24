@@ -73,7 +73,10 @@
       <ul class="breadcrumbs">
         <li><a href="index.html">Главная</a></li>
         <li><a href="#">Каталог товаров</a></li>
-        <li class="breadcrumbs-current">Моноподы для селфи</li>
+        <!-- вот тут странный костыль: вставил пустую ссылку для
+        текущего пункта крошек для того, чтобы ховер вел себя одинаково
+        и для предыдущих и для текущего пункта -->
+        <li class="breadcrumbs-current"><a>Моноподы для селфи</a></li>
       </ul>
 
       <div class="catalog-columns-wrapper">
@@ -87,12 +90,11 @@
               <span class="filter-price-max">до 5000</span>
             </fieldset>
           <!-- img/icon-up-dir.svg img/icon-down-dir.svg - иконки направления сортировки -->
-          <!-- img/checkbox-on.svg img/checkbox-off.svg - иконки чекбоксов формы -->
             <fieldset>
               <legend>Цвет</legend>
               <ul class="filter-colors">
                 <li class="filter-option">
-                  <input class="visually-hidden filter-input filter-input-checkbox" type="checkbox" name="black" id="filter-black" checked>
+                  <input class="visually-hidden filter-input filter-input-checkbox" type="checkbox" name="black" id="filter-black">
                   <label for="filter-black">Черный</label>
                 </li>
                 <li class="filter-option">
@@ -151,49 +153,62 @@
             <h2 class="visually-hidden">Список селфи-палок</h2>
             <ul class="catalog-list">
               <li class="catalog-item">
-                <h3>
-                  <a class="catalog-item-title" href="catalog-item.html">
-                    Любительская селфи-палка
-                  </a>
-                </h3>
-                <p class="catalog-item-image">
+                <a class="catalog-item-title" href="catalog-item.html">
+                    <h3>Любительская селфи-палка</h3>
+                </a>
+                <div class="catalog-item-image">
                   <img src="img/selfie-stick-1.jpg" width="360" height="380" alt="Любительская селфи-палка">
-                </p>
-                <p class="catalog-item-price">500 руб.</p>
+                </div>
+                <span class="catalog-item-price">500 руб.</span>
+                <div class="catalog-actions">
+                  <a class="button catalog-buy" href="#">В корзину</a>
+                  <a class="catalog-compare" href="#">Добавить к сравнению</a>
+                </div>
               </li>
+
               <li class="catalog-item">
-                <h3>
-                  <a class="catalog-item-title" href="catalog-item.html">
-                    Профессиональная селфи-палка
-                  </a>
-                </h3>
-                <p class="catalog-item-image">
+                <a class="catalog-item-title" href="catalog-item.html">
+                  <h3>Профессиональная селфи-палка</h3>
+                </a>
+                <div class="catalog-item-image">
                   <img src="img/selfie-stick-2.jpg" width="360" height="380" alt="Профессиональная селфи-палка">
-                </p>
-                <p class="catalog-item-price">1 500 руб.</p>
+                </div>
+                <span class="catalog-item-price">1 500 руб.</span>
+                <div class="catalog-actions">
+                  <a class="button catalog-buy" href="#">В корзину</a>
+                  <a class="catalog-compare" href="#">Добавить к сравнению</a>
+                </div>
               </li>
+
               <li class="catalog-item">
-                <h3>
-                  <a class="catalog-item-title" href="catalog-item.html">
-                    Непотопляемая селфи-палка
-                  </a>
-                </h3>
-                <p class="catalog-item-image">
+                <a class="catalog-item-title" href="catalog-item.html">
+                  <h3>Непотопляемая селфи-палка</h3>
+                </a>
+                <div class="catalog-item-image">
                   <img src="img/selfie-stick-3.jpg" width="360" height="380" alt="Непотопляемая селфи-палка">
-                </p>
-                <p class="catalog-item-price">2 500 руб.</p>
+                </div>
+                <span class="catalog-item-price">2 500 руб.</span>
+                <div class="catalog-actions">
+                  <a class="button catalog-buy" href="#">В корзину</a>
+                  <a class="catalog-compare" href="#">Добавить к сравнению</a>
+                </div>
               </li>
+
               <li class="catalog-item">
-                <h3>
-                  <a class="catalog-item-title" href="catalog-item.html">
-                    Селфи-палка «Следуй за мной»
-                  </a>
-                </h3>
-                <p class="catalog-item-image">
+                <div class="flag-new">New</div>
+                <a class="catalog-item-title" href="catalog-item.html">
+                  <h3>Селфи-палка «Следуй за мной»</h3>
+                </a>
+                <div class="catalog-item-image">
                   <img src="img/selfie-stick-4.jpg" width="360" height="380" alt="Селфи-палка «Следуй за мной»">
-                </p>
-                <p class="catalog-item-price">4 900 руб.</p>
+                </div>
+                <span class="catalog-item-price">4 900 руб.</span>
+                <div class="catalog-actions">
+                  <a class="button catalog-buy" href="#">В корзину</a>
+                  <a class="catalog-compare" href="#">Добавить к сравнению</a>
+                </div>
               </li>
+
             </ul>
             <ul class="pagination-list">
               <li class="pagination-item"><a href="#">Назад</a></li>
