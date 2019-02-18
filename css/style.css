@@ -65,7 +65,7 @@ a {
   background-color: #f7e296;
   width: 1040px;
   margin: 40px auto 0;
-  padding: 25px 60px 145px 60px;
+  padding: 25px 200px 145px 60px;
 }
 
 .catalog-container a,
@@ -1183,7 +1183,7 @@ li .footer-logout {
   padding: 0;
   background-color: #ebebeb;
   flex-grow: 1;
-  flex-shrink: 0;
+  /*flex-shrink: 0;*/
 }
 
 .catalog-right-column-wrapper {
@@ -1191,7 +1191,7 @@ li .footer-logout {
   padding: 0;
   margin: 0;
   flex-grow: 1;
-  flex-shrink: 0;
+  /*flex-shrink: 0;*/
 }
 
 .sorting {
@@ -1303,16 +1303,19 @@ li .footer-logout {
 }
 
 .filter {
-  width: 328px;
-  margin: 113px 0 0 auto;
-  padding: 0;
+  width: 268px;
+  margin: 80px 0 0 auto;
+  padding: 0 0 0 200px;
 }
 
 .filter-caption {
   background-color: #d9d9d9;
-  padding: 24px 0 23px 0;
-  margin: 0 0 0 auto;
-  width: 328px;
+  padding: 24px 180px 23px 0;
+  margin: 0;
+  /*display: inline-block;*/
+  /*width: 100%;*/
+  /*width: 268px;*/
+  text-align: right;
 }
 
 .filter fieldset {

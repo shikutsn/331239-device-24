@@ -7,79 +7,87 @@
     <link href="css/style.css" rel="stylesheet">
   </head>
   <body class="catalog-page">
+    <div class="container">
+      <!-- мне категеорически не нравятся эти дивы container, но они нужны
+      для того, чтобы при зуме не сдвигалась сетка основного содержимого
+      другого способа победить сдвиг я не придумал -->
+      <header class="main-header">
+        <nav class="main-navigation">
+          <div class="header-left-column-wrapper">
+            <a class="header-logo" href="index.html">
+              <img src="img/device-logo-header.svg" width="163" height="35" alt="Логотип магазина «Девайс»">
+            </a>
 
-    <header class="main-header">
-      <nav class="main-navigation">
-        <div class="header-left-column-wrapper">
-          <a class="header-logo" href="index.html">
-            <img src="img/device-logo-header.svg" width="163" height="35" alt="Логотип магазина «Девайс»">
-          </a>
+            <form class="search-form" action="https://echo.htmlacademy.ru" method="get">
+              <label class="visually-hidden" for="search">Поиск по сайту</label>
+              <input class="search-field" id="search" type="text" name="search-request" value="" placeholder="Поиск по сайту">
+              <!-- кнопка скрывается с помощью прозрачности, это имеет побочный эффект,
+               заключающийся в том, что по ней можно кликнуть без фокуса на поле поиска -->
+              <button class="button-search" type="submit">Найти</button>
+            </form>
 
-          <form class="search-form" action="https://echo.htmlacademy.ru" method="get">
-            <label class="visually-hidden" for="search">Поиск по сайту</label>
-            <input class="search-field" id="search" type="text" name="search-request" value="" placeholder="Поиск по сайту">
-            <!-- кнопка скрывается с помощью прозрачности, это имеет побочный эффект,
-             заключающийся в том, что по ней можно кликнуть без фокуса на поле поиска -->
-            <button class="button-search" type="submit">Найти</button>
-          </form>
-
-          <div class="catalog-container">
-            <a class="catalog-container-caption" href="catalog.html">Каталог товаров</a>
-            <ul class="catalog-container-items">
-              <li>
-                <ul class="catalog-container-items-digital">
-                  <li><a href="#">Виртуальная реальность</a></li>
-                  <li><a href="#">Моноподы для селфи</a></li>
-                  <li><a href="#">Экшн-камеры</a></li>
-                </ul>
-              </li>
-              <li>
-                <ul class="catalog-container-items-watches">
-                  <li><a href="#">Фитнес-браслеты</a></li>
-                  <li><a href="#">Умные часы</a></li>
-                </ul>
-              </li>
-              <li>
-                <ul class="catalog-container-items-toys">
-                  <li><a href="#">Квадрокоптеры</a></li>
-                </ul>
-              </li>
-            </ul>
+            <div class="catalog-container">
+              <a class="catalog-container-caption" href="catalog.html">Каталог товаров</a>
+              <ul class="catalog-container-items">
+                <li>
+                  <ul class="catalog-container-items-digital">
+                    <li><a href="#">Виртуальная реальность</a></li>
+                    <li><a href="#">Моноподы для селфи</a></li>
+                    <li><a href="#">Экшн-камеры</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <ul class="catalog-container-items-watches">
+                    <li><a href="#">Фитнес-браслеты</a></li>
+                    <li><a href="#">Умные часы</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <ul class="catalog-container-items-toys">
+                    <li><a href="#">Квадрокоптеры</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <div class="header-right-column-wrapper">
-          <div class="header-right-column-topmenu-wrapper">
-            <ul class="header-user-navigation">
-              <li><a class="header-loggedin" href="#">Валентин Петухов</a></li>
-              <li><a class="header-logout" href="#">Выйти</a></li>
-            </ul>
-            <a class="header-compare-button" href="">Сравнить</a>
-            <a class="header-cart-button" href="">Корзина</a>
+          <div class="header-right-column-wrapper">
+            <div class="header-right-column-topmenu-wrapper">
+              <ul class="header-user-navigation">
+                <li><a class="header-loggedin" href="#">Валентин Петухов</a></li>
+                <li><a class="header-logout" href="#">Выйти</a></li>
+              </ul>
+              <a class="header-compare-button" href="">Сравнить</a>
+              <a class="header-cart-button" href="">Корзина</a>
+            </div>
+            <div class="header-right-column-bottommenu-wrapper">
+              <ul class="header-site-navigation">
+                <li><a href="#">Доставка</a></li>
+                <li><a href="#">Гарантия</a></li>
+                <li><a href="#">Контакты</a></li>
+              </ul>
+            </div>
           </div>
-          <div class="header-right-column-bottommenu-wrapper">
-            <ul class="header-site-navigation">
-              <li><a href="#">Доставка</a></li>
-              <li><a href="#">Гарантия</a></li>
-              <li><a href="#">Контакты</a></li>
-            </ul>
-          </div>
-        </div>
 
-      </nav>
-    </header>
+        </nav>
+      </header>
+    </div>
 
     <main>
 
-      <h1 class="page-caption">Моноподы для селфи</h1>
-      <ul class="breadcrumbs">
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="#">Каталог товаров</a></li>
-        <!-- вот тут странный костыль: вставил пустую ссылку для
-        текущего пункта крошек для того, чтобы ховер вел себя одинаково
-        и для предыдущих и для текущего пункта -->
-        <li class="breadcrumbs-current"><a>Моноподы для селфи</a></li>
-      </ul>
-
+      <div class="container">
+        <!-- мне категеорически не нравятся эти дивы container, но они нужны
+      для того, чтобы при зуме не сдвигалась сетка основного содержимого
+      другого способа победить сдвиг я не придумал -->
+        <h1 class="page-caption">Моноподы для селфи</h1>
+        <ul class="breadcrumbs">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="#">Каталог товаров</a></li>
+          <!-- вот тут странный костыль: вставил пустую ссылку для
+          текущего пункта крошек для того, чтобы ховер вел себя одинаково
+          и для предыдущих и для текущего пункта -->
+          <li class="breadcrumbs-current"><a>Моноподы для селфи</a></li>
+        </ul>
+      </div>
 
       <div class="catalog-columns-wrapper">
         <section class="catalog-filters">
