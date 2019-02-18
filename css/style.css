@@ -690,7 +690,7 @@ li .header-logout {
   letter-spacing: 0.2px;
 }
 
-.filter h2,
+.filter-caption,
 .sorting h2 {
   font-family: "Gilroy", Arial, sans-serif;
   font-size: 16px;
@@ -1169,7 +1169,8 @@ li .footer-logout {
 }
 
 .catalog-columns-wrapper {
-  width: 1440px;
+  /*width: 1440px;*/
+  width: 100%;
   padding: 0;
   margin: 47px auto 0;
   display: flex;
@@ -1178,23 +1179,35 @@ li .footer-logout {
 
 .catalog-filters {
   width: 468px;
-  margin: 0;
-  padding: 10px 0 0 200px;
+  /*margin: 0;*/
+  padding: 0;
   background-color: #ebebeb;
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
 .catalog-right-column-wrapper {
   width: 972px;
   padding: 0;
+  margin: 0;
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
 .sorting {
   display: flex;
-  width: 972px;
-  padding: 10px 0;
+  /*width: 972px;*/
+  width: 100%;
+  /* когда дело дойдет до блока сортировок, паддинги надо сделать 24 сверху
+  23 снизу, потому что лайн хейт у заголовка 24, а у ссылок в списках 30
+  а должно быть одной высоты с заголовком формы поиска */
+  padding: 21px 0 20px 0;
   background-color: #ebebeb;
 }
 
+.sorting-caption {
+  margin: 0 0 0 72px;
+}
 .sorting-direction {
   list-style: none;
 }
@@ -1290,8 +1303,16 @@ li .footer-logout {
 }
 
 .filter {
-  margin: 0;
-  padding: 0 20px 0 0;
+  width: 328px;
+  margin: 113px 0 0 auto;
+  padding: 0;
+}
+
+.filter-caption {
+  background-color: #d9d9d9;
+  padding: 24px 0 23px 0;
+  margin: 0 0 0 auto;
+  width: 328px;
 }
 
 .filter fieldset {
@@ -1419,10 +1440,6 @@ li .footer-logout {
 
 .filter-input:disabled + label {
   opacity: 0.25;
-}
-
-.sorting-caption {
-  margin-left: 72px;
 }
 
 .catalog-item {
