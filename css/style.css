@@ -535,11 +535,6 @@ li .header-logout {
 
   padding: 0;
   margin: 0;
-
-  position: absolute;
-  right: 50px;
-  top: -100px;
-  z-index: 25;
 }
 
 .promo-container-highlight {
@@ -569,8 +564,92 @@ li .header-logout {
   letter-spacing: 0.4px;
 }
 
+.promo {
+  width: 1440px;
+  padding: 0;
+  margin: 0 auto;
+}
+
 .promo-catalog {
-  /*display: flex;*/
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.promo-catalog-item {
+  width: 1160px;
+  display: none;
+  justify-content: space-between;
+}
+
+.promo-container-image {
+  width: 580px;
+}
+
+.promo-container-description {
+  width: 580px;
+  padding: 10px 60px 0px 20px;
+}
+
+
+.promo-slider-controls {
+  font-size: 0;
+}
+
+.promo-slider-controls label {
+  /* чтобы, делая кружки в контролах слайдера не вычитать рамки */
+  box-sizing: border-box;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #000000;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  margin: 0 9px 0 0;
+}
+
+.promo-slider-input:checked ~ label::before {
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  width: 6px;
+  height: 6px;
+  top: 2px;
+  left: 2px;
+  border: 1px solid #000000;
+  border-radius: 50%;
+}
+
+#promo-slide-control-1:checked ~ .promo-catalog .promo-catalog-item:nth-child(1),
+#promo-slide-control-2:checked ~ .promo-catalog .promo-catalog-item:nth-child(2),
+#promo-slide-control-3:checked ~ .promo-catalog .promo-catalog-item:nth-child(3) {
+  display: flex;
+}
+
+#promo-slide-control-1:checked ~ .promo-slider-controls .promo-slider-control--1::before,
+#promo-slide-control-2:checked ~ .promo-slider-controls .promo-slider-control--2::before,
+#promo-slide-control-3:checked ~ .promo-slider-controls .promo-slider-control--3::before {
+  /* весь этот огород с таким перекрашиванием контрола слайдера из-за того, что в
+  примерах переполнения контентом указано, что контрол слайдера должен съезжать
+  вниз при переполнением текстом, то есть его не спозиционировать абсолютно.
+  лол, а почему? привяжу его к кнопке и дело с концом */
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  width: 6px;
+  height: 6px;
+  top: 2px;
+  left: 2px;
+  border: 1px solid #000000;
+  border-radius: 50%;
+}
+
+
+
+
+
+/*.promo-catalog {
   margin: 0 auto;
   padding: 0;
   list-style: none;
@@ -597,7 +676,7 @@ li .header-logout {
   width: 500px;
   margin: 0 60px 0 0;
   padding: 0;
-}
+}*/
 
 /* ================================================================ */
 /* ========================= раздел популярных ==================== */
@@ -1050,7 +1129,7 @@ li .footer-logout {
 /* ========================== о нас и контакты ========================== */
 .index-columns {
   width: 1160px;
-  padding: 0;
+  padding: 0 140px;
   margin: 0 auto;
   display: flex;
   letter-spacing: normal;
@@ -1376,8 +1455,8 @@ li .footer-logout {
   /*cursor: pointer;*/
 }
 
-.catalog-page input[type="checkbox"].visually-hidden,
-.catalog-page input[type="radio"].visually-hidden {
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
   /* очень долго возился прежде чем понял, что рекомендованный visually-hidden,
   который в самом начале файла стилей приведен, перестает работать при
   фокусе/активе и из-за этого чекбоксы и радиокнопки в фильтре переставали быть
