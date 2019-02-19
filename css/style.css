@@ -139,6 +139,7 @@ a {
   letter-spacing: 0.2px;
   color: #464646;
   text-transform: none;
+  z-index: 50;
 }
 
 .button-search {
@@ -320,16 +321,6 @@ a {
   width: 120px;
   padding: 0;
   margin: 0 0 0 107px;
-}
-
-.index-page .header-site-navigation::after {
-  content: "";
-  position: absolute;
-  width: 100px;
-  height: 7px;
-  top: 115px;
-  background-color: #ffffff;
-  z-index: 50;
 }
 
 .catalog-container {
@@ -586,6 +577,11 @@ li .header-logout {
 
   padding: 0;
   margin: 0;
+  position: absolute;
+  top: -16px;
+  right: 45px;
+  /* чтобы рисовался поверх хедера */
+  z-index: 5;
 }
 
 .promo-container-highlight {
@@ -594,7 +590,12 @@ li .header-logout {
   line-height: 56px;
   font-weight: 800;
   color: #000000;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.45px;
+  margin: 50px 0 0 0;
+  padding: 0;
+  /* для того, чтобы цифру 3 перекрывал на 3-м слайде */
+  position: relative;
+  z-index: 10;
 }
 
 .promo-features-caption {
@@ -619,6 +620,9 @@ li .header-logout {
   width: 1440px;
   padding: 0;
   margin: 0 auto;
+  position: relative;
+  /* чтобы страница не прыгала при переключении слайдов */
+  min-height: 536px;
 }
 
 .promo-catalog {
@@ -636,19 +640,23 @@ li .header-logout {
   position: relative;
 }
 
-.promo-caption {
-  position: absolute;
-  color: red;
-}
-
 .promo-container-image-wrapper {
   width: 580px;
   margin: 0;
   padding: 0;
 }
 
+/* персональные маргины для выравнивания картинок слайдов */
 .promo-catalog-item:nth-child(1) .promo-container-image {
   margin: 0 0 0 90px;
+}
+
+.promo-catalog-item:nth-child(2) .promo-container-image {
+  margin: 10px 0 0 116px;
+}
+
+.promo-catalog-item:nth-child(3) .promo-container-image {
+  margin: 64px 0 0 31px;
 }
 
 .promo-container-description {
@@ -656,14 +664,24 @@ li .header-logout {
   padding: 30px 60px 0px 20px;
 }
 
-.promo-container-highlight {
-  margin: 50px 0 0 0;
-  padding: 0;
+.promo-container-description::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 7px;
+  top: 35px;
+  background-color: #ffffff;
+  z-index: 25;
 }
 
 .promo-container-info {
   margin: 18px 0 0 0;
-  padding: 0;
+  padding: 0 36px 0 0;
+}
+
+.promo-catalog-item:first-child .promo-container-info {
+  /* для правильных переносов текста без <br> разные паддинги в разных слайдах */
+  padding: 0 1px 0 0;
 }
 
 .button-slider-more {
@@ -672,12 +690,15 @@ li .header-logout {
 }
 
 .promo-slider-controls {
-  width: 80px;
-  background-color: green;
+  position: absolute;
+  width: 120px;
+  height: 20px;
+  bottom: 194px;
+  right: 181px;
 }
 
 .promo-slider-controls label {
-  /* чтобы, делая кружки в контролах слайдера не вычитать рамки */
+  /* чтобы, делая кружки в контролах слайдера, не вычитать рамки */
   box-sizing: border-box;
   display: inline-block;
   vertical-align: center;
@@ -687,7 +708,7 @@ li .header-logout {
   border-radius: 50%;
   cursor: pointer;
   position: relative;
-  margin: 0 9px 0 0;
+  margin: 0 17px 0 0;
   font-size: 0;
 }
 
@@ -713,37 +734,29 @@ li .header-logout {
   border-radius: 50%;
 }
 
-
-
-
-/*.promo-catalog {
-  margin: 0 auto;
-  padding: 0;
-  list-style: none;
+.promo-features {
+  margin: 41px 0 0 -3px;
 }
 
- .promo-catalog-item {
-  display: flex;
-  position: relative;
-  width: 1160px;
-  margin: 50px auto 0px auto;
-  padding: 0;
-}
-
-.promo-container-image {
-  width: 600px;
+/* стили таблиц слайдера. Как-то неприкольно в третьем слайдере паддинг
+между столбцам таблицы не такой, как в первом */
+.promo-features-caption,
+.promo-features-value {
   margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 6px 75px 0 0;
 }
 
-.promo-container-text {
-  width: 500px;
-  margin: 0 60px 0 0;
-  padding: 0;
-}*/
+.promo-features-caption:last-child,
+.promo-features-value:last-child {
+  padding: 6px 0 0 0;
+}
+
+.promo-catalog-item:nth-child(3) .promo-features-caption,
+.promo-catalog-item:nth-child(3) .promo-features-value {
+  padding: 6px 45px 0 0;
+}
+
+
 
 /* ================================================================ */
 /* ========================= раздел популярных ==================== */
@@ -1693,8 +1706,9 @@ closepopup();
   left: 50%;
   top: 50%;
   display: none;
-  /* магия центрования модального окна, подсмотренная в гугле */
-  transform: translate(-50%,-50%);
+  /*магия центрования модального окна, подсмотренная в гугле
+  больше не нужна, достаточно отрицательных маргинов
+  transform: translate(-50%,-50%);*/
 }
 
 .modal-map:target {
@@ -1709,6 +1723,7 @@ closepopup();
   width: 960px;
   height: 559px;
   box-shadow: 0px 10px 20px 0 rgba(4, 6, 6, 0.2);
+  margin: -279px 0 0 -480px;
 }
 
 .modal-close::before {
@@ -1739,6 +1754,7 @@ closepopup();
   height: 553px;
   background-color: #ffffff;
   box-shadow: 0px 10px 20px 0 rgba(4, 6, 6, 0.2);
+  margin: -276px -0 0 -480px;
 }
 
 .writeus-form {
