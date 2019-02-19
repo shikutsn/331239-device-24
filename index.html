@@ -72,30 +72,27 @@
 
       <section class="promo">
         <h2 class="visually-hidden">Промо слайды</h2>
-        <input class="visually-hidden promo-slider-input" type="radio" id="promo-slide-control-1" name="promo-slide-toggle" checked>
-        <input class="visually-hidden promo-slider-input" type="radio" id="promo-slide-control-2" name="promo-slide-toggle">
-        <input class="visually-hidden promo-slider-input" type="radio" id="promo-slide-control-3" name="promo-slide-toggle">
 
-
-
-        <div class="promo-slider-controls">
-          <label class="promo-slider-control--1" for="promo-slide-control-1">Первый слайд</label>
-          <label class="promo-slider-control--2" for="promo-slide-control-2">Второй слайд</label>
-          <label class="promo-slider-control--3" for="promo-slide-control-3">Третий слайд</label>
-        </div>
+        <!-- с именами в слайдере кошмар. Переделать, если будет время
+        все эти promo-slide-control, promo-slider-control и тд ужасны. -->
+        <input class="visually-hidden promo-slider-radio-1" type="radio" id="promo-slide-control-1" name="promo-slide-toggle" checked>
+        <input class="visually-hidden promo-slider-radio-2" type="radio" id="promo-slide-control-2" name="promo-slide-toggle">
+        <input class="visually-hidden promo-slider-radio-3" type="radio" id="promo-slide-control-3" name="promo-slide-toggle">
 
         <ol class="promo-catalog">
           <li class="promo-catalog-item">
             <span class="promo-caption">01</span>
-            <div class="promo-container-image">
-              <img src="img/slider-1.jpg" width="384" height="486" alt="Самая длинная селфи-палка">
+            <div class="promo-container-image-wrapper">
+              <div class="promo-container-image">
+                <img src="img/slider-1.png" width="384" height="486" alt="Самая длинная селфи-палка">
+              </div>
             </div>
             <div class="promo-container-description">
               <p class="promo-container-highlight">Делай селфи,<br>как Бен Стиллер!</p>
               <p class="promo-container-info">
                 Самая длинная палка для селфи доступна в нашем магазине. Восемь (Восемь, Карл!) метров длиной и весом всего 5 килограмм.
               </p>
-              <a class="button" href="#">Подробнее</a>
+              <a class="button button-slider-more" href="#">Подробнее</a>
               <table class="promo-features">
                 <tr>
                   <td class="promo-features-value">8,5 м</td>
@@ -112,15 +109,17 @@
           </li>
           <li class="promo-catalog-item">
             <span class="promo-caption">02</span>
-            <div class="promo-container-image">
-              <img src="img/slider-2.jpg" width="345" height="485" alt="Фитнес-браслет">
+            <div class="promo-container-image-wrapper">
+              <div class="promo-container-image">
+                <img src="img/slider-2.png" width="345" height="485" alt="Фитнес-браслет">
+              </div>
             </div>
             <div class="promo-container-description">
               <p class="promo-container-highlight">Худеем<br>правильно!</p>
               <p class="promo-container-info">
                 Мотивирующие фитнес-браслеты помогут найти в себе силы не пропускать занятия и соблюдать диету.
               </p>
-              <a class="button" href="#">Подробнее</a>
+              <a class="button button-slider-more" href="#">Подробнее</a>
               <table class="promo-features">
                 <tr>
                   <td class="promo-features-value">48 часов</td>
@@ -131,15 +130,17 @@
           </li>
           <li class="promo-catalog-item">
             <span class="promo-caption">03</span>
-            <div class="promo-container-image">
-              <img src="img/slider-3.jpg" width="526" height="334" alt="Квадрокоптер">
+            <div class="promo-container-image-wraper">
+              <div class="promo-container-image">
+                <img src="img/slider-3.png" width="526" height="334" alt="Квадрокоптер">
+              </div>
             </div>
             <div class="promo-container-description">
               <p class="promo-container-highlight">Порхает как бабочка,<br>жалит как пчела!</p>
               <p class="promo-container-info">
                 Этот обычный, на первый взгляд, квадрокоптер оснащен мощным лазером, замаскированным под стандартную камеру.
               </p>
-              <a class="button" href="#">Подробнее</a>
+              <a class="button button-slider-more" href="#">Подробнее</a>
               <table class="promo-features">
                 <tr>
                   <td class="promo-features-value">800 м</td>
@@ -153,6 +154,12 @@
             </div>
           </li>
         </ol>
+
+        <div class="promo-slider-controls">
+          <label class="promo-slider-control--1" for="promo-slide-control-1">Первый слайд</label>
+          <label class="promo-slider-control--2" for="promo-slide-control-2">Второй слайд</label>
+          <label class="promo-slider-control--3" for="promo-slide-control-3">Третий слайд</label>
+        </div>
 
       </section>
 
