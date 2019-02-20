@@ -1509,6 +1509,12 @@ li .footer-logout {
   cursor: pointer;
 }
 
+.price-filter-toggle:active {
+  width: 6px;
+  height: 6px;
+  top: 4px;
+}
+
 .price-filter-range-controls .price-filter-toggle-min {
   left: -5px;
 }
@@ -1546,18 +1552,21 @@ li .footer-logout {
   display: flex;
   /*width: 972px;*/
   width: 100%;
-  /* когда дело дойдет до блока сортировок, паддинги надо сделать 24 сверху
-  23 снизу, потому что лайн хейт у заголовка 24, а у ссылок в списках 30
-  а должно быть одной высоты с заголовком формы поиска */
-  padding: 21px 0 20px 0;
+  padding: 23px 0 24px 0;
   background-color: #ebebeb;
 }
 
 .sorting-caption {
-  margin: 0 0 0 72px;
+  margin: 0 0 0 62px;
+  padding: 0 0 0 10px;
+  width: 180px;
 }
+
 .sorting-direction {
   list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 60px;
 }
 
 .sorting-type {
@@ -1565,10 +1574,71 @@ li .footer-logout {
   padding: 0;
   display: flex;
   list-style: none;
+  /* чтобы выравнивался в строку с заголовком */
+  line-height: 24px;
+  width: 520px;
+  flex-wrap: wrap;
 }
 
 .sorting-type-item {
-  padding: 0 50px 0 0;
+  padding: 0;
+  margin: 0 0 0 20px;
+}
+
+.sorting-type-item a {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.sorting-type-item:first-child a {
+  color: rgba(0, 0, 0, 1);
+}
+
+.sorting-type-item a:hover,
+.sorting-type-item a:focus {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.sorting-type-item a:active {
+  color: rgba(0, 0, 0, 1);
+}
+
+.sorting-direction-item {
+  position: relative;
+}
+
+.sorting-direction-item:nth-child(1)::before {
+  content: "";
+  position: absolute;
+  width: 11px;
+  height: 10px;
+  top: 7px;
+  left: 19px;
+  background-image: url("../img/icon-up-dir.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  opacity: 0.2;
+}
+
+.sorting-direction-item:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  width: 11px;
+  height: 10px;
+  top: 7px;
+  right: 0px;
+  background-image: url("../img/icon-down-dir.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  opacity: 0.2;
+}
+
+.sorting-direction-item:hover,
+.sorting-direction-item:focus {
+  opacity: 0.6;
+}
+
+.sorting-direction-item:active {
+  opacity: 1;
 }
 
 .catalog-list {
