@@ -110,6 +110,13 @@ a {
 .button:active {
   color: rgba(0, 0, 0, 0.3);
 }
+
+.container {
+  width: 1440px;
+  margin: 0 auto;
+  padding: 0;
+}
+
 /* ================================================================ */
 /* ==================== хедер ======================================*/
 .main-header {
@@ -152,7 +159,7 @@ a {
   border-right: 2px solid #000000;
   border-bottom: none;
   background-color: #f7e296;
-  opacity: 0;
+  display: none;
 }
 
 .button-search:hover,
@@ -164,7 +171,6 @@ a {
 .button-search:active {
   color: rgba(255, 255, 255, 0.3);
   outline: none;
-  opacity: 1;
 }
 
 .search-form input[type="text"] {
@@ -185,6 +191,10 @@ a {
 
 .search-form:focus-within {
   border-bottom: 2px solid #000000;
+}
+
+.search-form:focus-within .button-search {
+  display: block;
 }
 
 .search-form::before {
@@ -229,10 +239,10 @@ a {
   outline: none;
 }
 
-.search-field:focus + .button-search {
+/*.search-field:focus + .button-search {
   opacity: 1;
 }
-
+*/
 .main-navigation a {
   color: #000000;
 }
@@ -522,7 +532,35 @@ li .header-logout {
 
 /* ================================================================ */
 
-/* ======================== заготовки ============================= */
+/* ======================== сервисы ============================= */
+.services {
+  width: 100%;
+  background-color: #e5e5e5;
+  margin-top: 180px;
+}
+
+.services-wrapper {
+  width: 1440px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.services-slider-controls {
+  width: 280px;
+  padding: 0 0 0 140px;
+  display: flex;
+  flex-direction: column;
+  /*flex-shrink: 0;*/
+}
+
+.services-slider {
+  width: 1020px;
+  list-style: none;
+  margin: 0;
+  padding: 0 300px 0 120px;
+  /*flex-shrink: 0;*/
+}
+
 .services-button {
   font-family: "Gilroy", Arial, sans-serif;
   font-size: 18px;
@@ -533,38 +571,44 @@ li .header-logout {
   text-transform: uppercase;
 }
 
-.popular-catalog a {
+.services-caption {
   font-family: "Gilroy", Arial, sans-serif;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 47px;
+  line-height: 48px;
   font-weight: 800;
   color: #000000;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.5px;
 }
 
-.services-button {
-  width: 160px;
-  /*height: 8px;*/
-  /* сделать в состоянии покоя 8px высотой #f7e296 полоску */
-  background-color: #f7e296;
-  /* текст слева и паддинг слева - временные решения */
-  /* на самом деле эти кнопки */
-  text-align: center;
-  vertical-align: middle;
+.services-slider-item {
+  display: none;
 }
 
-.services-button:hover,
-.services-button:focus {
-  height: 40px;
+.services-slider-item:nth-child(1) {
+  background-image: url("../img/services-delivery.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
 }
 
-.services-button:active {
-  /* в этом состоянии текст должен оставаться центрированным */
-  /* в области старой кнопки, а справа, видимо, пририсовывается черный п/у */
-  width: 278px;
-  color: #f7e184;
-  background-color: #000000;
+.services-slider-item:nth-child(2) {
+  background-image: url("../img/services-warranty.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
 }
+
+.services-slider-item:nth-child(3) {
+  background-image: url("../img/services-credit.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.services-slider-radio-1:checked ~ .services-slider .services-slider-item:nth-child(1),
+.services-slider-radio-2:checked ~ .services-slider .services-slider-item:nth-child(2),
+.services-slider-radio-3:checked ~ .services-slider .services-slider-item:nth-child(3) {
+  display: block;
+}
+
+
 
 /* ================== промо каталог =============================== */
 .promo-caption {
@@ -761,15 +805,25 @@ li .header-logout {
 /* ================================================================ */
 /* ========================= раздел популярных ==================== */
 
+.popular {
+  margin-top: 54px;
+}
 .popular-catalog {
   display: flex;
   width: 1160px;
-  margin: 105px auto 0 auto;
+  margin: 0 auto 0 auto;
+  padding: 0;
   list-style: none;
+  justify-content: space-between;
 }
 
-.popular-catalog-item {
-  margin: 0 20px;
+.popular-catalog a {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 800;
+  color: #000000;
+  letter-spacing: 0.2px;
 }
 
 .popular-catalog-item-picture {
@@ -782,21 +836,57 @@ li .header-logout {
 }
 
 .popular-catalog-item-caption {
-  display: block;
   width: 160px;
-  margin: 40px 0 0 0;
+  margin: 33px 0 0 0;
 }
+
+.popular-catalog-item:hover .popular-catalog-item-picture,
+.popular-catalog-item:focus .popular-catalog-item-picture {
+  background-color: #f0c52e;
+}
+
+.popular-catalog-item:active img,
+.popular-catalog-item:active p {
+  opacity: 0.3;
+}
+
+/* и снова неодинаковая стилизация разных элементов списка */
+
+.popular-catalog-item:nth-child(2) .popular-catalog-item-caption {
+  /* для переноса "моноподы для селфи" либо уменьшить ширину блока
+  либо вставить в html-разметку <br> */
+  width: 125px;
+}
+
+.popular-catalog-item:nth-child(2) .popular-catalog-item-picture {
+  /* чтобы иконка монопода была внизу квадратика фона */
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
 
 /* ================================================================ */
 /* ===================== раздел брендов =========================== */
 
 .brands-list {
   width: 1160px;
-  margin: 50px auto 0;
-  padding: 30px 0;
+  margin: 25px auto 0;
+  padding: 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   list-style: none;
+
+}
+
+.brands-list-item {
+  filter: grayscale(100%);
+  opacity: 0.2;
+}
+
+.brands-list-item:hover,
+.brands-list-item:focus {
+  filter: none;
+  opacity: 1;
 }
 
 /* ================================================================ */
@@ -1160,7 +1250,7 @@ li .footer-logout {
 .index-columns {
   width: 1160px;
   padding: 0 140px;
-  margin: 0 auto;
+  margin: 80px auto 0;
   display: flex;
   letter-spacing: normal;
 }
@@ -1265,12 +1355,6 @@ li .footer-logout {
 
 /* ====================================================================== */
 /* ========================= страница каталога ========================== */
-.container {
-  width: 1440px;
-  margin: 0 auto;
-  padding: 0;
-}
-
 .page-caption {
   width: 1100px;
   padding: 0 0 0 60px;

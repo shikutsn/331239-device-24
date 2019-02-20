@@ -18,8 +18,6 @@
             <form class="search-form" action="https://echo.htmlacademy.ru" method="get">
               <label class="visually-hidden" for="search">Поиск по сайту</label>
               <input class="search-field" id="search" type="text" name="search-request" value="" placeholder="Поиск по сайту">
-              <!-- кнопка скрывается с помощью прозрачности, это имеет побочный эффект,
-               заключающийся в том, что по ней можно кликнуть без фокуса на поле поиска -->
               <button class="button-search" type="submit">Найти</button>
             </form>
 
@@ -167,7 +165,7 @@
 
       </section>
 
-      <section class="popular">
+      <section class="popular container">
         <h2 class="visually-hidden">Популярные разделы</h2>
         <ul class="popular-catalog">
           <li class="popular-catalog-item">
@@ -175,7 +173,8 @@
               <div class="popular-catalog-item-picture">
                 <img src="img/popular-1.svg" width="97" height="55" alt="Виртуальная реальность">
               </div>
-              <span class="popular-catalog-item-caption">Виртуальная реальность</span>
+              <!-- а может это h3? -->
+              <p class="popular-catalog-item-caption">Виртуальная реальность</p>
             </a>
           </li>
           <li class="popular-catalog-item">
@@ -183,7 +182,7 @@
               <div class="popular-catalog-item-picture">
                 <img src="img/popular-2.svg" width="86" height="117" alt="Моноподы для селфи">
               </div>
-              <span class="popular-catalog-item-caption">Моноподы для селфи</span>
+              <p class="popular-catalog-item-caption">Моноподы для селфи</p>
             </a>
           </li>
           <li class="popular-catalog-item">
@@ -191,7 +190,7 @@
               <div class="popular-catalog-item-picture">
                 <img src="img/popular-3.svg" width="71" height="87" alt="Экшн-камеры">
               </div>
-              <span class="popular-catalog-item-caption">Экшн-камеры</span>
+              <p class="popular-catalog-item-caption">Экшн-камеры</p>
             </a>
           </li>
           <li class="popular-catalog-item">
@@ -199,7 +198,7 @@
               <div class="popular-catalog-item-picture">
                 <img src="img/popular-4.svg" width="107" height="65" alt="Фитнес-браслеты">
               </div>
-              <span class="popular-catalog-item-caption">Фитнес-браслеты</span>
+              <p class="popular-catalog-item-caption">Фитнес-браслеты</p>
             </a>
           </li>
           <li class="popular-catalog-item">
@@ -207,7 +206,7 @@
               <div class="popular-catalog-item-picture">
                 <img src="img/popular-5.svg" width="56" height="98" alt="Умные часы">
               </div>
-              <span class="popular-catalog-item-caption">Умные часы</span>
+              <p class="popular-catalog-item-caption">Умные часы</p>
             </a>
           </li>
           <li class="popular-catalog-item">
@@ -215,7 +214,7 @@
               <div class="popular-catalog-item-picture">
                 <img src="img/popular-6.svg" width="132" height="69" alt="Квадрокоптеры">
               </div>
-              <span class="popular-catalog-item-caption">Квадрокоптеры</span>
+              <p class="popular-catalog-item-caption">Квадрокоптеры</p>
             </a>
           </li>
         </ul>
@@ -223,53 +222,43 @@
 
       <section class="services">
         <h2 class="visually-hidden">Услуги</h2>
-        <ul class="services-catalog">
-          <li class="services-catalog-item">
-            <button class="services-button services-button-active" type="button">
-              Доставка
-            </button>
-            <div class="services-description-container">
+        <div class="services-wrapper">
+
+          <input class="visually-hidden services-slider-radio-1" type="radio" id="services-slide-control-1" name="services-slide-toggle" checked>
+          <input class="visually-hidden services-slider-radio-2" type="radio" id="services-slide-control-2" name="services-slide-toggle">
+          <input class="visually-hidden services-slider-radio-3" type="radio" id="services-slide-control-3" name="services-slide-toggle">
+
+          <div class="services-slider-controls">
+            <label class="services-button" for="services-slide-control-1">Доставка</label>
+            <label class="services-button" for="services-slide-control-2">Гарантия</label>
+            <label class="services-button" for="services-slide-control-3">Кредит</label>
+          </div>
+
+          <ul class="services-slider">
+            <li class="services-slider-item">
               <h3 class="services-caption">Доставка</h3>
               <p class="services-description">
                 Мы с удовольствием доставим ваш товар прямо к вашему подъезду совершенно бесплатно! Ведь мы неплохо заработаем, поднимая его на ваш этаж.
               </p>
-              <div class="services-description-logo">
-                <!-- img/services-delivery.svg - Логотип доставки -->
-              </div>
-            </div>
-          </li>
-          <li class="services-catalog-item">
-            <button class="services-button" type="button">
-              Гарантия
-            </button>
-            <div class="services-description-container">
+            </li>
+            <li class="services-slider-item">
               <h3 class="services-caption">Гарантия</h3>
               <p class="services-description">
                 Если из-за возгорания купленного у нас товара у вас сгорит дом — не переживайте, мы выдадим вам новый.<br>Товар, не дом, конечно же.
               </p>
-              <div class="services-description-logo">
-                <!-- img/services-warranty.svg - Логотип гарантии -->
-              </div>
-            </div>
-          </li>
-          <li class="services-catalog-item">
-            <button class="services-button" type="button">
-              Кредит
-            </button>
-            <div class="services-description-container">
+            </li>
+            <li class="services-slider-item">
               <h3 class="services-caption">Кредит</h3>
               <p class="services-description">
                 Залезть в долговую яму стало проще! Кредитные консультанты подберут для вас наиболее выгодные условия кредита. Выгодные для нашего банка, разумеется.
               </p>
-              <div class="services-description-logo">
-                <!-- img/services-credit.svg - Логотип кредита -->
-              </div>
-            </div>
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
+
       </section>
 
-      <section class="brands">
+      <section class="brands container">
         <h2 class="visually-hidden">Популярные бренды</h2>
         <ul class="brands-list">
           <li class="brands-list-item">
