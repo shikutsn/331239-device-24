@@ -90,7 +90,7 @@ a {
   content: "";
   position: absolute;
   background-color: #f0c52e;
-  z-index: -1;
+  z-index: -5;
   width: 100%;
   height: 8px;
   top: 16px;
@@ -535,6 +535,7 @@ li .header-logout {
 /* ======================== сервисы ============================= */
 .services {
   width: 100%;
+  min-width: 1440px;
   background-color: #e5e5e5;
   margin-top: 180px;
 }
@@ -547,21 +548,38 @@ li .header-logout {
 
 .services-slider-controls {
   width: 280px;
-  padding: 0 0 0 140px;
+  padding: 0 0 40px 140px;
   display: flex;
   flex-direction: column;
-  /*flex-shrink: 0;*/
+  flex-shrink: 0;
+  /*border-right: 7px solid #000000;*/
+  position: relative;
+  top: -100px;
+}
+
+.services-slider-controls::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 319px;
+  background-color: #000000;
+  right: -4px;
 }
 
 .services-slider {
-  width: 1020px;
+  width: 900px;
   list-style: none;
   margin: 0;
-  padding: 0 300px 0 120px;
-  /*flex-shrink: 0;*/
+  padding: 0 0 0 120px;
+  flex-shrink: 0;
 }
 
 .services-button {
+  /* с кнопками этого слайдера замечен странный эффект:
+  когда пункт активен (подсвечивается черным), текст в нем съезжает в сторону
+  от неактивного состояния, причем в доставке он съезжает налево, а в
+  двух других пунктах - направо. Это можно подправить разными маргинами для разных пунктов,
+  но я предпочту верить, что "у дизайнера дрогнула рука" (c) */
   font-family: "Gilroy", Arial, sans-serif;
   font-size: 18px;
   line-height: 24px;
@@ -569,7 +587,57 @@ li .header-logout {
   color: #000000;
   letter-spacing: 3.6px;
   text-transform: uppercase;
+  width: 160px;
+  text-align: center;
+  height: 40px;
+  position: relative;
+  display: block;
+  margin: 24px 0 0 0;
+  padding: 0;
+  /*background-color: transparent;*/
+  /* для выравнивания текста внутри кнопок. Костыль, но работает */
+  line-height: 40px;
+  z-index: 10;
 }
+
+.services-button:first-child {
+  margin: 80px 0 0 0;
+}
+
+.services-button::before {
+  content: "";
+  position: absolute;
+  background-color: #f0c52e;
+  z-index: -5;
+  width: 100%;
+  height: 8px;
+  top: 16px;
+  left: 0px;
+}
+
+.services-button:hover::before,
+.services-button:focus::before {
+  height: 40px;
+  top: 0px;
+}
+
+.services-slider-radio-1:checked ~ .services-slider-controls .services-button:nth-child(1),
+.services-slider-radio-2:checked ~ .services-slider-controls .services-button:nth-child(2),
+.services-slider-radio-3:checked ~ .services-slider-controls .services-button:nth-child(3) {
+  /* перекрашивание лейбла выбранного слайда (шрифт надписи)*/
+  color: #f7e184;
+}
+
+.services-slider-radio-1:checked ~ .services-slider-controls .services-button:nth-child(1)::before,
+.services-slider-radio-2:checked ~ .services-slider-controls .services-button:nth-child(2)::before,
+.services-slider-radio-3:checked ~ .services-slider-controls .services-button:nth-child(3)::before {
+  /* перекрашивание лейбла выбранного слайда (фон) */
+  background-color: #000000;
+  width: 280px;
+  height: 40px;
+  top: 0px;
+}
+
 
 .services-caption {
   font-family: "Gilroy", Arial, sans-serif;
@@ -578,28 +646,38 @@ li .header-logout {
   font-weight: 800;
   color: #000000;
   letter-spacing: 0.5px;
+  margin: 0;
+  padding: 0;
+}
+
+.services-description {
+  margin: 31px 0 0 0;
+  padding: 0 460px 80px 0;
 }
 
 .services-slider-item {
   display: none;
+  margin: -47px 0 0 0;
+  padding: 20px 0 0 0;
 }
 
 .services-slider-item:nth-child(1) {
   background-image: url("../img/services-delivery.svg");
   background-repeat: no-repeat;
-  background-position: 0 0;
+  /*background-position: 554px 12px;*/
+  background-position: 558px 32px;
 }
 
 .services-slider-item:nth-child(2) {
   background-image: url("../img/services-warranty.svg");
   background-repeat: no-repeat;
-  background-position: 0 0;
+  background-position: 539px 8px;
 }
 
 .services-slider-item:nth-child(3) {
   background-image: url("../img/services-credit.svg");
   background-repeat: no-repeat;
-  background-position: 0 0;
+  background-position: 531px 9px;
 }
 
 .services-slider-radio-1:checked ~ .services-slider .services-slider-item:nth-child(1),
@@ -607,8 +685,6 @@ li .header-logout {
 .services-slider-radio-3:checked ~ .services-slider .services-slider-item:nth-child(3) {
   display: block;
 }
-
-
 
 /* ================== промо каталог =============================== */
 .promo-caption {
@@ -870,7 +946,7 @@ li .header-logout {
 
 .brands-list {
   width: 1160px;
-  margin: 25px auto 0;
+  margin: 94px auto 0;
   padding: 0;
   display: flex;
   justify-content: space-between;
@@ -965,11 +1041,11 @@ li .header-logout {
 /* ========================== футер =============================== */
 .main-footer {
   color: #ffffff;
-
   background-color: #464646;
-
   width: 100%;
-
+  /* без min-width странные эффекты при максимальном зуме: 100% ширины - это ширина
+  вьюпорта и правый край, который вылезал за вьюпорт, терял цвет фона */
+  min-width: 1440px;
 }
 
 .footer-navigation {
@@ -1250,7 +1326,7 @@ li .footer-logout {
 .index-columns {
   width: 1160px;
   padding: 0 140px;
-  margin: 80px auto 0;
+  margin: 84px auto 0;
   display: flex;
   letter-spacing: normal;
 }
@@ -1362,7 +1438,7 @@ li .footer-logout {
 }
 
 .catalog-columns-wrapper {
-  /*width: 1440px;*/
+  min-width: 1440px;
   width: 100%;
   padding: 0;
   margin: 47px auto 0;
