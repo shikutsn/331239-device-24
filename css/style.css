@@ -576,10 +576,11 @@ li .header-logout {
 
 .services-button {
   /* с кнопками этого слайдера замечен странный эффект:
-  когда пункт активен (подсвечивается черным), текст в нем съезжает в сторону
-  от неактивного состояния, причем в доставке он съезжает налево, а в
-  двух других пунктах - направо. Это можно подправить разными маргинами для разных пунктов,
-  но я предпочту верить, что "у дизайнера дрогнула рука" (c) */
+  в макете, когда пункт активен (подсвечивается черным), текст в нем
+  съезжает в сторону от неактивного состояния, причем в доставке
+  он съезжает налево, а в двух других пунктах - направо. Это можно
+  подправить разными маргинами для разных пунктов, но я предпочту
+  верить, что "у дизайнера дрогнула рука" (c) */
   font-family: "Gilroy", Arial, sans-serif;
   font-size: 18px;
   line-height: 24px;
@@ -1506,9 +1507,78 @@ li .footer-logout {
   width: 760px;
   margin: 0 0 0 72px;
   padding: 0;
-  list-style: none;
-  justify-content: space-between;
+  /*justify-content: space-between;*/
   background-color: #ebebeb;
+}
+
+.pagination-pages {
+  display: flex;
+  width: 488px;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pagination-button,
+.pagination-page {
+  display: block;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 24px;
+  letter-spacing: 3.2px;
+  margin: 0;
+}
+
+.pagination-button {
+  color: #000000;
+  text-transform: uppercase;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.pagination-button-previous {
+  width: 98px;
+  padding: 23px 23px 23px 15px;
+}
+
+.pagination-button-next {
+  width: 97px;
+  padding: 23px 18px 23px 21px;
+}
+
+.pagination-button-previous:hover,
+.pagination-button-previous:focus,
+.pagination-button-next:hover,
+.pagination-button-next:focus {
+  background-color: #d9d9d9;
+}
+
+.pagination-button-previous:active,
+.pagination-button-next:active {
+  color: rgba(0, 0, 0, 0.3)
+}
+
+.pagination-page {
+  color: rgba(0, 0, 0, 0.3);
+  padding: 23px 9px;
+  margin: 0 5px;
+}
+
+.pagination-page:hover,
+.pagination-page:focus {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.pagination-page:active {
+  color: rgba(0, 0, 0, 1);
+}
+
+.pagination-item-current .pagination-page {
+  color: #000000;
 }
 
 .breadcrumbs {
