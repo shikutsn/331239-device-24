@@ -26,7 +26,11 @@
     font-weight: 300;
 }
 
-.visually-hidden:not(:focus):not(:active) {
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  /* для чекбоксов и радиокнопок свой visually-hidden, который не пропадает
+  при фокусе */
   position: absolute;
 
   width: 1px;
@@ -1044,35 +1048,58 @@ li .header-logout {
   color: #ffffff;
   background-color: #464646;
   width: 100%;
-  /* без min-width странные эффекты при максимальном зуме: 100% ширины - это ширина
-  вьюпорта и правый край, который вылезал за вьюпорт, терял цвет фона */
+  /* без min-width странные эффекты при максимальном зуме: 100% ширины -
+  это ширина вьюпорта и правый край, который вылезал за вьюпорт,
+  терял цвет фона */
   min-width: 1440px;
 }
 
 .footer-navigation {
-  display: flex;
+  /*display: flex;*/
   width: 1160px;
   margin: 83px auto 0;
   padding: 65px 140px 55px;
 }
 
-/*.main-footer {
-  color: #ffffff;
-
-  background-color: #464646;
-
-  width: 1160px;
-  margin: 83px auto 0;
-  padding: 65px 140px 55px;
+.catalog-page .footer-navigation {
+  margin: 0 auto;
 }
 
-.footer-navigation {
+.footer-user-menu-wrapper {
   display: flex;
-  width: 100%;
-}*/
+  margin: 0 0 21px 0;
+  padding: 0;
+}
+
+.footer-site-navigation-wrapper {
+  display: flex;
+  margin: 0 0 61px 0;
+  padding: 0;
+}
+
+.footer-misc-info-wrapper {
+  display: flex;
+  margin: 0;
+  padding: 0 0 3px 0;
+  position: relative;
+}
+
+.footer-misc-info-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 7px;
+  top: 13px;
+  left: 0px;
+  background-color: #ffc600;
+}
 
 .footer-site-navigation a {
   color: #ffffff;
+}
+
+.footer-site-navigation li {
+  padding-top: 3px;
 }
 
 .footer-site-navigation a:hover,
@@ -1082,6 +1109,15 @@ li .header-logout {
 
 .footer-site-navigation a:active {
   opacity: 0.3;
+}
+
+.footer-user-menu {
+  margin: -2px 0 0 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  width: 997px;
 }
 
 .footer-user-menu a {
@@ -1098,37 +1134,11 @@ li .header-logout {
   opacity: 0.3;
 }
 
-
-.footer-left-column-wrapper {
-  width: 360px;
-}
-
-.footer-middle-column-wrapper {
-  width: 440px;
-}
-
-.footer-right-column-wrapper {
-  width: 360px;
-  display: flex;
-  flex-direction: column;
-}
-
-
 .footer-logo-address {
-  margin: 21px 0 0 0;
+  margin: 0;
   padding: 0;
   letter-spacing: normal;
-  position: relative;
-}
-
-.footer-logo-address::after {
-  content: "";
-  position: absolute;
-  width: 80px;
-  height: 7px;
-  top: 107px;
-  left: 0px;
-  background-color: #ffc600;
+  /*position: relative;*/
 }
 
 .footer-logo img:hover,
@@ -1148,33 +1158,34 @@ li .header-logout {
   opacity: 0.3;
 }
 
-.footer-user-menu {
-  width: 100%;
-  margin: -2px 0 0 0;
-  padding: 0;
-  display: flex;
-}
-
-.catalog-page .footer-user-menu {
-  /* костыль с отрицательным левым маргином для страницы каталога
-  (не учел, делая сетку футера главной тот факт, кто меню пользователя
-  наползает на среднюю колонку на внутренних страницах).
-  Переделать бы на другую сетку... */
-  width: 480px;
-  margin: -2px 0 0 -120px;
-}
 
 .footer-user-navigation {
-  margin: 0 32px 0 auto;
-  padding: 0 0 0 30px;
-  width: 50px;
-  position: relative;
+  margin: 0;
+  padding: 0;
   list-style: none;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.catalog-page .footer-user-navigation {
-  width: 200px;
-  display: flex;
+.footer-login {
+  margin: 0;
+  padding: 0 0 0 30px;
+  position: relative;
+}
+
+.footer-login::before {
+  content: "";
+
+  position: absolute;
+  width: 13px;
+  height: 12px;
+  left: 4px;
+  top: 4px;
+
+  background-image: url("../img/user-footer.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  opacity: 1;
 }
 
 li .footer-logout {
@@ -1187,23 +1198,9 @@ li .footer-logout {
   margin: 0 0 0 19px;
 }
 
-.footer-login::before {
-  content: "";
-
-  position: absolute;
-  width: 13px;
-  height: 12px;
-  left: 4px;
-  top: 9px;
-
-  background-image: url("../img/user-footer.svg");
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  opacity: 1;
-}
-
 .footer-loggedin {
-  margin: 0 0 0 -4px;
+  position: relative;
+  padding: 0 0 0 30px;
 }
 
 .footer-loggedin::before {
@@ -1212,8 +1209,8 @@ li .footer-logout {
   position: absolute;
   width: 13px;
   height: 12px;
-  left: 0px;
-  top: 9px;
+  left: 4px;
+  top: 4px;
 
   background-image: url("../img/user-footer.svg");
   background-repeat: no-repeat;
@@ -1222,9 +1219,8 @@ li .footer-logout {
 }
 
 .footer-compare-button {
-  margin: 0 28px 0 0;
-  padding: 0 0 0 25px;
-  width: 75px;
+  margin: 0 0 0 33px;
+  padding: 0 0 0 30px;
   position: relative;
 }
 
@@ -1234,7 +1230,7 @@ li .footer-logout {
   position: absolute;
   width: 10px;
   height: 10px;
-  left: 5px;
+  left: 10px;
   top: 11px;
 
   background-image: url("../img/compare-footer.svg");
@@ -1244,10 +1240,9 @@ li .footer-logout {
 }
 
 .footer-cart-button {
-  margin: 0 -2px 0 0;
-  padding: 0 0 0 25px;
-  width: 65px;
-  text-align: right;
+  margin: 0 0 0 32px;
+  padding: 0 0 0 30px;
+  /*text-align: right;*/
   position: relative;
 }
 
@@ -1257,7 +1252,7 @@ li .footer-logout {
   position: absolute;
   width: 12px;
   height: 12px;
-  left: 7px;
+  left: 9px;
   top: 9px;
 
   background-image: url("../img/cart-footer.svg");
@@ -1267,48 +1262,37 @@ li .footer-logout {
 }
 
 .footer-logo-phone {
-  margin: 37px 0 0 auto;
+  margin: 0 0 0 auto;
   padding: 0;
   letter-spacing: normal;
 }
 
 .footer-copyright {
-  margin: 62px -1px 0 auto;
-  padding: 0;
-}
-
-.footer-login {
-  margin: 0;
+  margin: -3px 0 0 auto;
   padding: 0;
 }
 
 .footer-site-navigation {
-  margin: 69px 0 0 0;
+  margin: 0 0 0 163px;
   padding: 0;
   display: flex;
   list-style: none;
 }
 
-.footer-site-navigation li:nth-child(1) {
-  width: 125px;
-  margin: 0 0 0 8px;
-}
-
 .footer-site-navigation li:nth-child(2) {
-  width: 115px;
-  margin: 0 0 0 33px;
+  margin: 0 0 0 34px;
 }
 
 .footer-site-navigation li:nth-child(3) {
-  width: 120px;
   margin: 0 0 0 32px;
 }
 
 .footer-social-buttons {
   display: flex;
-  margin: 60px 140px 0 140px;
+  width: 142px;
+  margin: 0 0 0 508px;
   padding: 0;
-  justify-content: space-around;
+  justify-content: space-between;
   opacity: 0.3;
   list-style: none;
 }
@@ -1505,7 +1489,7 @@ li .footer-logout {
 .pagination-list {
   display: flex;
   width: 760px;
-  margin: 0 0 0 72px;
+  margin: 0 0 77px 72px;
   padding: 0;
   /*justify-content: space-between;*/
   background-color: #ebebeb;
@@ -1713,29 +1697,6 @@ li .footer-logout {
 .filter-option label {
   position: relative;
   /*cursor: pointer;*/
-}
-
-input[type="checkbox"].visually-hidden,
-input[type="radio"].visually-hidden {
-  /* очень долго возился прежде чем понял, что рекомендованный visually-hidden,
-  который в самом начале файла стилей приведен, перестает работать при
-  фокусе/активе и из-за этого чекбоксы и радиокнопки в фильтре переставали быть
-  спрятанными. Так что переопределю для них скопипасченный из барбершопа.
-  Это же распространилось и на слайдер на главной */
-
-  position: absolute;
-
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-
-  white-space: nowrap;
-
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
 }
 
 .filter-input-checkbox + label::before {
