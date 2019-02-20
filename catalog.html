@@ -92,13 +92,25 @@
           <h2 class="filter-caption">Фильтр:</h2>
           <form class="filter" action="https://htmlacademy.ru" method="get">
 
-
-
             <fieldset>
-              <legend class="filter-price-caption">Стоимость</legend>
-              <input class="filter-price" type="range" name="price" min="0" max="10000" value="5000" step="100">
-              <span class="filter-price-min">от 0</span>
-              <span class="filter-price-max">до 5000</span>
+              <legend class="price-filter-caption">Стоимость</legend>
+              <div class="price-filter">
+                <div class="price-filter-range-controls">
+                  <div class="price-filter-range-controls">
+                    <div class="price-filter-scale">
+                      <div class="price-filter-bar"></div>
+                    </div>
+                    <div class="price-filter-toggle price-filter-toggle-min"></div>
+                    <div class="price-filter-toggle price-filter-toggle-max"></div>
+                  </div>
+                  <div class="price-filter-price-controls">
+                  </div>
+                </div>
+                <div class="price-filter-price-controls">
+                  <label class="price-filter-min-price">от <input name="price-filter-min-price" type="text" value="0"></label>
+                  <label class="price-filter-max-price">до <input name="price-filter-max-price" type="text" value="5000"></label>
+                </div>
+              </div>
             </fieldset>
           <!-- img/icon-up-dir.svg img/icon-down-dir.svg - иконки направления сортировки -->
             <fieldset>

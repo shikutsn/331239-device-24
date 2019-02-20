@@ -60,6 +60,11 @@ a {
   text-decoration: none;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* ==================== универсальные стили ======================= */
 .button {
   font-family: "Gilroy", Arial, sans-serif;
@@ -374,6 +379,7 @@ a {
   margin: 0;
   padding: 0 0 34px 0;
   list-style: none;
+  z-index: 100;
 }
 
 .catalog-container-caption:hover ~ .catalog-container-items {
@@ -561,7 +567,8 @@ li .header-logout {
   content: "";
   position: absolute;
   width: 7px;
-  height: 319px;
+  /* чтобы длина разделителя увеличивалась при увеличении объема текста в слайде */
+  height: calc(100% + 30px);
   background-color: #000000;
   right: -4px;
 }
@@ -1463,6 +1470,78 @@ li .footer-logout {
   /*flex-shrink: 0;*/
 }
 
+/* =============== фильтр, честно стыренный из материалов ==================== */
+.price-filter {
+  width: 201px;
+  margin-top: 7px;
+}
+
+.price-filter-range-controls {
+  height: 16px;
+  margin-bottom: 6px;
+  padding: 14px 0 0 0;
+  position: relative;
+}
+
+.price-filter-range-controls .price-filter-scale {
+  height: 2px;
+  background: #dbdbdb;
+}
+
+.price-filter-range-controls .price-filter-bar {
+  width: 56%;
+  height: 2px;
+  background: #91c92f;
+}
+
+.price-filter-range-controls .price-filter-toggle {
+  position: absolute;
+
+  top: 5px;
+  width: 4px;
+  height: 4px;
+  padding: 0;
+
+  border: 8px solid #ffffff;
+  background-color: #ababab;
+  box-shadow: 0 2px 1px 0 #cfcfcf;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.price-filter-range-controls .price-filter-toggle-min {
+  left: -5px;
+}
+
+.price-filter-range-controls .price-filter-toggle-max {
+  left: 108px;
+}
+
+
+.price-filter-price-controls input,
+.price-filter-price-controls label {
+  font-family: "Gilroy", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 24px;
+  letter-spacing: normal;
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.price-filter-price-controls label {
+  width: 35%;
+}
+
+.price-filter-price-controls input {
+  width: 66px;
+  border: none;
+  text-align: left;
+  background-color: #ebebeb;
+}
+
+
+/* =========================================================================== */
+
 .sorting {
   display: flex;
   /*width: 972px;*/
@@ -1604,11 +1683,11 @@ li .footer-logout {
 }
 
 .filter > fieldset:nth-child(2) {
-  margin-top: 104px;
+  margin-top: 45px;
 }
 
 .filter > fieldset:nth-child(3) {
-  margin-top: 56px;
+  margin-top: 43px;
 }
 
 .filter > fieldset:nth-child(4) {
@@ -1794,6 +1873,12 @@ li.catalog-item:nth-child(2) h3 {
 .catalog-item:hover .catalog-item-image {
   /* странно, по вместо 0.7 надо 0.3 для того, чтоб было похоже на макет */
   opacity: 0.3;
+}
+
+.catalog-item-image {
+  /* защита от больших картинок? хотя она избыточна с глобальным img {max-width: 100%;} */
+  /*width: 360px;
+  height: 380px;*/
 }
 
 .catalog-buy {
