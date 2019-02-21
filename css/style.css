@@ -1,29 +1,33 @@
 @font-face {
-    font-family: "Open Sans";
-    src: url("../fonts/opensanslight.woff2") format("woff2"),
-         url("../fonts/opensanslight.woff") format("woff");
-    font-weight: 300;
+  font-weight: 300;
+  font-family: "Open Sans";
+
+  src: url("../fonts/opensanslight.woff2") format("woff2"),
+  url("../fonts/opensanslight.woff") format("woff");
 }
 
 @font-face {
-    font-family: "Open Sans";
-    src: url("../fonts/opensans.woff2") format("woff2"),
-         url("../fonts/opensans.woff") format("woff");
-    font-weight: normal;
+  font-weight: normal;
+  font-family: "Open Sans";
+
+  src: url("../fonts/opensans.woff2") format("woff2"),
+  url("../fonts/opensans.woff") format("woff");
 }
 
 @font-face {
-    font-family: "Gilroy";
-    src: url("../fonts/gilroyextrabold.woff2") format("woff2"),
-         url("../fonts/gilroyextrabold.woff") format("woff");
-    font-weight: 800;
+  font-weight: 800;
+  font-family: "Gilroy";
+
+  src: url("../fonts/gilroyextrabold.woff2") format("woff2"),
+  url("../fonts/gilroyextrabold.woff") format("woff");
 }
 
 @font-face {
-    font-family: "Gilroy";
-    src: url("../fonts/gilroylight.woff2") format("woff2"),
-         url("../fonts/gilroylight.woff") format("woff");
-    font-weight: 300;
+  font-weight: 300;
+  font-family: "Gilroy";
+
+  src: url("../fonts/gilroylight.woff2") format("woff2"),
+  url("../fonts/gilroylight.woff") format("woff");
 }
 
 .visually-hidden:not(:focus):not(:active),
@@ -36,26 +40,27 @@ input[type="radio"].visually-hidden {
   width: 1px;
   height: 1px;
   margin: -1px;
-  border: 0;
   padding: 0;
+  overflow: hidden;
 
   white-space: nowrap;
 
-  clip-path: inset(100%);
+  border: 0;
+
   clip: rect(0 0 0 0);
-  overflow: hidden;
+  clip-path: inset(100%);
 }
 
 body {
   margin: 0;
   padding: 0;
 
-  font-family: "Open Sans", Arial, sans-serif;
+  font-weight: 300;
   font-size: 15px;
   line-height: 30px;
-  font-weight: 300;
-  letter-spacing: 0.2px;
+  font-family: "Open Sans", Arial, sans-serif;
   color: #464646;
+  letter-spacing: 0.2px;
 
   background-color: #ffffff;
 }
@@ -71,45 +76,50 @@ img {
 
 /* ==================== универсальные стили ======================= */
 .button {
-  font-family: "Gilroy", Arial, sans-serif;
-  font-size: 18px;
-  line-height: 24px;
-  letter-spacing: 3.6px;
-  font-weight: 800;
-  color: #000000;
-  text-align: center;
-  vertical-align: middle;
-  text-transform: uppercase;
-  width: 220px;
-  height: 40px;
   position: relative;
-  display: block;
-  margin: 0;
-  padding: 0;
-  border: none;
-  background-color: transparent;
-  /* для выравнивания текста внутри кнопок. Костыль, но работает */
-  line-height: 40px;
   /* z-index не авто потому, что на странице каталога цвет фона формы фильтров
   не давал изменять фоны кнопок */
   z-index: 10;
+
+  display: block;
+  width: 220px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+
+  font-weight: 800;
+  font-size: 18px;
+  /* для выравнивания текста внутри кнопок. Костыль, но работает */
+  line-height: 40px;
+  font-family: "Gilroy", Arial, sans-serif;
+  vertical-align: middle;
+  text-align: center;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 3.6px;
+
+  background-color: transparent;
+  border: none;
 }
 
 .button::before {
   content: "";
   position: absolute;
-  background-color: #f0c52e;
+  top: 16px;
+  left: 0;
   z-index: -5;
+
   width: 100%;
   height: 8px;
-  top: 16px;
-  left: 0px;
+
+  background-color: #f0c52e;
 }
 
 .button:hover::before,
 .button:focus::before {
+  top: 0;
+
   height: 40px;
-  top: 0px;
 }
 
 .button:active a {
@@ -129,56 +139,62 @@ img {
 /* ================================================================ */
 /* ==================== хедер ======================================*/
 .main-header {
-  background-color: #f7e296;
   width: 1040px;
   margin: 40px auto 0;
   padding: 25px 60px 145px 60px;
+
+  background-color: #f7e296;
 }
 
 .catalog-container a,
 .header-site-navigation a,
 .footer-site-navigation a {
-  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 800;
   font-size: 18px;
   line-height: 24px;
-  font-weight: 800;
+  font-family: "Gilroy", Arial, sans-serif;
   color: #000000;
-  letter-spacing: 3.6px;
   text-transform: uppercase;
+  letter-spacing: 3.6px;
 }
 
 .catalog-container-items a {
-  font-family: "Open Sans", Arial, sans-serif;
+  z-index: 50;
+
+  font-weight: 300;
   font-size: 15px;
   line-height: 36px;
-  font-weight: 300;
-  letter-spacing: 0.2px;
+  font-family: "Open Sans", Arial, sans-serif;
   color: #464646;
   text-transform: none;
-  z-index: 50;
+  letter-spacing: 0.2px;
 }
 
 .button-search {
+  display: none;
+  align-self: flex-end;
   width: 85px;
   height: 49px;
+
   font-family: inherit;
-  align-self: flex-end;
+
+  background-color: #f7e296;
   border-top: 2px solid #000000;
-  border-left: 2px solid #000000;
   border-right: 2px solid #000000;
   border-bottom: none;
-  background-color: #f7e296;
-  display: none;
+  border-left: 2px solid #000000;
 }
 
 .button-search:hover,
 .button-search:focus {
   color: #ffffff;
+
   background-color: #000000;
 }
 
 .button-search:active {
   color: rgba(255, 255, 255, 0.3);
+
   outline: none;
 }
 
@@ -189,12 +205,14 @@ img {
 
 .search-form {
   position: relative;
+
   display: flex;
   justify-content: space-between;
+  width: 440px;
   margin: 0;
   padding: 0;
-  width: 440px;
   /* прозрачная граница снизу, которая подсвечивается при фокусе поля поиска */
+
   border-bottom: 2px solid transparent;
 }
 
@@ -208,12 +226,12 @@ img {
 
 .search-form::before {
   content: "";
-
   position: absolute;
+  top: 26px;
+  left: 3px;
+
   width: 16px;
   height: 16px;
-  left: 3px;
-  top: 26px;
 
   background-image: url("../img/search.svg");
   background-repeat: no-repeat;
@@ -221,13 +239,14 @@ img {
 }
 
 .search-field {
-  padding: 18px 0 8px 38px;
-  margin: 0;
   width: 300px;
-  font-family: "Open Sans", Arial, sans-serif;
+  margin: 0;
+  padding: 18px 0 8px 38px;
+
+  font-weight: 300;
   font-size: 15px;
   line-height: 30px;
-  font-weight: 300;
+  font-family: "Open Sans", Arial, sans-serif;
   letter-spacing: 0.2px;
 }
 
@@ -245,13 +264,10 @@ img {
 
 .search-form input[type="text"]:focus {
   color: #000000;
+
   outline: none;
 }
 
-/*.search-field:focus + .button-search {
-  opacity: 1;
-}
-*/
 .main-navigation a {
   color: #000000;
 }
@@ -277,17 +293,18 @@ img {
 }
 
 .header-logo {
-  /* должен ли логотип в хедере на главной вести себя по стайлгайду при
-  ховере и активе? то есть менять прозрачность при том, что на главной логотип -
-  это не ссылка. Мне кажется, что должен. Так и сделано */
-  margin: 0;
-  padding: 0;
   position: absolute;
   top: -44px;
+
+  margin: 0;
+  padding: 0;
 }
 
 .header-logo:hover,
 .header-logo:focus {
+  /* должен ли логотип в хедере на главной вести себя по стайлгайду при
+  ховере и активе? то есть менять прозрачность при том, что на главной логотип -
+  это не ссылка. Мне кажется, что должен. Так и сделано */
   opacity: 0.6;
 }
 
@@ -296,27 +313,30 @@ img {
 }
 
 .header-left-column-wrapper {
-  width: 540px;
+  position: relative;
+
   display: flex;
   flex-direction: column;
-  position: relative;
+  width: 540px;
   margin: 0;
   padding: 0;
 }
 
 .header-right-column-wrapper {
-  width: 500px;
   display: flex;
   flex-direction: column;
+  width: 500px;
   margin: 0;
   padding: 18px 0 0 0;
 }
 
 .header-site-navigation {
+  position: relative;
+
   display: flex;
   width: 100%;
   padding: 0;
-  position: relative;
+
   list-style: none;
 }
 
@@ -326,46 +346,47 @@ img {
 
 .header-site-navigation li:nth-child(1) {
   width: 125px;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .header-site-navigation li:nth-child(2) {
   width: 115px;
-  padding: 0;
   margin: 0 0 0 33px;
+  padding: 0;
 }
 
 .header-site-navigation li:nth-child(3) {
   width: 120px;
-  padding: 0;
   margin: 0 0 0 107px;
+  padding: 0;
 }
 
 .catalog-container {
+  position: relative;
   /* снова злосчастный -1 пиксель слева */
+
   margin: 27px 0 0 -1px;
   padding: 0;
-  position: relative;
 }
 
 .catalog-container-caption {
+  position: relative;
   /* паддинг справа для плюсика-псевдоэлемента */
   /* а слева - чтобы была сплошная область для ховера при показе меню */
+
   padding: 0 30px 25px 0;
-  position: relative;
-  /*background-color: rgba(0, 200, 0, 0.5);*/
 }
 
 .catalog-container-caption::before {
   /* плюсик-псевдоэлемент */
   content: "";
-
   position: absolute;
+  top: 2px;
+  left: 231px;
+
   width: 16px;
   height: 16px;
-  left: 231px;
-  top: 2px;
 
   background-image: url("../img/plus.png");
   background-repeat: no-repeat;
@@ -386,17 +407,20 @@ img {
 
 .catalog-container-items {
   /* выпадающее меню каталога */
+  position: absolute;
+  top: 47px;
+  left: -59px;
+  z-index: 100;
+
   display: none;
   width: 1160px;
-  position: absolute;
-  left: -59px;
-  top: 47px;
-  background-color: #f7e296;
   margin: 0;
   padding: 0 0 34px 0;
+
   list-style: none;
-  z-index: 100;
-  /* ie11:  меню не выпадает до границы хедера. Такое чувство, что не учитывается
+
+  background-color: #f7e296;
+  /* #ie11:  меню не выпадает до границы хедера. Такое чувство, что не учитывается
   паддинг снизу. Мин-хейт не помогает. Будет время - попробовать с
   box-sizing: border-box */
   /*min-height: 117px;*/
@@ -404,21 +428,24 @@ img {
 
 .catalog-container-items-digital {
   width: 240px;
-  padding: 0 0 0 60px;
   margin: 0;
+  padding: 0 0 0 60px;
+
   list-style: none;
 }
 
 .catalog-container-items-watches {
   width: 200px;
-  list-style: none;
   padding: 0;
+
+  list-style: none;
 }
 
 .catalog-container-items-toys {
   width: 120px;
-  list-style: none;
   padding: 0;
+
+  list-style: none;
 }
 
 .header-right-column-topmenu-wrapper {
@@ -432,26 +459,29 @@ img {
   список .header-site-navigation. Переделать, если будет время */
   display: flex;
   justify-content: space-between;
-  margin: 21px 0 0 0;
   width: 500px;
+  margin: 21px 0 0 0;
 }
 
 .header-user-navigation {
-  margin: 0;
-  padding: 0 0 0 25px;
-  width: 255px;
   position: relative;
+
   display: flex;
   flex-wrap: wrap;
+  width: 255px;
+  margin: 0;
+  padding: 0 0 0 25px;
+
   list-style: none;
 }
 
 li .header-logout {
   /* любопытно, селектор просто по классу .header-logout не перекрашивал цвет,
   потому что селектор (.main-navigation a) был сильнее */
-  padding: 0;
-  color: rgba(0, 0, 0, 0.3);
   margin: 0 0 0 19px;
+  padding: 0;
+
+  color: rgba(0, 0, 0, 0.3);
 }
 
 .header-login {
@@ -466,12 +496,12 @@ li .header-logout {
 .header-login::before,
 .header-loggedin::before {
   content: "";
-
   position: absolute;
+  top: 9px;
+  left: 0;
+
   width: 13px;
   height: 12px;
-  left: 0px;
-  top: 9px;
 
   background-image: url("../img/user-header.svg");
   background-repeat: no-repeat;
@@ -479,22 +509,21 @@ li .header-logout {
 }
 
 .header-compare-button {
-  margin: 0 0 0 2px;
-  padding: 0 0 0 25px;
   position: relative;
 
   width: 70px;
-  /*background-color: rgba(0, 200, 200, 0.3)*/
+  margin: 0 0 0 2px;
+  padding: 0 0 0 25px;
 }
 
 .header-compare-button::before {
   content: "";
-
   position: absolute;
+  top: 11px;
+  left: 5px;
+
   width: 10px;
   height: 10px;
-  left: 5px;
-  top: 11px;
 
   background-image: url("../img/compare-header.svg");
   background-repeat: no-repeat;
@@ -502,24 +531,23 @@ li .header-logout {
 }
 
 .header-cart-button {
+  position: relative;
+
+  width: 60px;
   margin: 0 0 0 38px;
   padding: 0 0 0 25px;
 
-  position: relative;
-  width: 60px;
-
   text-align: right;
-  /*background-color: rgba(0, 200, 0, 0.3)*/
 }
 
 .header-cart-button::before {
   content: "";
-
   position: absolute;
+  top: 9px;
+  left: 2px;
+
   width: 12px;
   height: 12px;
-  left: 2px;
-  top: 9px;
 
   background-image: url("../img/cart-header.svg");
   background-repeat: no-repeat;
@@ -550,46 +578,62 @@ li .header-logout {
 .services {
   width: 100%;
   min-width: 1440px;
+
   background-color: #e5e5e5;
-  /*margin-top: 180px;*/
 }
 
 .services-wrapper {
+  display: flex;
   width: 1440px;
   margin: 0 auto;
-  display: flex;
 }
 
 .services-slider-controls {
-  width: 280px;
-  padding: 0 0 40px 140px;
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  /*border-right: 7px solid #000000;*/
   position: relative;
   top: -100px;
+
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  width: 280px;
+  padding: 0 0 40px 140px;
 }
 
 .services-slider-controls::before {
   content: "";
   position: absolute;
+  right: -4px;
+
   width: 7px;
   /* чтобы длина разделителя увеличивалась при увеличении объема текста в слайде */
   height: calc(100% + 30px);
+
   background-color: #000000;
-  right: -4px;
 }
 
 .services-slider {
+  flex-shrink: 0;
   width: 900px;
-  list-style: none;
   margin: 0;
   padding: 0 0 0 120px;
-  flex-shrink: 0;
+
+  list-style: none;
 }
 
 .services-button {
+  position: relative;
+  z-index: 10;
+
+  display: block;
+  width: 160px;
+  height: 40px;
+  margin: 24px 0 0 0;
+  padding: 0;
+
+  font-weight: 800;
+  font-size: 18px;
+  /* для выравнивания текста внутри кнопок. Костыль, но работает */
+  line-height: 40px;
   /* с кнопками этого слайдера замечен странный эффект:
   в макете, когда пункт активен (подсвечивается черным), текст в нем
   съезжает в сторону от неактивного состояния, причем в доставке
@@ -597,23 +641,10 @@ li .header-logout {
   подправить разными маргинами для разных пунктов, но я предпочту
   верить, что "у дизайнера дрогнула рука" (c) */
   font-family: "Gilroy", Arial, sans-serif;
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: 800;
-  color: #000000;
-  letter-spacing: 3.6px;
-  text-transform: uppercase;
-  width: 160px;
   text-align: center;
-  height: 40px;
-  position: relative;
-  display: block;
-  margin: 24px 0 0 0;
-  padding: 0;
-  /*background-color: transparent;*/
-  /* для выравнивания текста внутри кнопок. Костыль, но работает */
-  line-height: 40px;
-  z-index: 10;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 3.6px;
 }
 
 .services-button:first-child {
@@ -623,18 +654,21 @@ li .header-logout {
 .services-button::before {
   content: "";
   position: absolute;
-  background-color: #f0c52e;
+  top: 16px;
+  left: 0;
   z-index: -5;
+
   width: 100%;
   height: 8px;
-  top: 16px;
-  left: 0px;
+
+  background-color: #f0c52e;
 }
 
 .services-button:hover::before,
 .services-button:focus::before {
+  top: 0;
+
   height: 40px;
-  top: 0px;
 }
 
 .services-slider-radio-1:checked ~ .services-slider-controls .services-button:nth-child(1),
@@ -648,22 +682,25 @@ li .header-logout {
 .services-slider-radio-2:checked ~ .services-slider-controls .services-button:nth-child(2)::before,
 .services-slider-radio-3:checked ~ .services-slider-controls .services-button:nth-child(3)::before {
   /* перекрашивание лейбла выбранного слайда (фон) */
-  background-color: #000000;
+  top: 0;
+
   width: 280px;
   height: 40px;
-  top: 0px;
+
+  background-color: #000000;
 }
 
 
 .services-caption {
-  font-family: "Gilroy", Arial, sans-serif;
-  font-size: 47px;
-  line-height: 48px;
-  font-weight: 800;
-  color: #000000;
-  letter-spacing: 0.5px;
   margin: 0;
   padding: 0;
+
+  font-weight: 800;
+  font-size: 47px;
+  line-height: 48px;
+  font-family: "Gilroy", Arial, sans-serif;
+  color: #000000;
+  letter-spacing: 0.5px;
 }
 
 .services-description {
@@ -680,7 +717,6 @@ li .header-logout {
 .services-slider-item:nth-child(1) {
   background-image: url("../img/services-delivery.svg");
   background-repeat: no-repeat;
-  /*background-position: 554px 12px;*/
   background-position: 558px 32px;
 }
 
@@ -704,76 +740,81 @@ li .header-logout {
 
 /* ================== промо каталог =============================== */
 .promo-caption {
-  font-family: "Gilroy", Arial, sans-serif;
-  font-size: 179px;
-  line-height: 179px;
-  font-weight: 800;
-  color: #ffffff;
-  letter-spacing: 1.8px;
-
-  padding: 0;
-  margin: 0;
   position: absolute;
   top: -16px;
   right: 45px;
   /* чтобы рисовался поверх хедера */
   z-index: 5;
+
+  margin: 0;
+  padding: 0;
+
+  font-weight: 800;
+  font-size: 179px;
+  line-height: 179px;
+  font-family: "Gilroy", Arial, sans-serif;
+  color: #ffffff;
+  letter-spacing: 1.8px;
 }
 
 .promo-container-highlight {
-  font-family: "Gilroy", Arial, sans-serif;
-  font-size: 47px;
-  line-height: 56px;
-  font-weight: 800;
-  color: #000000;
-  letter-spacing: 0.45px;
-  margin: 50px 0 0 0;
-  padding: 0;
-  /* для того, чтобы цифру 3 перекрывал на 3-м слайде */
   position: relative;
   z-index: 10;
+
+  margin: 50px 0 0 0;
+  padding: 0;
+
+  font-weight: 800;
+  font-size: 47px;
+  line-height: 56px;
+  font-family: "Gilroy", Arial, sans-serif;
+  color: #000000;
+  letter-spacing: 0.45px;
 }
 
 .promo-features-caption {
-  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 300;
   font-size: 13px;
   line-height: 20px;
-  font-weight: 300;
+  font-family: "Gilroy", Arial, sans-serif;
   color: #464646;
   letter-spacing: 0.1px;
 }
 
 .promo-features-value {
-  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 300;
   font-size: 36px;
   line-height: 48px;
-  font-weight: 300;
+  font-family: "Gilroy", Arial, sans-serif;
   color: #000000;
   letter-spacing: 0.4px;
 }
 
 .promo {
-  width: 1440px;
-  padding: 0;
-  margin: 0 auto 54px auto;
   position: relative;
-  /* чтобы страница не прыгала при переключении слайдов */
+
+  width: 1440px;
+  /* min-height чтобы страница не прыгала при переключении слайдов */
   min-height: 536px;
+  margin: 0 auto 54px auto;
+  padding: 0;
 }
 
 .promo-catalog {
-  list-style: none;
-  padding: 0;
   margin: 0 auto;
+  padding: 0;
+
+  list-style: none;
 }
 
 .promo-catalog-item {
-  width: 1160px;
+  position: relative;
+
   display: none;
   justify-content: space-between;
-  padding: 0;
+  width: 1160px;
   margin: -110px auto 0;
-  position: relative;
+  padding: 0;
 }
 
 .promo-container-image-wrapper {
@@ -797,17 +838,19 @@ li .header-logout {
 
 .promo-container-description {
   width: 500px;
-  padding: 30px 60px 0px 20px;
+  padding: 30px 60px 0 20px;
 }
 
 .promo-container-description::before {
   content: "";
   position: absolute;
+  top: 35px;
+  z-index: 25;
+
   width: 100px;
   height: 7px;
-  top: 35px;
+
   background-color: #ffffff;
-  z-index: 25;
 }
 
 .promo-container-info {
@@ -827,25 +870,29 @@ li .header-logout {
 
 .promo-slider-controls {
   position: absolute;
+  right: 181px;
+  bottom: 194px;
+
   width: 120px;
   height: 20px;
-  bottom: 194px;
-  right: 181px;
 }
 
 .promo-slider-controls label {
+  position: relative;
+
+  display: inline-block;
   /* чтобы, делая кружки в контролах слайдера, не вычитать рамки */
   box-sizing: border-box;
-  display: inline-block;
-  vertical-align: center;
   width: 12px;
   height: 12px;
+  margin: 0 17px 0 0;
+
+  font-size: 0;
+  vertical-align: center;
+
   border: 1px solid #000000;
   border-radius: 50%;
   cursor: pointer;
-  position: relative;
-  margin: 0 17px 0 0;
-  font-size: 0;
 }
 
 .promo-slider-radio-1:checked ~ .promo-catalog .promo-catalog-item:nth-child(1),
@@ -861,11 +908,13 @@ li .header-logout {
   не больше двух */
   content: "";
   position: absolute;
+  top: 2px;
+  left: 2px;
+
   box-sizing: border-box;
   width: 6px;
   height: 6px;
-  top: 2px;
-  left: 2px;
+
   border: 1px solid #000000;
   border-radius: 50%;
 }
@@ -892,8 +941,6 @@ li .header-logout {
   padding: 6px 45px 0 0;
 }
 
-
-
 /* ================================================================ */
 /* ========================= раздел популярных ==================== */
 
@@ -903,29 +950,31 @@ li .header-logout {
 
 .popular-catalog {
   display: flex;
+  justify-content: space-between;
   width: 1160px;
   margin: 0 auto 0 auto;
   padding: 0;
+
   list-style: none;
-  justify-content: space-between;
 }
 
 .popular-catalog a {
-  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 800;
   font-size: 18px;
   line-height: 24px;
-  font-weight: 800;
+  font-family: "Gilroy", Arial, sans-serif;
   color: #000000;
   letter-spacing: 0.2px;
 }
 
 .popular-catalog-item-picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 160px;
   height: 160px;
+
   background-color: #f7e296;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .popular-catalog-item-caption {
@@ -944,7 +993,6 @@ li .header-logout {
 }
 
 /* и снова неодинаковая стилизация разных элементов списка */
-
 .popular-catalog-item:nth-child(2) .popular-catalog-item-caption {
   /* для переноса "моноподы для селфи" либо уменьшить ширину блока
   либо вставить в html-разметку <br> */
@@ -966,11 +1014,12 @@ li .header-logout {
 }
 
 .brands-list {
+  display: flex;
+  justify-content: space-between;
   width: 1160px;
   margin: 94px auto 0;
   padding: 0;
-  display: flex;
-  justify-content: space-between;
+
   list-style: none;
 }
 
@@ -983,7 +1032,7 @@ li .header-logout {
 }
 
 /* весь этот огород с двумя изображениями из-за того, что грейскейл
-фильтр не поддерживается ie11 */
+фильтр не поддерживается #ie11 */
 .brands-list-item:nth-child(1) a {
   background-image: url("../img/logo-1-grayscale.jpg");
   background-repeat: no-repeat;
@@ -1045,10 +1094,10 @@ li .header-logout {
 }
 
 .catalog-page h1 {
-  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 800;
   font-size: 47px;
   line-height: 48px;
-  font-weight: 800;
+  font-family: "Gilroy", Arial, sans-serif;
   color: #000000;
   letter-spacing: 0.5px;
 
@@ -1057,67 +1106,66 @@ li .header-logout {
 
 .filter legend,
 .catalog h3 {
-  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 800;
   font-size: 18px;
   line-height: 24px;
-  font-weight: 800;
+  font-family: "Gilroy", Arial, sans-serif;
   color: #000000;
   letter-spacing: 0.2px;
 }
 
 .filter label {
-  font-family: "Open Sans", Arial, sans-serif;
+  font-weight: 300;
   font-size: 14px;
   line-height: 40px;
-  font-weight: 300;
+  font-family: "Open Sans", Arial, sans-serif;
   letter-spacing: 0.1px;
 }
 
 .catalog-item-price {
-  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 300;
   font-size: 16px;
   line-height: 24px;
-  font-weight: 300;
+  font-family: "Gilroy", Arial, sans-serif;
   color: #464646;
   letter-spacing: 0.2px;
 }
 
 .filter-caption,
 .sorting h2 {
-  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 800;
   font-size: 16px;
   line-height: 24px;
-  font-weight: 800;
+  font-family: "Gilroy", Arial, sans-serif;
   color: #000000;
-  letter-spacing: 3.2px;
   text-transform: uppercase;
+  letter-spacing: 3.2px;
 }
 
 .catalog-compare {
-  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 300;
   font-size: 13px;
   line-height: 36px;
-  font-weight: 300;
+  font-family: "Gilroy", Arial, sans-serif;
   color: #000000;
   letter-spacing: 0.1px;
 }
 
-
 /* ================================================================ */
-
 /* ========================== футер =============================== */
 .main-footer {
-  color: #ffffff;
-  background-color: #464646;
   width: 100%;
   /* без min-width странные эффекты при максимальном зуме: 100% ширины -
   это ширина вьюпорта и правый край, который вылезал за вьюпорт,
   терял цвет фона */
   min-width: 1440px;
+
+  color: #ffffff;
+
+  background-color: #464646;
 }
 
 .footer-navigation {
-  /*display: flex;*/
   width: 1160px;
   margin: 0 auto;
   padding: 65px 140px 55px;
@@ -1140,19 +1188,22 @@ li .header-logout {
 }
 
 .footer-misc-info-wrapper {
+  position: relative;
+
   display: flex;
   margin: 0;
   padding: 0 0 3px 0;
-  position: relative;
 }
 
 .footer-misc-info-wrapper::before {
   content: "";
   position: absolute;
+  top: 13px;
+  left: 0;
+
   width: 80px;
   height: 7px;
-  top: 13px;
-  left: 0px;
+
   background-color: #ffc600;
 }
 
@@ -1174,16 +1225,17 @@ li .header-logout {
 }
 
 .footer-user-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  width: 997px;
   margin: -2px 0 0 0;
   padding: 0;
-  display: flex;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  width: 997px;
 }
 
 .footer-user-menu a {
   color: #ffffff;
+
   opacity: 0.7;
 }
 
@@ -1197,12 +1249,12 @@ li .header-logout {
 }
 
 .footer-logo-address {
+  flex-shrink: 0;
+  width: 360px;
   margin: 0;
   padding: 0;
+
   letter-spacing: normal;
-  width: 360px;
-  flex-shrink: 0;
-  /*position: relative;*/
 }
 
 .footer-logo img:hover,
@@ -1224,27 +1276,29 @@ li .header-logout {
 
 
 .footer-user-navigation {
-  margin: 0;
-  padding: 0;
-  list-style: none;
   display: flex;
   flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
 }
 
 .footer-login {
+  position: relative;
+
   margin: 0;
   padding: 0 0 0 30px;
-  position: relative;
 }
 
 .footer-login::before {
   content: "";
-
   position: absolute;
+  top: 4px;
+  left: 4px;
+
   width: 13px;
   height: 12px;
-  left: 4px;
-  top: 4px;
 
   background-image: url("../img/user-footer.svg");
   background-repeat: no-repeat;
@@ -1264,17 +1318,18 @@ li .footer-logout {
 
 .footer-loggedin {
   position: relative;
+
   padding: 0 0 0 30px;
 }
 
 .footer-loggedin::before {
   content: "";
-
   position: absolute;
+  top: 4px;
+  left: 4px;
+
   width: 13px;
   height: 12px;
-  left: 4px;
-  top: 4px;
 
   background-image: url("../img/user-footer.svg");
   background-repeat: no-repeat;
@@ -1283,19 +1338,20 @@ li .footer-logout {
 }
 
 .footer-compare-button {
+  position: relative;
+
   margin: 0 0 0 33px;
   padding: 0 0 0 30px;
-  position: relative;
 }
 
 .footer-compare-button::before {
   content: "";
-
   position: absolute;
+  top: 11px;
+  left: 10px;
+
   width: 10px;
   height: 10px;
-  left: 10px;
-  top: 11px;
 
   background-image: url("../img/compare-footer.svg");
   background-repeat: no-repeat;
@@ -1304,20 +1360,20 @@ li .footer-logout {
 }
 
 .footer-cart-button {
+  position: relative;
+
   margin: 0 0 0 32px;
   padding: 0 0 0 30px;
-  /*text-align: right;*/
-  position: relative;
 }
 
 .footer-cart-button::before {
   content: "";
-
   position: absolute;
+  top: 9px;
+  left: 9px;
+
   width: 12px;
   height: 12px;
-  left: 9px;
-  top: 9px;
 
   background-image: url("../img/cart-footer.svg");
   background-repeat: no-repeat;
@@ -1326,14 +1382,15 @@ li .footer-logout {
 }
 
 .footer-logo-phone {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  width: 360px;
   margin: 0 0 0 -7px;
   padding: 0;
+
   letter-spacing: normal;
-  width: 360px;
-  flex-shrink: 0;
-  justify-content: flex-end;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .footer-copyright {
@@ -1342,13 +1399,14 @@ li .footer-logout {
 }
 
 .footer-site-navigation {
-  margin: 0 0 0 7px;
-  padding: 0;
   display: flex;
-  list-style: none;
-  width: 440px;
   flex-shrink: 0;
   flex-wrap: wrap;
+  width: 440px;
+  margin: 0 0 0 7px;
+  padding: 0;
+
+  list-style: none;
 }
 
 .footer-site-navigation li:nth-child(2) {
@@ -1361,12 +1419,14 @@ li .footer-logout {
 
 .footer-social-buttons {
   display: flex;
+  justify-content: space-between;
   width: 142px;
   margin: 0 0 0 508px;
   padding: 0;
-  justify-content: space-between;
-  opacity: 0.3;
+
   list-style: none;
+
+  opacity: 0.3;
 }
 
 .footer-social-buttons a:hover,
@@ -1381,18 +1441,20 @@ li .footer-logout {
 /* ====================================================================== */
 /* ========================== о нас и контакты ========================== */
 .index-columns {
-  width: 1160px;
-  padding: 0 140px;
-  margin: 0 auto 83px;
   display: flex;
+  width: 1160px;
+  margin: 0 auto 83px;
+  padding: 0 140px;
+
   letter-spacing: normal;
 }
 
 .about {
+  position: relative;
+
   width: 470px;
   margin: 0 130px 0 0;
   padding: 0;
-  position: relative;
 }
 
 .about p,
@@ -1402,18 +1464,19 @@ li .footer-logout {
 }
 
 .contacts {
+  position: relative;
+
   width: 560px;
   margin: 0;
   padding: 0;
-  position: relative;
 }
 
 .about h2,
 .contacts h2 {
-  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 800;
   font-size: 47px;
   line-height: 48px;
-  font-weight: 800;
+  font-family: "Gilroy", Arial, sans-serif;
   color: #000000;
   letter-spacing: 0.5px;
 
@@ -1422,10 +1485,10 @@ li .footer-logout {
 
 .deliverees,
 .deliverees a {
-  font-family: "Gilroy", Arial, sans-serif;
+  font-weight: 800;
   font-size: 16px;
   line-height: 40px;
-  font-weight: 800;
+  font-family: "Gilroy", Arial, sans-serif;
   color: #000000;
 
   background-color: #ffffff;
@@ -1436,10 +1499,12 @@ li .footer-logout {
 .contacts::before {
   content: "";
   position: absolute;
+  top: 0;
+  left: 0;
+
   width: 80px;
   height: 7px;
-  top: 0px;
-  left: 0px;
+
   background-color: #000000;
 }
 
@@ -1464,8 +1529,9 @@ li .footer-logout {
 }
 
 .deliverees {
-  padding: 5px 0 0 35px;
   margin: 0;
+  padding: 5px 0 0 35px;
+
   list-style: none;
 }
 
@@ -1477,11 +1543,13 @@ li .footer-logout {
   /* маркеры списка псевдоэлементами */
   content: "";
   position: absolute;
-  box-sizing: border-box;
-  height: 8px;
-  width: 8px;
   top: 17px;
   left: -34px;
+
+  box-sizing: border-box;
+  width: 8px;
+  height: 8px;
+
   border: 2px solid #e6e6e6;
   border-radius: 50%;
 }
@@ -1490,34 +1558,33 @@ li .footer-logout {
 /* ========================= страница каталога ========================== */
 .page-caption {
   width: 1100px;
-  padding: 0 0 0 60px;
   margin: 38px auto 0;
+  padding: 0 0 0 60px;
 }
 
 .catalog-columns-wrapper {
-  min-width: 1440px;
-  width: 100%;
-  padding: 0;
-  margin: 47px auto 0;
   display: flex;
+  width: 100%;
+  min-width: 1440px;
+  margin: 47px auto 0;
+  padding: 0;
+
   background-color: #ffffff;
 }
 
 .catalog-filters {
-  width: 468px;
-  /*margin: 0;*/
-  padding: 0;
-  background-color: #ebebeb;
   flex-grow: 1;
-  /*flex-shrink: 0;*/
+  width: 468px;
+  padding: 0;
+
+  background-color: #ebebeb;
 }
 
 .catalog-right-column-wrapper {
-  width: 972px;
-  padding: 0;
-  margin: 0;
   flex-grow: 1;
-  /*flex-shrink: 0;*/
+  width: 972px;
+  margin: 0;
+  padding: 0;
 }
 
 /* =============== фильтр, честно стыренный из материалов ==================== */
@@ -1527,42 +1594,46 @@ li .footer-logout {
 }
 
 .price-filter-range-controls {
+  position: relative;
+
   height: 16px;
   margin-bottom: 6px;
   padding: 14px 0 0 0;
-  position: relative;
 }
 
 .price-filter-range-controls .price-filter-scale {
   height: 2px;
+
   background: #dbdbdb;
 }
 
 .price-filter-range-controls .price-filter-bar {
   width: 56%;
   height: 2px;
+
   background: #91c92f;
 }
 
 .price-filter-range-controls .price-filter-toggle {
   position: absolute;
-
   top: 5px;
+
   width: 4px;
   height: 4px;
   padding: 0;
 
-  border: 8px solid #ffffff;
   background-color: #ababab;
-  box-shadow: 0 2px 1px 0 #cfcfcf;
+  border: 8px solid #ffffff;
   border-radius: 50%;
+  box-shadow: 0 2px 1px 0 #cfcfcf;
   cursor: pointer;
 }
 
 .price-filter-toggle:active {
+  top: 4px;
+
   width: 6px;
   height: 6px;
-  top: 4px;
 }
 
 .price-filter-range-controls .price-filter-toggle-min {
@@ -1576,12 +1647,12 @@ li .footer-logout {
 
 .price-filter-price-controls input,
 .price-filter-price-controls label {
-  font-family: "Gilroy", Arial, sans-serif;
-  font-size: 14px;
   font-weight: 300;
+  font-size: 14px;
   line-height: 24px;
-  letter-spacing: normal;
+  font-family: "Gilroy", Arial, sans-serif;
   color: rgba(0, 0, 0, 0.2);
+  letter-spacing: normal;
 }
 
 .price-filter-price-controls label {
@@ -1590,49 +1661,52 @@ li .footer-logout {
 
 .price-filter-price-controls input {
   width: 66px;
-  border: none;
-  text-align: left;
-  background-color: #ebebeb;
-}
 
+  text-align: left;
+
+  background-color: #ebebeb;
+  border: none;
+}
 
 /* =========================================================================== */
 
 .sorting {
   display: flex;
-  /*width: 972px;*/
   width: 100%;
   padding: 23px 0 24px 0;
+
   background-color: #ebebeb;
 }
 
 .sorting-caption {
+  width: 180px;
   margin: 0 0 0 62px;
   padding: 0 0 0 10px;
-  width: 180px;
 }
 
 .sorting-direction {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   width: 60px;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
 }
 
 .sorting-type {
+  display: flex;
+  flex-wrap: wrap;
+  width: 520px;
   margin: 0;
   padding: 0;
-  display: flex;
+
   list-style: none;
   /* чтобы выравнивался в строку с заголовком */
   line-height: 24px;
-  width: 520px;
-  flex-wrap: wrap;
 }
 
 .sorting-type-item {
-  padding: 0;
   margin: 0 0 0 20px;
+  padding: 0;
 }
 
 .sorting-type-item a {
@@ -1659,10 +1733,12 @@ li .footer-logout {
 .sorting-direction-item:nth-child(1)::before {
   content: "";
   position: absolute;
-  width: 11px;
-  height: 10px;
   top: 7px;
   left: 19px;
+
+  width: 11px;
+  height: 10px;
+
   background-image: url("../img/icon-up-dir.svg");
   background-repeat: no-repeat;
   background-position: 0 0;
@@ -1672,10 +1748,12 @@ li .footer-logout {
 .sorting-direction-item:nth-child(2)::before {
   content: "";
   position: absolute;
+  top: 7px;
+  right: 0;
+
   width: 11px;
   height: 10px;
-  top: 7px;
-  right: 0px;
+
   background-image: url("../img/icon-down-dir.svg");
   background-repeat: no-repeat;
   background-position: 0 0;
@@ -1693,11 +1771,12 @@ li .footer-logout {
 }
 
 .catalog-list {
-  width: 760px;
   display: flex;
   flex-wrap: wrap;
+  width: 760px;
   margin: 60px 0 0 72px;
   padding: 0;
+
   list-style: none;
 }
 
@@ -1706,37 +1785,40 @@ li .footer-logout {
   width: 760px;
   margin: 0 0 77px 72px;
   padding: 0;
-  /*justify-content: space-between;*/
+
   background-color: #ebebeb;
 }
 
 .pagination-pages {
   display: flex;
-  width: 488px;
   justify-content: center;
+  width: 488px;
   margin: 0;
   padding: 0;
+
   list-style: none;
 }
 
 .pagination-button,
 .pagination-page {
   display: block;
-  font-family: "Gilroy", Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 800;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 24px;
-  letter-spacing: 3.2px;
   margin: 0;
+
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "Gilroy", Arial, sans-serif;
+  font-stretch: normal;
+  letter-spacing: 3.2px;
 }
 
 .pagination-button {
+  flex-shrink: 0;
+
+  text-align: center;
   color: #000000;
   text-transform: uppercase;
-  text-align: center;
-  flex-shrink: 0;
 }
 
 .pagination-button-previous {
@@ -1758,13 +1840,14 @@ li .footer-logout {
 
 .pagination-button-previous:active,
 .pagination-button-next:active {
-  color: rgba(0, 0, 0, 0.3)
+  color: rgba(0, 0, 0, 0.3);
 }
 
 .pagination-page {
-  color: rgba(0, 0, 0, 0.3);
-  padding: 23px 9px;
   margin: 0 5px;
+  padding: 23px 9px;
+
+  color: rgba(0, 0, 0, 0.3);
 }
 
 .pagination-page:hover,
@@ -1781,18 +1864,19 @@ li .footer-logout {
 }
 
 .breadcrumbs {
-  width: 1100px;
   display: flex;
   flex-wrap: wrap;
-  padding: 0 0 0 60px;
+  width: 1100px;
   margin: 23px auto 0;
-  font-family: "Open Sans", Arial, sans-serif;
+  padding: 0 0 0 60px;
+
+  list-style: none;
+  font-weight: 300;
   font-size: 14px;
   line-height: 24px;
-  font-weight: 300;
-  letter-spacing: 0.1px;
+  font-family: "Open Sans", Arial, sans-serif;
   color: rgba(0, 0, 0, 0.3);
-  list-style: none;
+  letter-spacing: 0.1px;
 }
 
 .breadcrumbs a {
@@ -1801,8 +1885,9 @@ li .footer-logout {
 
 
 .breadcrumbs li {
-  margin: 0 38px 0 0;
   position: relative;
+
+  margin: 0 38px 0 0;
 }
 
 .breadcrumbs li:last-child {
@@ -1813,11 +1898,13 @@ li .footer-logout {
 .breadcrumbs li::after {
   /* разделители хлебных крошек псевдоэлементами */
   content: "";
-  width: 4px;
-  height: 7px;
   position: absolute;
   top: 10px;
   right: -21px;
+
+  width: 4px;
+  height: 7px;
+
   background-image: url("../img/nav-arrow.svg");
   background-repeat: no-repeat;
   background-position: 0 0;
@@ -1847,29 +1934,32 @@ li .footer-logout {
 }
 
 .filter-caption {
-  background-color: #d9d9d9;
-  padding: 24px 180px 23px 0;
   margin: 0;
-  /*display: inline-block;*/
-  /*width: 100%;*/
-  /*width: 268px;*/
+  padding: 24px 180px 23px 0;
+
   text-align: right;
+
+  background-color: #d9d9d9;
 }
 
 .filter fieldset {
-  border: none;
+  position: relative;
+
   margin: 0;
   padding: 0;
-  position: relative;
+
+  border: none;
 }
 
 .filter fieldset::before {
   content: "";
   position: absolute;
+  top: -36px;
+
   width: 201px;
   height: 2px;
+
   background-color: #000000;
-  top: -36px;
 }
 
 .filter > fieldset:nth-child(2) {
@@ -1889,20 +1979,22 @@ li .footer-logout {
 }
 
 .filter-colors {
-  padding: 0;
   margin: 17px 0 0 0;
+  padding: 0;
+
   list-style: none;
 }
 
 .filter-bluetooth {
-  padding: 0;
   margin: 17px 0 0 0;
+  padding: 0;
+
   list-style: none;
 }
 
 .filter-submit {
-  margin: 32px 0 0 0;
   width: 200px;
+  margin: 32px 0 0 0;
 }
 
 .filter-option {
@@ -1911,14 +2003,13 @@ li .footer-logout {
 
 .filter-option label {
   position: relative;
-  /*cursor: pointer;*/
 }
 
 .filter-input-checkbox + label::before {
   content: "";
   position: absolute;
-  left: -40px;
   top: -2px;
+  left: -40px;
 
   width: 23px;
   height: 23px;
@@ -1932,14 +2023,15 @@ li .footer-logout {
   /* для чекнутого инпута меняем картинку фона и ширину.
   остальное такое же, как и в нечекнутом */
   width: 27px;
+
   background-image: url("../img/checkbox-on.svg");
 }
 
 .filter-input-radio + label::before {
   content: "";
   position: absolute;
-  left: -40px;
   top: -3px;
+  left: -40px;
 
   width: 25px;
   height: 25px;
@@ -1962,32 +2054,36 @@ li .footer-logout {
 }
 
 .catalog-item {
-  width: 360px;
-  padding: 0;
-  margin: 8px 40px 37px 0;
+  position: relative;
+
   display: flex;
   flex-wrap: wrap;
-  position: relative;
+  width: 360px;
+  margin: 8px 40px 37px 0;
+  padding: 0;
 }
 
 .catalog-item .flag-new {
   position: absolute;
-  width: 60px;
-  height: 60px;
-  right: 27px;
   top: 28px;
-  font-family: "Gilroy", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 24px;
-  font-weight: 800;
-  letter-spacing: 0.7px;
-  color: rgba(0, 0, 0, 0.2);
-  text-transform: uppercase;
-  border: 2px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
+  right: 27px;
+
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 60px;
+  height: 60px;
+
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 24px;
+  font-family: "Gilroy", Arial, sans-serif;
+  color: rgba(0, 0, 0, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
 }
 
 
@@ -1998,10 +2094,10 @@ li .footer-logout {
 
 .catalog-item-title {
   order: 5;
-  padding: 0;
-  margin: 23px 0 0 0;
   width: 260px;
   min-height: 48px;
+  margin: 23px 0 0 0;
+  padding: 0;
 }
 
 li.catalog-item:nth-child(2) h3 {
@@ -2018,22 +2114,25 @@ li.catalog-item:nth-child(2) h3 {
 .catalog-item-price {
   order: 10;
   width: 100px;
-  text-align: right;
   margin: 24px 0 0 auto;
   padding: 0;
+
+  text-align: right;
 }
 
 .catalog-item .catalog-actions {
   position: absolute;
   top: 0;
   left: 0;
+
+  display: none;
   width: 360px;
   height: 380px;
-  display: none;
 }
 
 .catalog-item:hover .catalog-actions {
   display: block;
+
   cursor: pointer;
 }
 
@@ -2043,21 +2142,23 @@ li.catalog-item:nth-child(2) h3 {
 }
 
 .catalog-item-image {
-  /* защита от больших картинок? хотя она избыточна с глобальным img {max-width: 100%;} */
-  /*width: 360px;
-  height: 380px;*/
+  /* защита от больших картинок */
+  width: 360px;
+  height: 380px;
 }
 
 .catalog-buy {
-  margin: 172px auto 0 auto;
-  width: 200px;
   display: block;
+  width: 200px;
+  margin: 172px auto 0 auto;
 }
 
 .catalog-compare {
-  margin: 7px 0 0 5px;
   display: block;
+  margin: 7px 0 0 5px;
+
   text-align: center;
+
   opacity: 0.5;
 }
 
@@ -2070,7 +2171,6 @@ li.catalog-item:nth-child(2) h3 {
   opacity: 0.2;
 }
 /* =========================================================== */
-
 
 /* ====================== модальные окна ========================= */
 /* реализация модальных окон подсмотрена в гугле,
@@ -2114,9 +2214,10 @@ closepopup();
 
 .modal {
   position: fixed;
-  z-index: 100;
-  left: 50%;
   top: 50%;
+  left: 50%;
+  z-index: 100;
+
   display: none;
   /*магия центрования модального окна, подсмотренная в гугле
   больше не нужна, достаточно отрицательных маргинов
@@ -2134,22 +2235,24 @@ closepopup();
 .modal-map {
   width: 960px;
   height: 559px;
-  box-shadow: 0px 10px 20px 0 rgba(4, 6, 6, 0.2);
   margin: -279px 0 0 -480px;
+
+  box-shadow: 0 10px 20px 0 rgba(4, 6, 6, 0.2);
 }
 
 .modal-close::before {
   content: "";
   position: absolute;
+  top: 22px;
+  right: 22px;
+
   width: 55px;
   height: 55px;
-  right: 22px;
-  top: 22px;
-  opacity: 0.5;
 
   background-image: url("../img/modal-close.svg");
   background-repeat: no-repeat;
   background-position: 0 0;
+  opacity: 0.5;
 }
 
 .modal-close:hover::before,
@@ -2164,63 +2267,68 @@ closepopup();
 .modal-writeus {
   width: 960px;
   height: 553px;
-  background-color: #ffffff;
-  box-shadow: 0px 10px 20px 0 rgba(4, 6, 6, 0.2);
   margin: -276px -0 0 -480px;
+
+  background-color: #ffffff;
+  box-shadow: 0 10px 20px 0 rgba(4, 6, 6, 0.2);
 }
 
 .writeus-form {
+  width: 760px;
   margin: 77px 100px 80px 100px;
   padding: 0;
-  width: 760px;
 }
 
 .writeus-form label {
   display: block;
   margin: 0 0 7px 0;
   padding: 0;
-  font-family: "Gilroy", Arial, sans-serif;
-  font-size: 18px;
-  font-weight: 800;
+
   font-style: normal;
-  font-stretch: normal;
+  font-weight: 800;
+  font-size: 18px;
   line-height: 24px;
-  letter-spacing: normal;
+  font-family: "Gilroy", Arial, sans-serif;
   color: #000000;
+  font-stretch: normal;
+  letter-spacing: normal;
 }
 
 .writeus-form input {
   box-sizing: border-box;
   width: 360px;
-  border: none;
-  background-color: #f2f2f2;
   min-height: 50px;
   margin: 0;
   padding: 0 0 3px 18px;
+
+  background-color: #f2f2f2;
+  border: none;
 }
 
 .writeus-form textarea {
   box-sizing: border-box;
   width: 760px;
   min-height: 156px;
-  border: none;
-  background-color: #f2f2f2;
-  resize: none;
   margin: 0;
   padding: 14px 0 0 19px;
+
+  background-color: #f2f2f2;
+  border: none;
+
+  resize: none;
 }
 
 .writeus-form input,
 .writeus-form textarea {
-  font-family: "Open Sans", Arial, sans-serif;
-  font-size: 14px;
-  font-weight: normal;
   font-style: normal;
-  font-stretch: normal;
+  font-weight: normal;
+  font-size: 14px;
   line-height: 18px;
-  letter-spacing: normal;
+  font-family: "Open Sans", Arial, sans-serif;
   text-align: left;
   color: rgba(70, 70, 70, 0.4);
+  font-stretch: normal;
+  letter-spacing: normal;
 }
 
 .writeus-form input:hover,
@@ -2230,11 +2338,11 @@ closepopup();
 
 .writeus-form input:focus,
 .writeus-form textarea:focus {
-  background-color: #ffffff;
   color: #464646;
+
+  background-color: #ffffff;
   border: 3px solid #f0c52e;
 }
-
 
 .writeus-topfields-wrapper {
   display: flex;
@@ -2259,4 +2367,3 @@ closepopup();
 }
 
 /* ================================================================*/
-
