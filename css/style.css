@@ -372,6 +372,18 @@ img {
   background-position: 0 0;
 }
 
+.catalog-container-caption:hover ~ .catalog-container-items {
+  /* показ всплывающего меню */
+  display: flex;
+}
+
+.catalog-container-items:hover {
+  /* и продолжение показа при ховерах по пунктам
+  но это работает не так как хотелось. Такое чувство, что ховер активируется только
+  при наведении на старое место элемента. Как лечить? */
+  display: flex;
+}
+
 .catalog-container-items {
   /* выпадающее меню каталога */
   display: none;
@@ -384,18 +396,10 @@ img {
   padding: 0 0 34px 0;
   list-style: none;
   z-index: 100;
-}
-
-.catalog-container-caption:hover ~ .catalog-container-items {
-  /* показ всплывающего меню */
-  display: flex;
-}
-
-.catalog-container-items:hover {
-  /* и продолжение показа при ховерах по пунктам
-  но это работает не так как хотелось. Такое чувство, что ховер активируется только
-  при наведении на старое место элемента. Как лечить? */
-  display: flex;
+  /* ie11:  меню не выпадает до границы хедера. Такое чувство, что не учитывается
+  паддинг снизу. Мин-хейт не помогает. Будет время - попробовать с
+  box-sizing: border-box */
+  /*min-height: 117px;*/
 }
 
 .catalog-container-items-digital {
@@ -547,7 +551,7 @@ li .header-logout {
   width: 100%;
   min-width: 1440px;
   background-color: #e5e5e5;
-  margin-top: 180px;
+  /*margin-top: 180px;*/
 }
 
 .services-wrapper {
@@ -567,7 +571,7 @@ li .header-logout {
   top: -100px;
 }
 
-.services-slider-controls::after {
+.services-slider-controls::before {
   content: "";
   position: absolute;
   width: 7px;
@@ -751,7 +755,7 @@ li .header-logout {
 .promo {
   width: 1440px;
   padding: 0;
-  margin: 0 auto;
+  margin: 0 auto 54px auto;
   position: relative;
   /* чтобы страница не прыгала при переключении слайдов */
   min-height: 536px;
@@ -894,8 +898,9 @@ li .header-logout {
 /* ========================= раздел популярных ==================== */
 
 .popular {
-  margin-top: 54px;
+  margin-bottom: 181px;
 }
+
 .popular-catalog {
   display: flex;
   width: 1160px;
@@ -956,6 +961,10 @@ li .header-logout {
 /* ================================================================ */
 /* ===================== раздел брендов =========================== */
 
+.brands {
+  margin-bottom: 94px;
+}
+
 .brands-list {
   width: 1160px;
   margin: 94px auto 0;
@@ -963,18 +972,64 @@ li .header-logout {
   display: flex;
   justify-content: space-between;
   list-style: none;
-
 }
 
-.brands-list-item {
-  filter: grayscale(100%);
-  opacity: 0.2;
+.brands-list-item a {
+  display: block;
+  width: 260px;
+  height: 100px;
+  margin: 0;
+  padding: 0;
 }
 
-.brands-list-item:hover,
-.brands-list-item:focus {
-  filter: none;
-  opacity: 1;
+/* весь этот огород с двумя изображениями из-за того, что грейскейл
+фильтр не поддерживается ie11 */
+.brands-list-item:nth-child(1) a {
+  background-image: url("../img/logo-1-grayscale.jpg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.brands-list-item:nth-child(2) a {
+  background-image: url("../img/logo-2-grayscale.jpg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.brands-list-item:nth-child(3) a {
+  background-image: url("../img/logo-3-grayscale.jpg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.brands-list-item:nth-child(4) a {
+  background-image: url("../img/logo-4-grayscale.jpg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.brands-list-item:hover:nth-child(1) a {
+  background-image: url("../img/logo-1-fullcolor.jpg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.brands-list-item:hover:nth-child(2) a {
+  background-image: url("../img/logo-2-fullcolor.jpg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.brands-list-item:hover:nth-child(3) a {
+  background-image: url("../img/logo-3-fullcolor.jpg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.brands-list-item:hover:nth-child(4) a {
+  background-image: url("../img/logo-4-fullcolor.jpg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
 }
 
 /* ================================================================ */
@@ -1064,7 +1119,7 @@ li .header-logout {
 .footer-navigation {
   /*display: flex;*/
   width: 1160px;
-  margin: 83px auto 0;
+  margin: 0 auto;
   padding: 65px 140px 55px;
 }
 
@@ -1328,7 +1383,7 @@ li .footer-logout {
 .index-columns {
   width: 1160px;
   padding: 0 140px;
-  margin: 84px auto 0;
+  margin: 0 auto 83px;
   display: flex;
   letter-spacing: normal;
 }
@@ -1627,12 +1682,13 @@ li .footer-logout {
   opacity: 0.2;
 }
 
-.sorting-direction-item:hover,
-.sorting-direction-item:focus {
+.sorting-direction-item:hover::before,
+.sorting-direction-item:focus::before {
   opacity: 0.6;
 }
 
-.sorting-direction-item:active {
+.sorting-direction-item:active::before,
+.sorting-direction .sorting-direction-item-active::before {
   opacity: 1;
 }
 
