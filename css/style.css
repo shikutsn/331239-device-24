@@ -1138,6 +1138,8 @@ li .header-logout {
   margin: 0;
   padding: 0;
   letter-spacing: normal;
+  width: 360px;
+  flex-shrink: 0;
   /*position: relative;*/
 }
 
@@ -1262,9 +1264,14 @@ li .footer-logout {
 }
 
 .footer-logo-phone {
-  margin: 0 0 0 auto;
+  margin: 0 0 0 -7px;
   padding: 0;
   letter-spacing: normal;
+  width: 360px;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .footer-copyright {
@@ -1273,10 +1280,13 @@ li .footer-logout {
 }
 
 .footer-site-navigation {
-  margin: 0 0 0 163px;
+  margin: 0 0 0 7px;
   padding: 0;
   display: flex;
   list-style: none;
+  width: 440px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
 }
 
 .footer-site-navigation li:nth-child(2) {
