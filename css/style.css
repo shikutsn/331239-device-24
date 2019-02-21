@@ -136,6 +136,10 @@ img {
   padding: 0;
 }
 
+.inner-container {
+  width: 1160px;
+}
+
 /* ================================================================ */
 /* ==================== хедер ======================================*/
 .main-header {
@@ -171,6 +175,7 @@ img {
 }
 
 .button-search {
+  /* #ie11 а поле поиска в ie11-то ломается. Изучать */
   display: none;
   align-self: flex-end;
   width: 85px;
@@ -413,7 +418,6 @@ img {
   z-index: 100;
 
   display: none;
-  width: 1160px;
   margin: 0;
   padding: 0 0 34px 0;
 
@@ -812,7 +816,6 @@ li .header-logout {
 
   display: none;
   justify-content: space-between;
-  width: 1160px;
   margin: -110px auto 0;
   padding: 0;
 }
@@ -951,7 +954,6 @@ li .header-logout {
 .popular-catalog {
   display: flex;
   justify-content: space-between;
-  width: 1160px;
   margin: 0 auto 0 auto;
   padding: 0;
 
@@ -1015,8 +1017,8 @@ li .header-logout {
 
 .brands-list {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  width: 1160px;
   margin: 94px auto 0;
   padding: 0;
 
@@ -1033,52 +1035,22 @@ li .header-logout {
 
 /* весь этот огород с двумя изображениями из-за того, что грейскейл
 фильтр не поддерживается #ie11 */
-.brands-list-item:nth-child(1) a {
-  background-image: url("../img/logo-1-grayscale.jpg");
-  background-repeat: no-repeat;
-  background-position: 0 0;
+.brands-list-item .brands-logo-fullcolor {
+  display: none;
 }
 
-.brands-list-item:nth-child(2) a {
-  background-image: url("../img/logo-2-grayscale.jpg");
-  background-repeat: no-repeat;
-  background-position: 0 0;
+.brands-list-item .brands-logo-grayscale {
+  display: block;
 }
 
-.brands-list-item:nth-child(3) a {
-  background-image: url("../img/logo-3-grayscale.jpg");
-  background-repeat: no-repeat;
-  background-position: 0 0;
+.brands-list-item:hover .brands-logo-fullcolor,
+.brands-list-item:focus .brands-logo-fullcolor {
+  display: block;
 }
 
-.brands-list-item:nth-child(4) a {
-  background-image: url("../img/logo-4-grayscale.jpg");
-  background-repeat: no-repeat;
-  background-position: 0 0;
-}
-
-.brands-list-item:hover:nth-child(1) a {
-  background-image: url("../img/logo-1-fullcolor.jpg");
-  background-repeat: no-repeat;
-  background-position: 0 0;
-}
-
-.brands-list-item:hover:nth-child(2) a {
-  background-image: url("../img/logo-2-fullcolor.jpg");
-  background-repeat: no-repeat;
-  background-position: 0 0;
-}
-
-.brands-list-item:hover:nth-child(3) a {
-  background-image: url("../img/logo-3-fullcolor.jpg");
-  background-repeat: no-repeat;
-  background-position: 0 0;
-}
-
-.brands-list-item:hover:nth-child(4) a {
-  background-image: url("../img/logo-4-fullcolor.jpg");
-  background-repeat: no-repeat;
-  background-position: 0 0;
+.brands-list-item:hover .brands-logo-grayscale,
+.brands-list-item:focus .brands-logo-grayscale {
+  display: none;
 }
 
 /* ================================================================ */
@@ -1166,7 +1138,6 @@ li .header-logout {
 }
 
 .footer-navigation {
-  width: 1160px;
   margin: 0 auto;
   padding: 65px 140px 55px;
 }
@@ -1442,7 +1413,6 @@ li .footer-logout {
 /* ========================== о нас и контакты ========================== */
 .index-columns {
   display: flex;
-  width: 1160px;
   margin: 0 auto 83px;
   padding: 0 140px;
 
