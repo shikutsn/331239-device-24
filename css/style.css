@@ -1272,6 +1272,8 @@ li .header-logout {
   height: 12px;
 
   background-image: url("../img/user-footer.svg");
+  background-image: url("../img/user-footer.svg");
+  background-repeat: no-repeat;
   background-repeat: no-repeat;
   background-position: 0 0;
   opacity: 1;
@@ -2194,11 +2196,15 @@ closepopup();
   transform: translate(-50%,-50%);*/
 }
 
-.modal-map:target {
+/*.modal-map:target {
   display: block;
 }
 
 .modal-writeus:target {
+  display: block;
+}*/
+
+.modal-show {
   display: block;
 }
 
