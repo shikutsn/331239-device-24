@@ -1493,6 +1493,7 @@ li .footer-logout {
 .contacts-writeus {
   width: 260px;
   margin: 60px 0 0 0;
+  cursor: pointer;
 }
 
 .about-more {
@@ -2216,8 +2217,10 @@ closepopup();
   box-shadow: 0 10px 20px 0 rgba(4, 6, 6, 0.2);
 }
 
-.modal-close::before {
-  content: "";
+.modal-close {
+  font-size: 0;
+  border: none;
+  background-color: transparent;
   position: absolute;
   top: 22px;
   right: 22px;
@@ -2231,12 +2234,12 @@ closepopup();
   opacity: 0.5;
 }
 
-.modal-close:hover::before,
-.modal-close:focus::before {
+.modal-close:hover,
+.modal-close:focus {
   opacity: 1;
 }
 
-.modal-close:active::before {
+.modal-close:active {
   opacity: 0.3;
 }
 
@@ -2340,6 +2343,7 @@ closepopup();
   width: 200px;
   margin: 36px 0 0 0;
   padding: 0;
+  cursor: pointer;
 }
 
 /* ================================================================*/

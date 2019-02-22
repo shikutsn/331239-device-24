@@ -304,10 +304,10 @@
         <section class="contacts">
           <h2>Контакты</h2>
           <p>Вы можете забрать товар сами, заехав в наш офис. Заодно, вы сможете проверить работоспособность покупки. Всякое бывает.</p>
-          <a class="contacts-map" href="#map-large">
+          <a class="contacts-map">
             <img src="img/map.jpg" width="560" height="222" alt="Карта с адресом магазина">
           </a>
-          <a class="button contacts-writeus" href="#writeus">Напишите нам</a>
+          <button class="button contacts-writeus">Напишите нам</button>
         </section>
       </div>
 
@@ -365,7 +365,7 @@
       </nav>
     </footer>
 
-    <section class="modal modal-writeus" id="writeus">
+    <section class="modal modal-writeus">
       <h2 class="visually-hidden">Обратная связь</h2>
       <form class="writeus-form" action="https://echo.htmlacademy.ru" method="post">
         <div class="writeus-topfields-wrapper">
@@ -383,20 +383,16 @@
             <textarea id="writeus-letter" name="letter" cols="40" placeholder="В свободной форме"></textarea>
           </p>
           <button class="button writeus-button" type="submit">Отправить</button>
-          <a class="modal-close" href="#close">
-            <span class="visually-hidden">Закрыть</span>
-          </a>
+          <button class="modal-close">Закрыть</button>
         </form>
     </section>
 
-    <section class="modal modal-map" id="map-large">
+    <section class="modal modal-map">
       <h2 class="visually-hidden">Как до нас добраться</h2>
         <img src="img/map-large.jpg" width="960" height="559" alt="Магазин находится по адресу ул. Строителей 15, Москва">
-      <a class="modal-close" href="#close">
-        <span class="visually-hidden">Закрыть</span>
-      </a>
+        <button class="modal-close">Закрыть</button>
     </section>
 
-  <script scr="js/script.js"></script>
+  <script src="js/script.js"></script>
   </body>
 </html>

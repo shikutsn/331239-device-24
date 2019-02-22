@@ -1,18 +1,54 @@
+var writeusButton = document.querySelector(".contacts-writeus");
 
-  var writeus = document.querySelector(".contacts-writeus");
+var writeusWindow = document.querySelector(".modal-writeus");
+var modalClose = writeusWindow.querySelector(".modal-close");
 
-  var isStorageSupported = true;
-  var storage = "";
+// writeus-form или просто form в querySelector ?
+var writeusForm = writeusWindow.querySelector("form");
+var nameField = writeusWindow.querySelector("[name=name]");
+var emailField = writeusWindow.querySelector("[name=email]");
+var letterField = writeusWindow.querySelector("[name=letter]");
 
-  try {
-    storage = localStorage.getItem("name");
-  } catch (err) {
-    isStorageSupported = false;
+var isStorageSupported = true;
+var storage = "";
+
+try {
+  storage = localStorage.getItem("name");
+} catch (err) {
+  isStorageSupported = false;
+}
+
+writeusButton.addEventListener("click", function (evt) {
+  evt.preventDefault();
+  writeusWindow.classList.add("modal-show");
+
+  if (storage) {
+    nameField.value = storage;
   }
 
-  writeus.addEventListener("click", function (evt) {
+  nameField.focus();
+});
+
+modalClose.addEventListener("click", function (evt) {
+  evt.preventDefault();
+  writeusWindow.classList.remove("modal-show");
+
+  if (storage) {
+    nameField = storage;
+    emailField.focus();
+  } else {
+    nameField.focus();
+  }
+
+});
+
+writeusForm.addEventListener("submit", function (evt) {
+  if (!nameField.value || !emailField.value || !letterField.value) {
     evt.preventDefault();
-    writeus.classList.add("modal-show");
-  });
+  } else {
+    if (isStorageSupported) {
+      localStorage.setItem("name", nameField.value);
+    }
+  }
 
-
+});
