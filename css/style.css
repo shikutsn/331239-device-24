@@ -1488,11 +1488,14 @@ li .footer-logout {
   display: block;
   margin: 38px 0 0 0;
   padding: 0;
+
+  cursor: pointer;
 }
 
 .contacts-writeus {
   width: 260px;
   margin: 60px 0 0 0;
+
   cursor: pointer;
 }
 
@@ -2197,16 +2200,59 @@ closepopup();
   transform: translate(-50%,-50%);*/
 }
 
-/*.modal-map:target {
-  display: block;
+@keyframes modal-emerge {
+  0% {
+    transform: translateY(2000px);
+  }
+
+  50% {
+    transform: translateY(-100px);
+  }
+
+  75% {
+    transform: translateY(50px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }
 
-.modal-writeus:target {
-  display: block;
-}*/
+@keyframes modal-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-10px);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(10px);
+  }
+}
 
 .modal-show {
   display: block;
+
+  animation: modal-emerge 0.5s;
+}
+
+.modal-error {
+  animation: modal-shake 0.5s;
+}
+
+.writeus-form .modal-invalid-field {
+  background-color: #f6dada;
+  outline: none;
 }
 
 .modal-map {
@@ -2217,20 +2263,36 @@ closepopup();
   box-shadow: 0 10px 20px 0 rgba(4, 6, 6, 0.2);
 }
 
-.modal-close {
-  font-size: 0;
+.modal-map img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
+.modal-map iframe {
+  position: relative;
+  z-index: 6;;
+
   border: none;
-  background-color: transparent;
+}
+
+.modal-close {
   position: absolute;
   top: 22px;
   right: 22px;
+  z-index: 9;
 
   width: 55px;
   height: 55px;
 
+  font-size: 0;
+
+  background-color: transparent;
   background-image: url("../img/modal-close.svg");
   background-repeat: no-repeat;
   background-position: 0 0;
+  border: none;
   opacity: 0.5;
 }
 
@@ -2245,7 +2307,7 @@ closepopup();
 
 .modal-writeus {
   width: 960px;
-  height: 553px;
+  min-height: 553px;
   margin: -276px -0 0 -480px;
 
   background-color: #ffffff;
@@ -2320,7 +2382,7 @@ closepopup();
   color: #464646;
 
   background-color: #ffffff;
-  border: 3px solid #f0c52e;
+  outline: 3px solid #f0c52e;
 }
 
 .writeus-topfields-wrapper {
@@ -2343,7 +2405,7 @@ closepopup();
   width: 200px;
   margin: 36px 0 0 0;
   padding: 0;
-  cursor: pointer;
+  /*cursor: pointer;*/
 }
 
 /* ================================================================*/
