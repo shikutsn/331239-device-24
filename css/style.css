@@ -30,11 +30,7 @@
   url("../fonts/gilroylight.woff") format("woff");
 }
 
-.visually-hidden:not(:focus):not(:active),
-input[type="checkbox"].visually-hidden,
-input[type="radio"].visually-hidden {
-  /* для чекбоксов и радиокнопок свой visually-hidden, который не пропадает
-  при фокусе */
+.visually-hidden {
   position: absolute;
 
   width: 1px;
@@ -130,16 +126,6 @@ img {
   color: rgba(0, 0, 0, 0.3);
 }
 
-.container {
-  width: 1440px;
-  margin: 0 auto;
-  padding: 0;
-}
-
-.inner-container {
-  width: 1160px;
-}
-
 /* ================================================================ */
 /* ==================== хедер ======================================*/
 .main-header {
@@ -204,17 +190,17 @@ input::-ms-clear {
 
 .search-field {
   width: 320px;
-  margin: 0;
-  padding: 18px 0 8px 38px;
+  margin: 23px 0 0 0;
+  padding: 0 0 13px 38px;
 
   font-weight: 300;
   font-size: 15px;
-  line-height: 30px;
+  line-height: 20px;
   font-family: "Open Sans", Arial, sans-serif;
   color: rgba(0, 0, 0, 0.3);
   letter-spacing: 0.2px;
 
-  background-color: #f7e296;
+  background-color: transparent;
   border: none;
   /* чтобы при фокусе красить нижнюю рамку в черный */
   border-bottom: 2px solid transparent;
@@ -583,14 +569,13 @@ li .header-logout {
 /* ======================== сервисы ============================= */
 .services {
   width: 100%;
-  min-width: 1440px;
 
   background-color: #e5e5e5;
 }
 
 .services-wrapper {
   display: flex;
-  width: 1440px;
+  width: 1160px;
   margin: 0 auto;
 }
 
@@ -602,7 +587,7 @@ li .header-logout {
   flex-shrink: 0;
   flex-direction: column;
   width: 280px;
-  padding: 0 0 40px 140px;
+  padding: 0 0 40px 0;
 }
 
 .services-slider-controls::before {
@@ -800,7 +785,7 @@ li .header-logout {
   position: relative;
 
   box-sizing: border-box;
-  width: 1440px;
+  width: 1160px;
   margin: 0 auto 54px auto;
   padding: 0;
 }
@@ -874,7 +859,7 @@ li .header-logout {
 
 .promo-slider-controls {
   position: absolute;
-  right: 181px;
+  right: 41px;
   bottom: 194px;
 
   width: 120px;
@@ -949,7 +934,9 @@ li .header-logout {
 /* ========================= раздел популярных ==================== */
 
 .popular {
-  margin-bottom: 181px;
+  width: 1160px;
+  margin: 0 auto 181px auto;
+  padding: 0;
 }
 
 .popular-catalog {
@@ -1013,7 +1000,8 @@ li .header-logout {
 /* ===================== раздел брендов =========================== */
 
 .brands {
-  margin-bottom: 94px;
+  width: 1160px;
+  margin: 0 auto 94px auto;
 }
 
 .brands-list {
@@ -1128,10 +1116,6 @@ li .header-logout {
 /* ========================== футер =============================== */
 .main-footer {
   width: 100%;
-  /* без min-width странные эффекты при максимальном зуме: 100% ширины -
-  это ширина вьюпорта и правый край, который вылезал за вьюпорт,
-  терял цвет фона */
-  min-width: 1440px;
 
   color: #ffffff;
 
@@ -1139,8 +1123,9 @@ li .header-logout {
 }
 
 .footer-navigation {
+  width: 1160px;
   margin: 0 auto;
-  padding: 65px 140px 55px;
+  padding: 65px 0 55px 0;
 }
 
 .catalog-page .footer-navigation {
@@ -1417,7 +1402,8 @@ li .footer-logout {
 /* ========================== о нас и контакты ========================== */
 .index-columns {
   display: flex;
-  margin: 0 auto 83px;
+  width: 1160px;
+  margin: 0 auto 83px auto;
   padding: 0 140px;
 
   letter-spacing: normal;
@@ -1543,7 +1529,7 @@ li .footer-logout {
 .catalog-columns-wrapper {
   display: flex;
   width: 100%;
-  min-width: 1440px;
+  /*min-width: 1440px;*/
   margin: 46px auto 0;
   padding: 0;
 
@@ -1552,7 +1538,7 @@ li .footer-logout {
 
 .catalog-filters {
   flex-grow: 1;
-  width: 468px;
+  width: 328px;
   padding: 0;
 
   background-color: #ebebeb;
@@ -1560,7 +1546,7 @@ li .footer-logout {
 
 .catalog-wrapper {
   flex-grow: 1;
-  width: 972px;
+  width: 832px;
   margin: 0;
   padding: 0;
 }
@@ -1651,7 +1637,7 @@ li .footer-logout {
 .sorting {
   display: flex;
   width: 100%;
-  padding: 23px 0 24px 0;
+  padding: 23px 0;
 
   background-color: #ebebeb;
 }
@@ -1916,7 +1902,7 @@ li .footer-logout {
 .filter {
   width: 268px;
   margin: 80px 0 0 auto;
-  padding: 0 0 0 200px;
+  padding: 0 0 0 60px;
 }
 
 .filter-caption {

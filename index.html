@@ -7,64 +7,62 @@
     <link href="css/style.css" rel="stylesheet">
   </head>
   <body class="index-page">
-    <div class="container">
-      <header class="main-header">
-        <nav class="main-navigation">
-          <div class="header-logo-search-catalog-wrapper">
-            <a class="header-logo">
-              <img src="img/device-logo-header.svg" width="163" height="35" alt="Логотип магазина «Девайс»">
-            </a>
+    <header class="main-header">
+      <nav class="main-navigation">
+        <div class="header-logo-search-catalog-wrapper">
+          <a class="header-logo">
+            <img src="img/device-logo-header.svg" width="163" height="35" alt="Логотип магазина «Девайс»">
+          </a>
 
-            <form class="search-form" action="https://echo.htmlacademy.ru" method="get">
-              <label class="visually-hidden" for="search">Поиск по сайту</label>
-              <input class="search-field" id="search" type="text" name="search-request" value="" placeholder="Поиск по сайту">
-              <button class="button-search" type="submit">Найти</button>
-            </form>
+          <form class="search-form" action="https://echo.htmlacademy.ru" method="get">
+            <label class="visually-hidden" for="search">Поиск по сайту</label>
+            <input class="search-field" id="search" type="text" name="search-request" value="" placeholder="Поиск по сайту">
+            <button class="button-search" type="submit">Найти</button>
+          </form>
 
-            <div class="catalog-container">
-              <a class="catalog-container-caption" href="catalog.html">Каталог товаров</a>
-              <ul class="catalog-container-items inner-container">
-                <li>
-                  <ul class="catalog-container-items-digital">
-                    <li><a href="#">Виртуальная реальность</a></li>
-                    <li><a href="#">Моноподы для селфи</a></li>
-                    <li><a href="#">Экшн-камеры</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <ul class="catalog-container-items-watches">
-                    <li><a href="#">Фитнес-браслеты</a></li>
-                    <li><a href="#">Умные часы</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <ul class="catalog-container-items-toys">
-                    <li><a href="#">Квадрокоптеры</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="header-user-site-menus-wrapper">
-            <div class="header-user-menu-wrapper">
-              <ul class="header-user-navigation">
-                <li><a class="header-login" href="#">Войти</a></li>
-              </ul>
-              <div class="header-other-navigation">
-                <a class="header-compare-button" href="">Сравнить</a>
-                <a class="header-cart-button" href="">Корзина</a>
-              </div>
-            </div>
-            <ul class="header-site-navigation">
-              <li><a href="#">Доставка</a></li>
-              <li><a href="#">Гарантия</a></li>
-              <li><a href="#">Контакты</a></li>
+          <div class="catalog-container">
+            <a class="catalog-container-caption" href="catalog.html">Каталог товаров</a>
+            <ul class="catalog-container-items">
+              <li>
+                <ul class="catalog-container-items-digital">
+                  <li><a href="#">Виртуальная реальность</a></li>
+                  <li><a href="#">Моноподы для селфи</a></li>
+                  <li><a href="#">Экшн-камеры</a></li>
+                </ul>
+              </li>
+              <li>
+                <ul class="catalog-container-items-watches">
+                  <li><a href="#">Фитнес-браслеты</a></li>
+                  <li><a href="#">Умные часы</a></li>
+                </ul>
+              </li>
+              <li>
+                <ul class="catalog-container-items-toys">
+                  <li><a href="#">Квадрокоптеры</a></li>
+                </ul>
+              </li>
             </ul>
           </div>
+        </div>
+        <div class="header-user-site-menus-wrapper">
+          <div class="header-user-menu-wrapper">
+            <ul class="header-user-navigation">
+              <li><a class="header-login" href="#">Войти</a></li>
+            </ul>
+            <div class="header-other-navigation">
+              <a class="header-compare-button" href="">Сравнить</a>
+              <a class="header-cart-button" href="">Корзина</a>
+            </div>
+          </div>
+          <ul class="header-site-navigation">
+            <li><a href="#">Доставка</a></li>
+            <li><a href="#">Гарантия</a></li>
+            <li><a href="#">Контакты</a></li>
+          </ul>
+        </div>
 
-        </nav>
-      </header>
-    </div>
+      </nav>
+    </header>
 
     <main>
 
@@ -78,7 +76,7 @@
         <input class="visually-hidden promo-slider-radio-3" type="radio" id="promo-slide-control-3" name="promo-slide-toggle">
 
         <ol class="promo-catalog">
-          <li class="promo-catalog-item inner-container">
+          <li class="promo-catalog-item">
             <span class="promo-caption">01</span>
             <div class="promo-container-image-wrapper">
               <div class="promo-container-image">
@@ -105,7 +103,7 @@
               </table>
             </div>
           </li>
-          <li class="promo-catalog-item inner-container">
+          <li class="promo-catalog-item">
             <span class="promo-caption">02</span>
             <div class="promo-container-image-wrapper">
               <div class="promo-container-image">
@@ -128,7 +126,7 @@
               </table>
             </div>
           </li>
-          <li class="promo-catalog-item inner-container">
+          <li class="promo-catalog-item">
             <span class="promo-caption">03</span>
             <div class="promo-container-image-wraper">
               <div class="promo-container-image">
@@ -163,15 +161,14 @@
 
       </section>
 
-      <section class="popular container">
+      <section class="popular">
         <h2 class="visually-hidden">Популярные разделы</h2>
-        <ul class="popular-catalog inner-container">
+        <ul class="popular-catalog">
           <li class="popular-catalog-item">
             <a href="#">
               <div class="popular-catalog-item-picture">
                 <img src="img/popular-1.svg" width="97" height="55" alt="Виртуальная реальность">
               </div>
-              <!-- а может это h3? -->
               <p class="popular-catalog-item-caption">Виртуальная реальность</p>
             </a>
           </li>
@@ -256,9 +253,9 @@
 
       </section>
 
-      <section class="brands container">
+      <section class="brands">
         <h2 class="visually-hidden">Популярные бренды</h2>
-        <ul class="brands-list inner-container">
+        <ul class="brands-list">
           <li class="brands-list-item">
             <a href="#">
               <img class="brands-logo-grayscale" src="img/logo-1-grayscale.jpg" width="260" height="100" alt="Логотип Dji">
@@ -286,7 +283,7 @@
         </ul>
       </section>
 
-      <div class="index-columns inner-container">
+      <div class="index-columns">
         <section class="about">
           <h2>О нас</h2>
           <p>Огромный выбор гаджетов не оставит равнодушным гика, который есть в каждом из нас.</p>
@@ -312,7 +309,7 @@
     </main>
 
     <footer class="main-footer">
-      <nav class="footer-navigation inner-container">
+      <nav class="footer-navigation">
 
         <div class="footer-user-menu-wrapper">
           <a class="footer-logo">
