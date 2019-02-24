@@ -221,13 +221,13 @@ img {
   border-bottom: 2px solid transparent;
 }
 
-/*.search-form:focus-within {
+.search-form:focus-within {
   border-bottom: 2px solid #000000;
 }
 
 .search-form:focus-within .button-search {
   display: block;
-}*/
+}
 
 input::-ms-clear {
   /* убирает крестик в полях input для #ie11 */
