@@ -36,11 +36,12 @@ window.addEventListener("keydown", function (evt) {
   }
 });
 
-window.addEventListener("mouseup", function (evt) {
-  if (evt.target.closest('.modal') === null) {
-    mapWindow.classList.remove("modal-show");
-  }
-});
+// скрывает окно при клике за его пределами. Не работает в #ie11
+// window.addEventListener("mouseup", function (evt) {
+//   if (evt.target.closest('.modal') === null) {
+//     mapWindow.classList.remove("modal-show");
+//   }
+// });
 
 mapClose.addEventListener("click", function (evt) {
   evt.preventDefault();
@@ -93,17 +94,23 @@ writeusForm.addEventListener("submit", function (evt) {
   }
 });
 
-// при фокусе каждого поля ввода убираем класс ошибки
-nameField.addEventListener("focus", function (evt) {
-  nameField.classList.remove("modal-invalid-field");
+// если значение в поле поменялось и было подсвечено красным - убираем
+nameField.addEventListener("input", function (evt) {
+  if (nameField.classList.contains("modal-invalid-field")) {
+    nameField.classList.remove("modal-invalid-field");
+  }
 });
 
-emailField.addEventListener("focus", function (evt) {
-  emailField.classList.remove("modal-invalid-field");
+emailField.addEventListener("input", function (evt) {
+  if (emailField.classList.contains("modal-invalid-field")) {
+    emailField.classList.remove("modal-invalid-field");
+  }
 });
 
-letterField.addEventListener("focus", function (evt) {
-  letterField.classList.remove("modal-invalid-field");
+letterField.addEventListener("input", function (evt) {
+  if (letterField.classList.contains("modal-invalid-field")) {
+    letterField.classList.remove("modal-invalid-field");
+  }
 });
 
 function closeModalWindow() {
@@ -120,13 +127,16 @@ window.addEventListener("keydown", function (evt) {
   }
 });
 
-window.addEventListener("mouseup", function (evt) {
-  if (evt.target.closest('.modal') === null) {
-    closeModalWindow();
-  }
-});
+// скрывает окно при клике за его пределами. Не работает в #ie11
+// window.addEventListener("mouseup", function (evt) {
+//   if (evt.target.closest('.modal') === null) {
+//     closeModalWindow();
+//   }
+// });
 
 writeusClose.addEventListener("click", function (evt) {
   evt.preventDefault();
   closeModalWindow();
 });
+
+

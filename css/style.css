@@ -145,7 +145,7 @@ img {
 .main-header {
   width: 1040px;
   margin: 40px auto 0;
-  padding: 25px 60px 145px 60px;
+  padding: 25px 60px 144px 60px;
 
   background-color: #f7e296;
 }
@@ -221,11 +221,24 @@ img {
   border-bottom: 2px solid transparent;
 }
 
-.search-form:focus-within {
+/*.search-form:focus-within {
   border-bottom: 2px solid #000000;
 }
 
 .search-form:focus-within .button-search {
+  display: block;
+}*/
+
+input::-ms-clear {
+  /* убирает крестик в полях input для #ie11 */
+  display: none;
+}
+
+.search-form-underline {
+  border-bottom: 2px solid #000000;
+}
+
+.search-form-button-show {
   display: block;
 }
 
@@ -255,13 +268,14 @@ img {
   letter-spacing: 0.2px;
 }
 
-.search-field,
-.search-field::placeholder {
+/*.search-field::placeholder,*/
+.search-field {
+  /* #ie11 ::placeholder не поддерживается */
   color: rgba(0, 0, 0, 0.3);
 }
 
-.search-field:hover,
-.search-field:hover::placeholder {
+/*.search-field:hover::placeholder,*/
+.search-field:hover {
   /* первый селектор меняет цвет введенного текста при ховере,  */
   /* второй селектор меняет цвет плейсхолдера при ховере */
   color: rgba(0, 0, 0, 0.6);
@@ -317,7 +331,7 @@ img {
   opacity: 0.3;
 }
 
-.header-left-column-wrapper {
+.header-logo-search-catalog-wrapper {
   position: relative;
 
   display: flex;
@@ -327,22 +341,12 @@ img {
   padding: 0;
 }
 
-.header-right-column-wrapper {
+.header-user-site-menus-wrapper {
   display: flex;
   flex-direction: column;
   width: 500px;
   margin: 0;
   padding: 18px 0 0 0;
-}
-
-.header-site-navigation {
-  position: relative;
-
-  display: flex;
-  width: 100%;
-  padding: 0;
-
-  list-style: none;
 }
 
 .header-site-navigation a {
@@ -378,7 +382,7 @@ img {
 .catalog-container-caption {
   position: relative;
   /* паддинг справа для плюсика-псевдоэлемента */
-  /* а слева - чтобы была сплошная область для ховера при показе меню */
+  /* а снизу - чтобы была сплошная область для ховера при показе меню */
 
   padding: 0 30px 25px 0;
 }
@@ -404,9 +408,7 @@ img {
 }
 
 .catalog-container-items:hover {
-  /* и продолжение показа при ховерах по пунктам
-  но это работает не так как хотелось. Такое чувство, что ховер активируется только
-  при наведении на старое место элемента. Как лечить? */
+  /*и продолжение показа при ховерах по пунктам*/
   display: flex;
 }
 
@@ -418,6 +420,7 @@ img {
   z-index: 100;
 
   display: none;
+  min-width: 1160px;
   margin: 0;
   padding: 0 0 34px 0;
 
@@ -452,19 +455,23 @@ img {
   list-style: none;
 }
 
-.header-right-column-topmenu-wrapper {
+.header-user-menu-wrapper {
   display: flex;
   width: 500px;
-  margin: 0;
+  margin: 0 0 37px 0;
 }
 
-.header-right-column-bottommenu-wrapper {
-  /* а нужна ли эта обертка? ее функции неплохо выполнит и сам неупорядоченный
-  список .header-site-navigation. Переделать, если будет время */
+.header-site-navigation {
+  position: relative;
+
   display: flex;
   justify-content: space-between;
+  width: 100%;
   width: 500px;
-  margin: 21px 0 0 0;
+  margin: 0 0 15px 0;
+  padding: 0;
+
+  list-style: none;
 }
 
 .header-user-navigation {
@@ -474,9 +481,23 @@ img {
   flex-wrap: wrap;
   width: 255px;
   margin: 0;
-  padding: 0 0 0 25px;
+  padding: 0;
 
   list-style: none;
+}
+
+.header-user-navigation a {
+  position: relative;
+
+  margin: 0;
+  padding: 0 0 0 26px;
+}
+
+.header-other-navigation {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  width: 250px;
 }
 
 li .header-logout {
@@ -501,7 +522,7 @@ li .header-logout {
 .header-loggedin::before {
   content: "";
   position: absolute;
-  top: 9px;
+  top: 4px;
   left: 0;
 
   width: 13px;
@@ -515,9 +536,13 @@ li .header-logout {
 .header-compare-button {
   position: relative;
 
-  width: 70px;
-  margin: 0 0 0 2px;
+  margin: 0 0 0 32px;
   padding: 0 0 0 25px;
+}
+
+.catalog-page .header-compare-button {
+  /* на странице каталога другая подгонка под макет */
+  margin-left: 28px;
 }
 
 .header-compare-button::before {
@@ -537,8 +562,7 @@ li .header-logout {
 .header-cart-button {
   position: relative;
 
-  width: 60px;
-  margin: 0 0 0 38px;
+  margin: 0 0 0 auto;
   padding: 0 0 0 25px;
 
   text-align: right;
@@ -797,9 +821,8 @@ li .header-logout {
 .promo {
   position: relative;
 
+  box-sizing: border-box;
   width: 1440px;
-  /* min-height чтобы страница не прыгала при переключении слайдов */
-  min-height: 536px;
   margin: 0 auto 54px auto;
   padding: 0;
 }
@@ -868,7 +891,7 @@ li .header-logout {
 
 .button-slider-more {
   width: 220px;
-  margin: 43px 0 0 0;
+  margin: 44px 0 0 0;
 }
 
 .promo-slider-controls {
@@ -923,7 +946,7 @@ li .header-logout {
 }
 
 .promo-features {
-  margin: 41px 0 0 -3px;
+  margin: 41px 0 56px -3px;
 }
 
 /* стили таблиц слайдера. Как-то неприкольно в третьем слайдере паддинг
@@ -1182,9 +1205,6 @@ li .header-logout {
   color: #ffffff;
 }
 
-.footer-site-navigation li {
-  padding-top: 3px;
-}
 
 .footer-site-navigation a:hover,
 .footer-site-navigation a:focus {
@@ -1197,7 +1217,6 @@ li .header-logout {
 
 .footer-user-menu {
   display: flex;
-  flex-wrap: wrap;
   justify-content: flex-end;
   width: 997px;
   margin: -2px 0 0 0;
@@ -1253,6 +1272,13 @@ li .header-logout {
   padding: 0;
 
   list-style: none;
+}
+
+.footer-other-navigation {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  width: 256px;
 }
 
 .footer-login {
@@ -1375,19 +1401,17 @@ li .footer-logout {
   display: flex;
   flex-shrink: 0;
   flex-wrap: wrap;
+  justify-content: space-between;
   width: 440px;
-  margin: 0 0 0 7px;
+  margin: 4px 0 0 7px;
   padding: 0;
 
   list-style: none;
 }
 
-.footer-site-navigation li:nth-child(2) {
-  margin: 0 0 0 34px;
-}
-
 .footer-site-navigation li:nth-child(3) {
-  margin: 0 0 0 32px;
+  /* подгон под макет */
+  margin-right: 12px;
 }
 
 .footer-social-buttons {
@@ -1542,7 +1566,7 @@ li .footer-logout {
   display: flex;
   width: 100%;
   min-width: 1440px;
-  margin: 47px auto 0;
+  margin: 46px auto 0;
   padding: 0;
 
   background-color: #ffffff;
@@ -1556,7 +1580,7 @@ li .footer-logout {
   background-color: #ebebeb;
 }
 
-.catalog-right-column-wrapper {
+.catalog-wrapper {
   flex-grow: 1;
   width: 972px;
   margin: 0;
@@ -1656,7 +1680,7 @@ li .footer-logout {
 
 .sorting-caption {
   width: 180px;
-  margin: 0 0 0 62px;
+  margin: 0 0 0 65px;
   padding: 0 0 0 10px;
 }
 
@@ -1672,7 +1696,7 @@ li .footer-logout {
   display: flex;
   flex-wrap: wrap;
   width: 520px;
-  margin: 0;
+  margin: -1px 0 0 -2px;
   padding: 0;
 
   list-style: none;
@@ -1683,6 +1707,14 @@ li .footer-logout {
 .sorting-type-item {
   margin: 0 0 0 20px;
   padding: 0;
+}
+
+.sorting-type-item:nth-child(2) {
+  margin-left: 25px;
+}
+
+.sorting-type-item:nth-child(3) {
+  margin-left: 27px;
 }
 
 .sorting-type-item a {
@@ -1911,7 +1943,7 @@ li .footer-logout {
 
 .filter-caption {
   margin: 0;
-  padding: 24px 180px 23px 0;
+  padding: 23px 178px 23px 0;
 
   text-align: right;
 
@@ -1930,7 +1962,7 @@ li .footer-logout {
 .filter fieldset::before {
   content: "";
   position: absolute;
-  top: -36px;
+  top: -35px;
 
   width: 201px;
   height: 2px;
@@ -1939,7 +1971,7 @@ li .footer-logout {
 }
 
 .filter > fieldset:nth-child(2) {
-  margin-top: 45px;
+  margin-top: 43px;
 }
 
 .filter > fieldset:nth-child(3) {
@@ -1955,7 +1987,7 @@ li .footer-logout {
 }
 
 .filter-colors {
-  margin: 17px 0 0 0;
+  margin: 18px 0 0 0;
   padding: 0;
 
   list-style: none;
@@ -1970,7 +2002,7 @@ li .footer-logout {
 
 .filter-submit {
   width: 200px;
-  margin: 32px 0 0 0;
+  margin: 33px 0 0 0;
 }
 
 .filter-option {
@@ -2039,16 +2071,18 @@ li .footer-logout {
   padding: 0;
 }
 
-.catalog-item .flag-new {
+.flag-new::before {
+  content: "new";
   position: absolute;
   top: 28px;
-  right: 27px;
+  right: 26px;
 
   display: flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
   width: 60px;
-  height: 60px;
+  height: 61px;
 
   font-weight: 800;
   font-size: 14px;
@@ -2072,7 +2106,7 @@ li .footer-logout {
   order: 5;
   width: 260px;
   min-height: 48px;
-  margin: 23px 0 0 0;
+  margin: 32px 0 0 0;
   padding: 0;
 }
 
@@ -2090,7 +2124,7 @@ li.catalog-item:nth-child(2) h3 {
 .catalog-item-price {
   order: 10;
   width: 100px;
-  margin: 24px 0 0 auto;
+  margin: 33px 0 0 auto;
   padding: 0;
 
   text-align: right;
@@ -2149,45 +2183,6 @@ li.catalog-item:nth-child(2) h3 {
 /* =========================================================== */
 
 /* ====================== модальные окна ========================= */
-/* реализация модальных окон подсмотрена в гугле,
-переделать, если на лекциях расскажут о методике */
-
-/* можно ли сделать закрытие модальных окон esc, а не
-кликая каждый раз на крестик? */
-
-/* есть мнение, что модальные окна через target не закроются */
-
-/*let popup = document.querySelector(".modal");
-let close = document.querySelector(".btn--close");
-
-function closepopup() {
-popup.classList.add("hide");
-popup.classList.remove("modal-open");
-popup.classList.remove("form-error");
-document.querySelector('body').classList.remove('body-with-open-modal');
-}
-
-close.addEventListener("click", function (evt) {
-evt.preventDefault();
-closepopup();
-});
-
-//закрытие окна по ESC
-window.addEventListener("keydown", function (evt) {
-if (evt.keyCode === 27) {
-evt.preventDefault();
-if (popup.classList.contains("modal-open")) {
-closepopup();
-}
-}
-});
-//закрытие по клику мимо окна
-document.addEventListener("mouseup", function (evt) {
-if (evt.target.closest('.modal') === null) {
-closepopup();
-}
-}*/
-
 .modal {
   position: fixed;
   top: 50%;
@@ -2272,9 +2267,9 @@ closepopup();
 
 .modal-map iframe {
   position: relative;
-  z-index: 6;;
+  z-index: 6;
 
-  border: none;
+  border: none;;
 }
 
 .modal-close {
@@ -2405,7 +2400,6 @@ closepopup();
   width: 200px;
   margin: 36px 0 0 0;
   padding: 0;
-  /*cursor: pointer;*/
 }
 
 /* ================================================================*/

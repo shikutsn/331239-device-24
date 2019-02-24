@@ -8,13 +8,10 @@
   </head>
   <body class="catalog-page">
     <div class="container">
-      <!-- мне категеорически не нравятся эти дивы container, но они нужны
-      для того, чтобы при зуме не сдвигалась сетка основного содержимого
-      другого способа победить сдвиг я не придумал -->
       <header class="main-header">
         <nav class="main-navigation">
-          <div class="header-left-column-wrapper">
-            <a class="header-logo" href="index.html">
+          <div class="header-logo-search-catalog-wrapper">
+            <a class="header-logo">
               <img src="img/device-logo-header.svg" width="163" height="35" alt="Логотип магазина «Девайс»">
             </a>
 
@@ -26,7 +23,7 @@
 
             <div class="catalog-container">
               <a class="catalog-container-caption" href="catalog.html">Каталог товаров</a>
-              <ul class="catalog-container-items">
+              <ul class="catalog-container-items inner-container">
                 <li>
                   <ul class="catalog-container-items-digital">
                     <li><a href="#">Виртуальная реальность</a></li>
@@ -48,8 +45,8 @@
               </ul>
             </div>
           </div>
-          <div class="header-right-column-wrapper">
-            <div class="header-right-column-topmenu-wrapper">
+          <div class="header-user-site-menus-wrapper">
+            <div class="header-user-menu-wrapper">
               <ul class="header-user-navigation">
                 <li><a class="header-loggedin" href="#">Валентин Петухов</a></li>
                 <li><a class="header-logout" href="#">Выйти</a></li>
@@ -57,13 +54,11 @@
               <a class="header-compare-button" href="">Сравнить</a>
               <a class="header-cart-button" href="">Корзина</a>
             </div>
-            <div class="header-right-column-bottommenu-wrapper">
-              <ul class="header-site-navigation">
-                <li><a href="#">Доставка</a></li>
-                <li><a href="#">Гарантия</a></li>
-                <li><a href="#">Контакты</a></li>
-              </ul>
-            </div>
+            <ul class="header-site-navigation">
+              <li><a href="#">Доставка</a></li>
+              <li><a href="#">Гарантия</a></li>
+              <li><a href="#">Контакты</a></li>
+            </ul>
           </div>
 
         </nav>
@@ -73,9 +68,6 @@
     <main>
 
       <div class="container">
-        <!-- мне категеорически не нравятся эти дивы container, но они нужны
-      для того, чтобы при зуме не сдвигалась сетка основного содержимого
-      другого способа победить сдвиг я не придумал -->
         <h1 class="page-caption">Моноподы для селфи</h1>
         <ul class="breadcrumbs">
           <li><a href="index.html">Главная</a></li>
@@ -156,17 +148,15 @@
           </form>
         </section>
 
-        <div class="catalog-right-column-wrapper">
+        <div class="catalog-wrapper">
           <section class="sorting">
             <h2 class="sorting-caption">Сортировка:</h2>
-            <!-- Эти сортировки - ссылки с гет-параметрами, см. лекцию 5, 24мин -->
             <ul class="sorting-type">
               <li class="sorting-type-item sorting-type-active"><a href="#">По цене</a></li>
               <li class="sorting-type-item"><a href="#">По типу</a></li>
               <li class="sorting-type-item"><a href="#">По популярности</a></li>
             </ul>
             <ul class="sorting-direction">
-              <!-- Эти сортировки - ссылки с гет-параметрами, см. лекцию 5, 26мин -->
               <li class="sorting-direction-item"><a href="#"><span class="visually-hidden">По убыванию</span></a></li>
               <li class="sorting-direction-item sorting-direction-item-active"><a href="#"><span class="visually-hidden">По возрастанию</span></a></li>
             </ul>
@@ -217,8 +207,7 @@
                 </div>
               </li>
 
-              <li class="catalog-item">
-                <div class="flag-new">New</div>
+              <li class="catalog-item flag-new">
                 <a class="catalog-item-title" href="catalog-item.html">
                   <h3>Селфи-палка «Следуй за мной»</h3>
                 </a>
@@ -266,8 +255,10 @@
               <li><a class="footer-loggedin" href="#">Валентин Петухов</a></li>
               <li><a class="footer-logout" href="#">Выйти</a></li>
             </ul>
-            <a class="footer-compare-button" href="">Сравнить</a>
-            <a class="footer-cart-button" href="">Корзина</a>
+            <div class="footer-other-navigation">
+              <a class="footer-compare-button" href="">Сравнить</a>
+              <a class="footer-cart-button" href="">Корзина</a>
+            </div>
           </div>
         </div>
 
@@ -305,6 +296,6 @@
         </div>
       </nav>
     </footer>
-    <script src="js/script.js"></script>
+    <script src="js/header-search.js"></script>
   </body>
 </html>

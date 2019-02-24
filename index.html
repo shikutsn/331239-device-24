@@ -10,7 +10,7 @@
     <div class="container">
       <header class="main-header">
         <nav class="main-navigation">
-          <div class="header-left-column-wrapper">
+          <div class="header-logo-search-catalog-wrapper">
             <a class="header-logo">
               <img src="img/device-logo-header.svg" width="163" height="35" alt="Логотип магазина «Девайс»">
             </a>
@@ -45,21 +45,21 @@
               </ul>
             </div>
           </div>
-          <div class="header-right-column-wrapper">
-            <div class="header-right-column-topmenu-wrapper">
+          <div class="header-user-site-menus-wrapper">
+            <div class="header-user-menu-wrapper">
               <ul class="header-user-navigation">
                 <li><a class="header-login" href="#">Войти</a></li>
               </ul>
-              <a class="header-compare-button" href="">Сравнить</a>
-              <a class="header-cart-button" href="">Корзина</a>
+              <div class="header-other-navigation">
+                <a class="header-compare-button" href="">Сравнить</a>
+                <a class="header-cart-button" href="">Корзина</a>
+              </div>
             </div>
-            <div class="header-right-column-bottommenu-wrapper">
-              <ul class="header-site-navigation">
-                <li><a href="#">Доставка</a></li>
-                <li><a href="#">Гарантия</a></li>
-                <li><a href="#">Контакты</a></li>
-              </ul>
-            </div>
+            <ul class="header-site-navigation">
+              <li><a href="#">Доставка</a></li>
+              <li><a href="#">Гарантия</a></li>
+              <li><a href="#">Контакты</a></li>
+            </ul>
           </div>
 
         </nav>
@@ -73,8 +73,6 @@
       <section class="promo">
         <h2 class="visually-hidden">Промо слайды</h2>
 
-        <!-- с именами в слайдере кошмар. Переделать, если будет время
-        все эти promo-slide-control, promo-slider-control и тд ужасны. -->
         <input class="visually-hidden promo-slider-radio-1" type="radio" id="promo-slide-control-1" name="promo-slide-toggle" checked>
         <input class="visually-hidden promo-slider-radio-2" type="radio" id="promo-slide-control-2" name="promo-slide-toggle">
         <input class="visually-hidden promo-slider-radio-3" type="radio" id="promo-slide-control-3" name="promo-slide-toggle">
@@ -305,9 +303,7 @@
           <h2>Контакты</h2>
           <p>Вы можете забрать товар сами, заехав в наш офис. Заодно, вы сможете проверить работоспособность покупки. Всякое бывает.</p>
           <a class="contacts-map">
-          <!-- <button class="contacts-map"> -->
             <img src="img/map.jpg" width="560" height="222" alt="Карта с адресом магазина">
-          <!-- </button> -->
           </a>
           <button class="button contacts-writeus">Напишите нам</button>
         </section>
@@ -326,8 +322,10 @@
             <ul class="footer-user-navigation">
               <li><a class="footer-login" href="#">Войти</a></li>
             </ul>
-            <a class="footer-compare-button" href="">Сравнить</a>
-            <a class="footer-cart-button" href="">Корзина</a>
+            <div class="footer-other-navigation">
+              <a class="footer-compare-button" href="">Сравнить</a>
+              <a class="footer-cart-button" href="">Корзина</a>
+            </div>
           </div>
         </div>
 
@@ -397,5 +395,6 @@
     </section>
 
     <script src="js/script.js"></script>
+    <script src="js/header-search.js"></script>
   </body>
 </html>
