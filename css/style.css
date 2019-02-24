@@ -174,72 +174,18 @@ img {
   letter-spacing: 0.2px;
 }
 
-.button-search {
-  /* #ie11 а поле поиска в ie11-то ломается. Изучать */
-  display: none;
-  align-self: flex-end;
-  width: 85px;
-  height: 49px;
-
-  font-family: inherit;
-
-  background-color: #f7e296;
-  border-top: 2px solid #000000;
-  border-right: 2px solid #000000;
-  border-bottom: none;
-  border-left: 2px solid #000000;
-}
-
-.button-search:hover,
-.button-search:focus {
-  color: #ffffff;
-
-  background-color: #000000;
-}
-
-.button-search:active {
-  color: rgba(255, 255, 255, 0.3);
-
-  outline: none;
-}
-
-.search-form input[type="text"] {
-  background-color: #f7e296;
-  border: none;
-}
-
-.search-form {
-  position: relative;
-
-  display: flex;
-  justify-content: space-between;
-  width: 440px;
-  margin: 0;
-  padding: 0;
-  /* прозрачная граница снизу, которая подсвечивается при фокусе поля поиска */
-
-  border-bottom: 2px solid transparent;
-}
-
-.search-form:focus-within {
-  border-bottom: 2px solid #000000;
-}
-
-.search-form:focus-within .button-search {
-  display: block;
-}
-
 input::-ms-clear {
   /* убирает крестик в полях input для #ie11 */
   display: none;
 }
 
-.search-form-underline {
-  border-bottom: 2px solid #000000;
-}
 
-.search-form-button-show {
-  display: block;
+.search-form {
+  position: relative;
+
+  width: 440px;
+  margin: 0;
+  padding: 0;
 }
 
 .search-form::before {
@@ -257,7 +203,7 @@ input::-ms-clear {
 }
 
 .search-field {
-  width: 300px;
+  width: 320px;
   margin: 0;
   padding: 18px 0 8px 38px;
 
@@ -265,24 +211,56 @@ input::-ms-clear {
   font-size: 15px;
   line-height: 30px;
   font-family: "Open Sans", Arial, sans-serif;
-  letter-spacing: 0.2px;
-}
-
-/*.search-field::placeholder,*/
-.search-field {
-  /* #ie11 ::placeholder не поддерживается */
   color: rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.2px;
+
+  background-color: #f7e296;
+  border: none;
+  /* чтобы при фокусе красить нижнюю рамку в черный */
+  border-bottom: 2px solid transparent;
 }
 
-/*.search-field:hover::placeholder,*/
 .search-field:hover {
-  /* первый селектор меняет цвет введенного текста при ховере,  */
-  /* второй селектор меняет цвет плейсхолдера при ховере */
   color: rgba(0, 0, 0, 0.6);
 }
 
-.search-form input[type="text"]:focus {
+.search-field:focus {
   color: #000000;
+
+  border-bottom: 2px solid #000000;
+  outline: none;
+}
+
+.search-field:focus ~ .button-search {
+  display: block;
+}
+
+.button-search {
+  position: absolute;
+  top: 9px;
+  right: 0;
+
+  display: none;
+  width: 85px;
+  height: 49px;
+
+  font-family: inherit;
+
+  background-color: #f7e296;
+  border: 2px solid #000000;
+}
+
+.button-search:hover,
+.button-search:focus {
+  color: #ffffff;
+
+  background-color: #000000;
+}
+
+.button-search:active {
+  display: block;
+
+  color: rgba(255, 255, 255, 0.3);
 
   outline: none;
 }
