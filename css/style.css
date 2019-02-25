@@ -2235,6 +2235,9 @@ li.catalog-item:nth-child(2) h3 {
 }
 
 .modal-map img {
+  /* для того, чтобы под iframe с интерактивной картой лежал слой с
+  картинкой со статичной картой, который показывается при неработающем
+  javascript. Нужно для Д21 */
   position: absolute;
   top: 0;
   left: 0;
