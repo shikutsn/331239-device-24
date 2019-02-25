@@ -283,17 +283,17 @@ input::-ms-clear {
   padding: 0;
 }
 
-.header-logo:hover,
+/*.header-logo:hover,
 .header-logo:focus {
-  /* должен ли логотип в хедере на главной вести себя по стайлгайду при
+   должен ли логотип в хедере на главной вести себя по стайлгайду при
   ховере и активе? то есть менять прозрачность при том, что на главной логотип -
-  это не ссылка. Мне кажется, что должен. Так и сделано */
+  это не ссылка. Мне кажется, что должен. Так и сделано
   opacity: 0.6;
 }
 
 .header-logo:active {
   opacity: 0.3;
-}
+}*/
 
 .header-logo-search-catalog-wrapper {
   position: relative;
@@ -315,6 +315,7 @@ input::-ms-clear {
 
 .header-site-navigation a {
   display: inline-block;
+  vertical-align: middle;
 }
 
 .header-site-navigation li:nth-child(1) {
@@ -422,7 +423,7 @@ input::-ms-clear {
 .header-user-menu-wrapper {
   display: flex;
   width: 500px;
-  margin: 0 0 37px 0;
+  margin: 0 0 35px 0;
 }
 
 .header-site-navigation {
@@ -732,8 +733,8 @@ li .header-logout {
 /* ================== промо каталог =============================== */
 .promo-caption {
   position: absolute;
-  top: -16px;
-  right: 45px;
+  top: -13px;
+  right: 46px;
   /* чтобы рисовался поверх хедера */
   z-index: 5;
 
@@ -833,7 +834,7 @@ li .header-logout {
 .promo-container-description::before {
   content: "";
   position: absolute;
-  top: 35px;
+  top: 37px;
   z-index: 25;
 
   width: 100px;
@@ -860,7 +861,7 @@ li .header-logout {
 .promo-slider-controls {
   position: absolute;
   right: 41px;
-  bottom: 194px;
+  bottom: 200px;
 
   width: 120px;
   height: 20px;
@@ -877,7 +878,7 @@ li .header-logout {
   margin: 0 17px 0 0;
 
   font-size: 0;
-  vertical-align: center;
+  vertical-align: middle;
 
   border: 1px solid #000000;
   border-radius: 50%;
