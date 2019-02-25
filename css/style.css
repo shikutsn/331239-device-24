@@ -241,12 +241,13 @@ input::-ms-clear {
   нажатой кнопке, когда фокус с поля поиска уже сошел */
   content: "";
   position: absolute;
+  right: 0;
+  bottom: -2px;
+
   width: 438px;
   height: 2px;
-  bottom: -2px;
-  right: 0px;
-  background-color: #000000;
 
+  background-color: #000000;
 }
 
 .button-search:hover,
@@ -262,8 +263,8 @@ input::-ms-clear {
   display: block;
 
   color: rgba(255, 255, 255, 0.3);
-  background-color: #000000;
 
+  background-color: #000000;
   outline: none;
 }
 
@@ -326,6 +327,7 @@ input::-ms-clear {
 
 .header-site-navigation a {
   display: inline-block;
+
   vertical-align: middle;
 }
 
