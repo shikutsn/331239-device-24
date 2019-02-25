@@ -131,7 +131,7 @@ img {
 .main-header {
   width: 1040px;
   margin: 40px auto 0;
-  padding: 25px 60px 144px 60px;
+  padding: 25px 60px 146px 60px;
 
   background-color: #f7e296;
 }
@@ -236,6 +236,19 @@ input::-ms-clear {
   border: 2px solid #000000;
 }
 
+.button-search:active::before {
+  /* псевдоэлемент у кнопки, который эмулирует нижнюю рамку поля поиска при
+  нажатой кнопке, когда фокус с поля поиска уже сошел */
+  content: "";
+  position: absolute;
+  width: 438px;
+  height: 2px;
+  bottom: -2px;
+  right: 0px;
+  background-color: #000000;
+
+}
+
 .button-search:hover,
 .button-search:focus {
   color: #ffffff;
@@ -244,9 +257,12 @@ input::-ms-clear {
 }
 
 .button-search:active {
+  /* чтобы кнопка оставалась, когда на нее нажимаешь, а фокус уже уходит с
+  поля поиска */
   display: block;
 
   color: rgba(255, 255, 255, 0.3);
+  background-color: #000000;
 
   outline: none;
 }
@@ -283,23 +299,18 @@ input::-ms-clear {
   padding: 0;
 }
 
-/*.header-logo:hover,
-.header-logo:focus {
-   должен ли логотип в хедере на главной вести себя по стайлгайду при
-  ховере и активе? то есть менять прозрачность при том, что на главной логотип -
-  это не ссылка. Мне кажется, что должен. Так и сделано
+.catalog-page .header-logo:hover,
+.catalog-page .header-logo:focus {
   opacity: 0.6;
 }
 
-.header-logo:active {
+.catalog-page .header-logo:active {
   opacity: 0.3;
-}*/
+}
 
 .header-logo-search-catalog-wrapper {
   position: relative;
 
-  display: flex;
-  flex-direction: column;
   width: 540px;
   margin: 0;
   padding: 0;
