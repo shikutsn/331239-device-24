@@ -405,10 +405,6 @@ input::-ms-clear {
   list-style: none;
 
   background-color: #f7e296;
-  /* #ie11:  меню не выпадает до границы хедера. Такое чувство, что не учитывается
-  паддинг снизу. Мин-хейт не помогает. Будет время - попробовать с
-  box-sizing: border-box */
-  /*min-height: 117px;*/
 }
 
 .catalog-container-items-digital {
@@ -618,7 +614,7 @@ li .header-logout {
 
 .services-slider {
   flex-shrink: 0;
-  width: 900px;
+  width: 760px;
   margin: 0;
   padding: 0 0 0 120px;
 
@@ -955,6 +951,7 @@ li .header-logout {
 
 .popular-catalog {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin: 0 auto 0 auto;
   padding: 0;
@@ -971,28 +968,86 @@ li .header-logout {
   letter-spacing: 0.2px;
 }
 
-.popular-catalog-item-picture {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.popular-catalog-item {
   width: 160px;
-  height: 160px;
-
-  background-color: #f7e296;
+  position: relative;
 }
 
 .popular-catalog-item-caption {
+  display: block;
   width: 160px;
   margin: 33px 0 0 0;
+  padding: 0;
 }
 
-.popular-catalog-item:hover .popular-catalog-item-picture,
-.popular-catalog-item:focus .popular-catalog-item-picture {
+.popular-catalog-item::before {
+  /* общие стили для всех картинок раздела популярные */
+  /* пришлось потрудится над популярными. Т.к. это не контентные изображения,
+  их следует делать псевдоэлементами, при этом по стайлгайду фон в активном
+  состоянии не меняется, а картинка становится opacity: 0.3, поэтому
+  в ::before лежит фон, а ::after - абсолютно спозиционированная картинка  */
+  display: block;
+  content: "";
+  width: 160px;
+  height: 160px;
+  background-color: #f7e296;
+}
+
+.popular-catalog-item::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 160px;
+  height: 160px;
+  background-color: transparent;
+  top: 0px;
+  left: 0px;
+}
+
+.popular-catalog-virtual-reality::after {
+  background-image: url("../img/popular-1.svg");
+  background-repeat: no-repeat;
+  background-position: 31px 52px;
+}
+
+.popular-catalog-selfie-sticks::after {
+  background-image: url("../img/popular-2.svg");
+  background-repeat: no-repeat;
+  background-position: 38px 41px;
+}
+
+.popular-catalog-action-cameras::after {
+  background-image: url("../img/popular-3.svg");
+  background-repeat: no-repeat;
+  background-position: 49px 38px;
+}
+
+.popular-catalog-fitness-bracelets::after {
+  background-image: url("../img/popular-4.svg");
+  background-repeat: no-repeat;
+  background-position: 28px 50px;
+}
+
+.popular-catalog-smart-watches::after {
+  background-image: url("../img/popular-5.svg");
+  background-repeat: no-repeat;
+  background-position: 55px 32px;
+}
+
+.popular-catalog-quadrocopters::after {
+  background-image: url("../img/popular-6.svg");
+  background-repeat: no-repeat;
+  background-position: 13px 49px;
+}
+
+.popular-catalog-item:hover::before,
+.popular-catalog-item:focus::before,
+.popular-catalog-item:active::before {
   background-color: #f0c52e;
 }
 
-.popular-catalog-item:active img,
-.popular-catalog-item:active p {
+.popular-catalog-item:active .popular-catalog-item-caption,
+.popular-catalog-item:active::after {
   opacity: 0.3;
 }
 
@@ -1001,12 +1056,6 @@ li .header-logout {
   /* для переноса "моноподы для селфи" либо уменьшить ширину блока
   либо вставить в html-разметку <br> */
   width: 125px;
-}
-
-.popular-catalog-item:nth-child(2) .popular-catalog-item-picture {
-  /* чтобы иконка монопода была внизу квадратика фона */
-  flex-direction: column;
-  justify-content: flex-end;
 }
 
 
@@ -1224,8 +1273,8 @@ li .header-logout {
   letter-spacing: normal;
 }
 
-.footer-logo img:hover,
-.footer-logo img:focus,
+.catalog-page .footer-logo img:hover,
+.catalog-page .footer-logo img:focus,
 .footer-user-menu a:hover::before,
 .footer-user-menu a:focus::before,
 .footer-copyright:hover,
@@ -1235,12 +1284,11 @@ li .header-logout {
   opacity: 0.6;
 }
 
-.footer-logo img:active,
+.catalog-page .footer-logo img:active,
 .footer-user-menu a:active::before,
 .footer-copyright:active {
   opacity: 0.3;
 }
-
 
 .footer-user-navigation {
   display: flex;
@@ -1275,8 +1323,6 @@ li .header-logout {
   height: 12px;
 
   background-image: url("../img/user-footer.svg");
-  background-image: url("../img/user-footer.svg");
-  background-repeat: no-repeat;
   background-repeat: no-repeat;
   background-position: 0 0;
   opacity: 1;
@@ -1400,6 +1446,9 @@ li .footer-logout {
 
   list-style: none;
 
+}
+
+.footer-social-buttons a {
   opacity: 0.3;
 }
 
@@ -1412,13 +1461,39 @@ li .footer-logout {
   opacity: 0.1;
 }
 
+.footer-social-button-facebook,
+.footer-social-button-instagram,
+.footer-social-button-twitter {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
+.footer-social-button-facebook {
+  background-image: url("../img/fb-logo.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.footer-social-button-instagram {
+  background-image: url("../img/ig-logo.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.footer-social-button-twitter {
+  background-image: url("../img/tw-logo.svg");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
 /* ====================================================================== */
 /* ========================== о нас и контакты ========================== */
 .index-columns {
   display: flex;
   width: 1160px;
   margin: 0 auto 83px auto;
-  padding: 0 140px;
+  padding: 0;
 
   letter-spacing: normal;
 }
@@ -1929,18 +2004,21 @@ li .footer-logout {
 }
 
 .filter fieldset {
-  position: relative;
 
-  margin: 0;
+  margin: 43px 0 0 0;
   padding: 0;
 
   border: none;
 }
 
-.filter fieldset::before {
+.filter legend {
+  position: relative;
+}
+
+.filter legend::before {
   content: "";
   position: absolute;
-  top: -35px;
+  top: -12px;
 
   width: 201px;
   height: 2px;
@@ -1948,17 +2026,6 @@ li .footer-logout {
   background-color: #000000;
 }
 
-.filter > fieldset:nth-child(2) {
-  margin-top: 43px;
-}
-
-.filter > fieldset:nth-child(3) {
-  margin-top: 43px;
-}
-
-.filter > fieldset:nth-child(4) {
-  margin-top: 44px;
-}
 
 .filter-option {
   padding-left: 39px;
