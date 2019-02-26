@@ -578,7 +578,7 @@ li .header-logout {
 
 /* ======================== сервисы ============================= */
 .services {
-  width: 100%;
+  min-width: 1160px;
 
   background-color: #e5e5e5;
 }
@@ -952,7 +952,7 @@ li .header-logout {
 .popular-catalog {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin: 0 auto 0 auto;
   padding: 0;
 
@@ -971,6 +971,11 @@ li .header-logout {
 .popular-catalog-item {
   width: 160px;
   position: relative;
+  margin: 0 40px 0 0;
+}
+
+.popular-catalog-item:nth-child(6n) {
+  margin-right: 0;
 }
 
 .popular-catalog-item-caption {
@@ -1070,11 +1075,19 @@ li .header-logout {
 .brands-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin: 94px auto 0;
   padding: 0;
 
   list-style: none;
+}
+
+.brands-list-item {
+  margin: 0 40px 0 0;
+}
+
+.brands-list-item:nth-child(4n) {
+  margin-right: 0;
 }
 
 .brands-list-item a {
@@ -1178,7 +1191,7 @@ li .header-logout {
 /* ================================================================ */
 /* ========================== футер =============================== */
 .main-footer {
-  width: 100%;
+  min-width: 1160px;
 
   color: #ffffff;
 
@@ -1203,7 +1216,7 @@ li .header-logout {
 
 .footer-site-navigation-wrapper {
   display: flex;
-  margin: 0 0 61px 0;
+  margin: 0 0 60px 0;
   padding: 0;
 }
 
@@ -1439,17 +1452,18 @@ li .footer-logout {
 
 .footer-social-buttons {
   display: flex;
-  justify-content: space-between;
-  width: 142px;
-  margin: 0 0 0 508px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 165px;
+  margin: 0 0 0 509px;
   padding: 0;
 
   list-style: none;
-
 }
 
 .footer-social-buttons a {
   opacity: 0.3;
+  margin: 0 22px 0 0;
 }
 
 .footer-social-buttons a:hover,
@@ -1834,6 +1848,7 @@ li .footer-logout {
 .catalog-list {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   width: 760px;
   margin: 60px 0 0 72px;
   padding: 0;
@@ -2098,7 +2113,8 @@ li .footer-logout {
   background-image: url("../img/radio-on.svg");
 }
 
-.filter-input:not(:disabled):hover + label::before {
+.filter-input:not(:disabled):hover + label::before,
+.filter-input:not(:disabled):focus + label::before {
   opacity: 0.6;
 }
 
@@ -2111,6 +2127,7 @@ li .footer-logout {
 
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
   width: 360px;
   margin: 8px 40px 37px 0;
   padding: 0;
